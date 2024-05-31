@@ -1,0 +1,20 @@
+/* ===================================== Search Sidebar Css Start =================================*/
+.search-sidebar {
+    background-color: hsl(var(--white));
+    box-shadow: var(--box-shadow);
+    padding: 32px;
+    transition: 0.3s ease-in-out;
+    height: 100%;
+    border-radius: 5px;
+    @include lg-screen {
+        padding: 24px;
+    }
+    &__item {
+        margin-bottom: 60px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+}
+/* ===================================== Search Sidebar Css End =================================*/

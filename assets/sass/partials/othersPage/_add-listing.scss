@@ -1,0 +1,71 @@
+/* ====================== Add Listing Css Start ========================= */
+.listing-sidebar {
+    position: sticky;
+    top: 120px;
+    background-color: hsl(var(--white));
+    padding: clampCal(24, 32);
+    border-radius: 6px;
+    box-shadow: var(--box-shadow); 
+}
+/* Sidebar Css Start */
+.sidebar-list {
+    &__link {
+        padding: 8px 12px;
+        border-radius: 5px;
+        display: block;
+        color: hsl(var(--heading-color));
+        font-weight: 500;
+        &:hover {
+            background-color: var(--gray-100);
+            color: hsl(var(--main));
+        }
+        &.active {
+            background-color: hsl(var(--main));
+            color: hsl(var(--white));
+        }
+    }
+}
+/* Sidebar Css End */
+
+.card-item {
+    margin-bottom: 24px;    
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+/* Image Uploader Css */
+.input-images {
+    .image-uploader {
+        border-color: var(--border-color);
+        border-radius: 6px;
+        &:hover {
+            background-color: var(--gray-100);
+        }
+    }
+    .upload-text {
+        text-align: center;
+        padding: 0 10px;
+        &:hover {
+            i {
+                @extend .text-gradient; 
+            }
+        }
+    }
+
+    .iui-cloud-upload::before, .iui-close::before {
+        content: "\f382";
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+    }
+    .iui-cloud-upload::before {
+        content: "\f382";
+    }
+    .iui-close::before {
+        content: "\f00d";
+    }
+}
+
+
+/* ====================== Add Listing Css End ========================= */
