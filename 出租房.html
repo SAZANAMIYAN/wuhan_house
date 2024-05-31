@@ -1,322 +1,372 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
-
-    <title>上传房源</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
+    <!-- Title -->
+    <title> 上传新房 </title>
 
-    <!-- External CSS libraries -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-submenu.css">
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/leaflet.css" type="text/css">
-    <link rel="stylesheet" href="css/map.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" type="text/css" href="fonts/linearicons/style.css">
-    <link rel="stylesheet" type="text/css"  href="css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" type="text/css"  href="css/dropzone.css">
-    <link rel="stylesheet" type="text/css"  href="css/slick.css">
-
-    <!-- Custom stylesheet -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" id="style_sheet" href="css/skins/default.css">
-
-    <!-- Favicon icon -->
-    
-
-    <!-- Google fonts -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script  src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script  src="js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script  src="js/html5shiv.min.js"></script>
-    <script  src="js/respond.min.js"></script>
-    <![endif]-->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <!-- Magnific popup css -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css.css">
+    <!-- Slick -->
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <!-- line awesome -->
+    <link rel="stylesheet" href="assets/css/line-awesome.min.css">
+    <!-- Image Uploader -->
+    <link rel="stylesheet" href="assets/css/image-uploader.min.css">
+    <!-- jQuery Ui Css -->
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="css/head.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTNPV7L"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<div class="page_loader"></div>
+    
 
-
-<!-- Main header end -->
-
-<!-- Dashboard start -->
-<div class="dashboard submit-property">
+<!-- ==================== Scroll to Top End Here ==================== -->
+<div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </div>
+  <!-- ==================== Scroll to Top End Here ==================== -->
+  
+<style>
+sidebar-list__link:hover a{
+    color: #343125; 
+}
+</style>
+    <!-- ==================== Header Start Here ==================== -->
+<!-- 导航栏 -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 col-md-12 col-sm-12 col-pad">
-                <div class="dashboard-nav d-none d-xl-block d-lg-block">
-                    <div class="dashboard-inner">
-                        <h4>上传房源</h4>
-                        <ul>
-                            <li><a href="新房.html"><i class="flaticon-bill"></i>新房</a></li>
-                            <li class="active"><a href="出租房.html"><i class="flaticon-heart"></i>出租房</a></li>
-                            <li><a href="二手房.html"><i class="flaticon-plus"></i>二手房</a></li>
-                        </ul>
-                        <h4>个人中心</h4>
-                        <ul>
-                            <li><a href="个人中心.html"><i class="flaticon-people"></i>个人中心</a></li>
-                        </ul>
-                    </div>
+        <svg t="1717078667326" class="icon" id="icon1" viewBox="0 0 1134 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7392" fill="white" >
+            <path d="M936.073503 710.338875l-55.003823-55.030362a123.781824 123.781824 0 0 0 
+                23.447951-72.599739c0-68.578952-55.627509-124.193191-124.206462-124.193191-68.592222 0-124.219731 
+                55.614239-124.219731 124.193191a124.206461 124.206461 0 0 0 196.81947 100.771781l54.990552 55.017093a9.992251 9.992251 0 0 0 
+                14.105927 0l14.105926-14.105926a9.939171 9.939171 0 0 0-0.03981-14.052847zM780.27136 671.444737a88.749232 88.749232 0 0 
+                1-88.735963-88.749232 88.749232 88.749232 0 0 1 177.471925 0 88.762502 88.762502 0 0 1-88.735962 88.749232z"
+                p-id="7393"></path>
+            <path
+                d="M519.49087 592.196768c0-140.647894 108.455065-255.883888 246.276466-266.844843l-222.801975-179.449143c-24.774943-19.944691-65.288012-19.944691-90.076224 0l-146.805137 118.234997v-61.028367a28.384361 28.384361 0 0 0-28.291472-28.304742h-26.96448a28.397631 28.397631 0 0 0-28.304741 28.304742v128.346677l-69.826325 56.251195c-24.774943 19.944691-24.774943 52.575427 0 72.546659l19.745642 15.897365v332.504413c0 28.225122 28.66303 51.314785 63.669082 51.314785h523.631086c3.30421 0 6.502261-0.265398 9.660502-0.663497-139.54649-9.209325-249.912424-125.241515-249.912424-267.110241z m-170.717534-10.788446c0 11.876579-9.700312 21.550352-21.563622 21.550352h-41.349074a21.590162 21.590162 0 0 1-21.550352-21.550352V540.085788c0-11.863309 9.687042-21.550352 21.550352-21.550352h41.349074c11.863309 0 21.563622 9.687042 21.563622 21.550352v41.322534z"
+                p-id="7394"></path>
+            <path
+                d="M789.069317 340.599064c-138.949344 0-251.597704 112.63509-251.597703 251.597704 0 138.949344 112.64836 251.597704 251.597703 251.597704s251.597704-112.64836 251.597704-251.597704-112.64836-251.597704-251.597704-251.597704z m-0.902354 457.37437c-113.630334 0-205.763396-92.133062-205.763397-205.776666s92.119792-205.763396 205.763397-205.763396 205.776666 92.119792 205.776666 205.763396c-0.01327 113.643604-92.133062 205.776666-205.776666 205.776666z"
+                p-id="7395"></path>
+        </svg>
+        
+      <a class="navbar-brand" href="#">选房管家</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="首页.html">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="在线选房.html">在线选房</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="房源评估.html">房源评估</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown">
+              房屋交易
+            </a>
+            <div class="dropdown-menu bg-dark">
+              <a class="dropdown-item text-white" href="购买房屋.html">购买房屋</a>
+              <a class="dropdown-item text-white" href="房贷计算器.html">房贷计算器</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="行情分析.html">行情分析</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="个人中心.html">个人中心</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<!-- ==================== Header End Here ==================== -->
+
+    
+ 
+    
+    <!-- ====================== Add Listing Start ========================= -->
+<section class="listing padding-y-120">
+    <div class="container container-two">
+        <div class="row gy-4">
+            <div class="col-lg-3">
+                <div class="listing-sidebar" style="background-color: #212529;">
+                    <ul id="list-scroll" class="sidebar-list d-flex flex-column gap-2">
+                        <li class="sidebar-list__item">
+                            <a href="新房.html" class="sidebar-list__link text-white" >上传新房</a>
+                        </li>
+                        <li class="sidebar-list__item">
+                            <a href="二手房.html" class="sidebar-list__link text-white">上传二手房</a>
+                        </li>
+                        <li class="sidebar-list__item">
+                            <a href="出租房.html" class="sidebar-list__link text-white">上传出租房</a>
+                        </li>
+                        <li class="sidebar-list__item">
+                            <a href="个人中心.html" class="sidebar-list__link text-white">个人中心</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-12 col-sm-12 col-pad">
-                <div class="content-area5 dashboard-content">
-                    <div class="dashboard-header clearfix">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6"><h4>上传房源</h4></div>
-                            <div class="col-sm-12 col-md-6">
-                                <div class="breadcrumb-nav">
-                                    <ul>
-                                        <li class="active">出租房</li>
-                                    </ul>
+            <div class="col-lg-9 ps-lg-5">
+                <div data-bs-spy="scroll" data-bs-target="#list-scroll" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                    <form action="#" enctype="multipart/form-data">
+                        <div class="card-item" id="basicInformation">
+                            <div class="card common-card">
+                                <div class="card-header">
+                                    <h6 class="title mb-0">Property Basic Information</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row gy-4">
+                                        <div class="col-sm-12">
+                                            <label for="propertyTitle" class="form-label">Property Title</label>
+                                            <input type="text" class="common-input" id="propertyTitle" placeholder="Property Title">
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="Description" class="form-label">Description</label>
+                                            <textarea class="common-input" id="Description" placeholder="Your Message"></textarea>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="Status" class="form-label">Status</label>
+                                            <div class="select-has-icon icon-black">
+                                                <select class="select common-input" id="Status">
+                                                    <option value="1" disabled="">Status</option>
+                                                    <option value="1">For Rent</option>
+                                                    <option value="1">For Sell</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="Type" class="form-label">Status</label>
+                                            <div class="select-has-icon icon-black">
+                                                <select class="select common-input" id="Type">
+                                                    <option value="1" disabled=""> Type</option>
+                                                    <option value="1">Apartment</option>
+                                                    <option value="1">House</option>
+                                                    <option value="1">Land</option>
+                                                    <option value="1">Single Family</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="Price" class="form-label">Price</label>
+                                            <input type="number" class="common-input" id="Price" placeholder="USD">
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="Area" class="form-label">Area</label>
+                                            <input type="number" class="common-input" id="Area" placeholder="Sq Ft">
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label for="Rooms" class="form-label">Rooms</label>
+                                            <div class="select-has-icon icon-black">
+                                                <select class="select common-input" id="Rooms">
+                                                    <option value="1" disabled=""> Rooms</option>
+                                                    <option value="1">Apartment</option>
+                                                    <option value="1">House</option>
+                                                    <option value="1">Land</option>
+                                                    <option value="1">Single Family</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="submit-address dashboard-list">
-                        <form method="GET">
-                            <h4 class="bg-grea-3">Basic Information</h4>
-                            <div class="search-contents-sidebar">
-                                <div class="row pad-20">
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                            <label>Property Title</label>
-                                            <input type="text" class="input-text" name="your name" placeholder="Property Title">
+                        <div class="card-item" id="propertyGallery">
+                            <div class="card common-card">
+                                <div class="card-header">
+                                    <h6 class="title mb-0">Property Gallery</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="input-images"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-item" id="propertyInformation">
+                            <div class="card common-card">
+                                <div class="card-header">
+                                    <h6 class="title mb-0">Details Information</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row gy-4">
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="PropertyId" class="form-label">Property Id</label>
+                                            <input type="text" class="common-input" id="PropertyId" placeholder="Property Id">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                            <label>Status</label>
-                                            <select class="selectpicker search-fields" name="for-sale">
-                                                <option>For Sale</option>
-                                                <option>For Rent</option>
-                                            </select>
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="AreaSize" class="form-label">Area Size</label>
+                                            <input type="text" class="common-input" id="AreaSize" placeholder="Area Size">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                            <label>Price</label>
-                                            <input type="text" class="input-text" name="your name" placeholder="USD">
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="SizePrefix" class="form-label">Size Prefix</label>
+                                            <input type="text" class="common-input" id="SizePrefix" placeholder="Size Prefix">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                            <label>Area/Location</label>
-                                            <input type="text" class="input-text" name="your name" placeholder="SqFt">
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="LandArea" class="form-label">Land Area</label>
+                                            <input type="text" class="common-input" id="LandArea" placeholder="Land Area">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                            <label>Rooms</label>
-                                            <select class="selectpicker search-fields" name="1">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="Bedrooms" class="form-label">Bedrooms</label>
+                                            <input type="text" class="common-input" id="Bedrooms" placeholder="Bedrooms">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                            <label>Bathroom</label>
-                                            <select class="selectpicker search-fields" name="1">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="Bathrooms" class="form-label">Bathrooms</label>
+                                            <input type="text" class="common-input" id="Bathrooms" placeholder="Bathrooms">
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="Garages" class="form-label">Garages</label>
+                                            <input type="text" class="common-input" id="Garages" placeholder="Garages">
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="YearBuild" class="form-label">Year Build</label>
+                                            <input type="text" class="common-input" id="YearBuild" placeholder="Year Build">
+                                        </div>
+                                        <div class="col-12">
+                                            <h6 class="checkboxes__title mt-4 fw-500 font-18">Amenities</h6>
+                                            <div class="row gy-3 checkboxes">
+                                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="airCondition">
+                                                        <label class="form-check-label" for="airCondition"> Air Condition </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="Lawn">
+                                                        <label class="form-check-label" for="Lawn"> Lawn </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="SwimmingPool">
+                                                        <label class="form-check-label" for="SwimmingPool"> Swimming Pool </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="Barbeque">
+                                                        <label class="form-check-label" for="Barbeque"> Barbeque </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="Microwave">
+                                                        <label class="form-check-label" for="Microwave"> Microwave </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="TVCable">
+                                                        <label class="form-check-label" for="TVCable"> TV Cable </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="Dryer">
+                                                        <label class="form-check-label" for="Dryer"> Dryer </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="OutdoorShower">
+                                                        <label class="form-check-label" for="OutdoorShower"> Outdoor Shower </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="Washer">
+                                                        <label class="form-check-label" for="Washer"> Washer </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="Gym">
+                                                        <label class="form-check-label" for="Gym"> Gym </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="Refrigerator">
+                                                        <label class="form-check-label" for="Refrigerator"> Refrigerator </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="WiFi">
+                                                        <label class="form-check-label" for="WiFi"> WiFi </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="Laundry">
+                                                        <label class="form-check-label" for="Laundry"> Laundry </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="Souna">
+                                                        <label class="form-check-label" for="Souna"> Souna </label>
+                                                    </div>
+                                                    <div class="common-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="WindowCoverings">
+                                                        <label class="form-check-label" for="WindowCoverings"> Window Coverings </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="bg-grea-3">Location</h4>
-                            <div class="row pad-20">
-                                <div class="col-lg-4 col-md-4 col-sm-12">
-                                    <div class="form-group">
-                                        <label>Address</label>
-                                        <input type="text" class="input-text" name="address"  placeholder="Address">
-                                    </div>
+                        </div>
+                        <div class="card-item" id="propertyContactDetails">
+                            <div class="card common-card">
+                                <div class="card-header">
+                                    <h6 class="title mb-0">Property Contact Details</h6>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12">
-                                    <div class="form-group">
-                                        <label>State</label>
-                                        <select class="selectpicker search-fields" name="choose-state">
-                                            <option>Choose State</option>
-                                            <option>Alabama</option>
-                                            <option>California</option>
-                                            <option>Florida</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12">
-                                    <div class="form-group">
-                                        <label>Postal Code</label>
-                                        <input type="text" class="input-text" name="zip"  placeholder="Postal Code">
+                                <div class="card-body">
+                                    <div class="row gy-4">
+                                        <div class="col-md-4 col-sm-6 col-xs-6">
+                                            <label for="Name" class="form-label">Your Name</label>
+                                            <input type="text" id="Name" class="common-input" placeholder="Your Name">
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 col-xs-6">
+                                            <label for="Email" class="form-label">Your E-mail</label>
+                                            <input type="email" id="Email" class="common-input" placeholder="Your E-Mail">
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 col-xs-6">
+                                            <label for="Phone" class="form-label">Phone Number</label>
+                                            <input type="tel" id="Phone" class="common-input" placeholder="Phone Number">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="bg-grea-3">Property Gallery</h4>
-                            <div class="row pad-20">
-                                <div class="col-lg-12">
-                                    <div id="myDropZone" class="dropzone dropzone-design">
-                                        <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h4 class="bg-grea-3">Detailed Information</h4>
-                            <div class="row pad-20">
-                                <div class="col-lg-12">
-                                    <textarea class="input-text" name="message" placeholder="Detailed Information"></textarea>
-                                </div>
-                            </div>
-                            <h4 class="bg-grea-3">Features (optional)</h4>
-                            <div class="row pad-20">
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox1" type="checkbox">
-                                        <label for="checkbox1">
-                                            Free Parking
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox2" type="checkbox">
-                                        <label for="checkbox2">
-                                            Air Condition
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox4" type="checkbox">
-                                        <label for="checkbox4">
-                                            Swimming Pool
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox5" type="checkbox">
-                                        <label for="checkbox5">
-                                            Laundry Room
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox7" type="checkbox">
-                                        <label for="checkbox7">
-                                            Central Heating
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox8" type="checkbox">
-                                        <label for="checkbox8">
-                                            Alarm
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox3" type="checkbox">
-                                        <label for="checkbox3">
-                                            Places to seat
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox6" type="checkbox">
-                                        <label for="checkbox6">
-                                            Window Covering
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <h4 class="bg-grea-3">Contact Details</h4>
-                            <div class="row pad-20">
-                                <div class="col-lg-4 col-md-4 col-sm-12">
-                                    <div class="form-group">
-                                        <label>Name</label>
-                                        <input type="text" class="input-text" name="name" placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12">
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" class="input-text" name="email" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12">
-                                    <div class="form-group">
-                                        <label>Phone (optional)</label>
-                                        <input type="text" class="input-text" name="phone"  placeholder="Phone">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12 col-sm-12">
-                                    <a href="#" class="btn btn-md button-theme">Submit Property</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <p class="sub-banner-2 text-center">© 2024 斗地组.</p>
+                        </div>
+                        <button type="submit" class="btn btn-main w-100">Submit Property</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Dashboard end -->
+</section>
+<!-- ====================== Add Listing End ========================= -->
+    
 
-<!-- Full Page Search -->
-<div id="full-page-search">
-    <button type="button" class="close">×</button>
-    <form action="index.html#">
-        <input type="search" value="" placeholder="type keyword(s) here" />
-        <button type="submit" class="btn btn-sm button-theme">Search</button>
-    </form>
-</div>
+  
+</main>
 
-<script src="js/jquery-2.2.0.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script  src="js/bootstrap-submenu.js"></script>
-<script  src="js/rangeslider.js"></script>
-<script  src="js/jquery.mb.YTPlayer.js"></script>
-<script  src="js/bootstrap-select.min.js"></script>
-<script  src="js/jquery.easing.1.3.js"></script>
-<script  src="js/jquery.scrollUp.js"></script>
-<script  src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script  src="js/leaflet.js"></script>
-<script  src="js/leaflet-providers.js"></script>
-<script  src="js/leaflet.markercluster.js"></script>
-<script  src="js/dropzone.js"></script>
-<script  src="js/slick.min.js"></script>
-<script  src="js/jquery.filterizr.js"></script>
-<script  src="js/jquery.magnific-popup.min.js"></script>
-<script  src="js/jquery.countdown.js"></script>
-<script  src="js/maps.js"></script>
-<script  src="js/app.js"></script>
+    <!-- Jquery js -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
 
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script  src="js/ie10-viewport-bug-workaround.js"></script>
-</body>
+    <!-- Bootstrap Bundle Js -->
+    <script src="assets/js/boostrap.bundle.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="assets/js/magnific-popup.min.js"></script>
+    <!-- Slick js -->
+    <script src="assets/js/slick.min.js"></script>
+    <!-- Counter Up Js -->
+    <script src="assets/js/counterup.min.js"></script>
+    <!-- Marquee text slider -->
+    <script src="assets/js/jquery.marquee.min.js"></script>
+    <!-- Image Uploader -->
+    <script src="assets/js/image-uploader.min.js"></script>
+    <!-- jQuery Ui Css -->
+    <script src="assets/js/jquery-ui.min.js"></script>
+
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+
+    </body>
 </html>
