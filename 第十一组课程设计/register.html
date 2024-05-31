@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>登录注册界面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        #whole-container1 {
+            background-image: url('images/house_bg.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 100vh;
+        }
+
+        .form-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0.9;
+        }
+
+        .extra-link {
+            margin-top: 20px;
+        }
+        .nav-item-combined {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item-combined a {
+            padding: 0 5px;
+        }
+
+        .nav-item-combined .separator {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">选房管家</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item nav-item-combined">
+                        <a class="nav-link active" aria-current="page" href="login.html">登录</a>
+                        <span class="nav-link active separator">/</span>
+                        <a class="nav-link active" aria-current="page" href="register.html">注册</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" id="whole-container1">
+        <div class="form-container">
+            <form id="RegisterForm" method="post">
+                <h3 style="text-align: center;">注册</h3>
+                <div class="mb-3 mt-3">
+                    <label for="yourAccount" class="form-label">账号</label>
+                    <input type="text" class="form-control" id="yourAccount" placeholder="输入账号" name="username">
+                </div>
+                <div class="mb-3">
+                    <label for="yourPwd" class="form-label">密码</label>
+                    <input type="password" class="form-control" id="yourPwd" placeholder="输入密码" name="password">
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPwd" class="form-label">确认密码</label>
+                    <input type="password" class="form-control" id="confirmPwd" placeholder="再次输入密码" name="confirmPassword">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary" id="registerButton">注册</button>
+                </div>
+            </form>
+            <p class="text-center extra-link"><a href="login.html" target="">已有账号，去登录</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('RegisterForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+
+            let username = document.getElementById('yourAccount').value;
+            let password = document.getElementById('yourPwd').value;
+            let confirmPassword = document.getElementById('confirmPwd').value;
+
+            // 前端检查用户名是否为空
+            if (!username) {
+                alert('请输入用户名');
+                return;
+            }
+            if (password !== confirmPassword) {
+                alert('密码和确认密码不一致，请重新输入。');
+                return;
+            }
+
+            // 发送 AJAX 请求给后端验证用户名是否重复
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:3000/checkUsername', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // 后端验证成功，可以注册
+                    document.getElementById('RegisterForm').submit(); // 提交表单
+                } else {
+                    // 后端验证失败，显示错误信息
+                    alert(xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify({ username: username }));
+        });
+    </script>
+    <script src="bootstrap-5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

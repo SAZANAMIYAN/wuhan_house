@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="renderer" content="webkit"/>
+<meta name="force-rendering" content="webkit"/>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="applicable-device" content="pc,mobile">
+<title>房贷计算器</title>
+<link rel='stylesheet' id='bs-css'  href='https://www.efangdai.cn/wp-content/themes/fangdai/assets/css/bootstrap.min.css?ver=201019' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-css'  href='https://www.efangdai.cn/wp-content/themes/fangdai/style.css?ver=201019' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.efangdai.cn/wp-content/themes/fangdai/assets/js/jquery.min.js?ver=201019'></script>
+<meta property="og:title" content="房贷计算器">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.efangdai.cn/">
+<meta property="og:image" content="https://www.efangdai.cn/wp-content/themes/fangdai/assets/images/efangdailogo-calc-white.png" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png" sizes="180x180" />
+<link rel="stylesheet" href="bootstrap-5.3.2/dist/css/bootstrap.min.css">
+<link href="css/head.css" rel="stylesheet" type="text/css" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ['https://','hm.','ba','idu.','com/h','m.js?','888e45dc','ffdc548f','2f164cdc','f9b7def2'].join('');
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2790934182835510"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="container-fluid">
+        <svg t="1717078667326" class="icon" id="icon1" viewBox="0 0 1134 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7392" fill="white" >
+            <path d="M936.073503 710.338875l-55.003823-55.030362a123.781824 123.781824 0 0 0 
+                23.447951-72.599739c0-68.578952-55.627509-124.193191-124.206462-124.193191-68.592222 0-124.219731 
+                55.614239-124.219731 124.193191a124.206461 124.206461 0 0 0 196.81947 100.771781l54.990552 55.017093a9.992251 9.992251 0 0 0 
+                14.105927 0l14.105926-14.105926a9.939171 9.939171 0 0 0-0.03981-14.052847zM780.27136 671.444737a88.749232 88.749232 0 0 
+                1-88.735963-88.749232 88.749232 88.749232 0 0 1 177.471925 0 88.762502 88.762502 0 0 1-88.735962 88.749232z"
+                p-id="7393"></path>
+            <path
+                d="M519.49087 592.196768c0-140.647894 108.455065-255.883888 246.276466-266.844843l-222.801975-179.449143c-24.774943-19.944691-65.288012-19.944691-90.076224 0l-146.805137 118.234997v-61.028367a28.384361 28.384361 0 0 0-28.291472-28.304742h-26.96448a28.397631 28.397631 0 0 0-28.304741 28.304742v128.346677l-69.826325 56.251195c-24.774943 19.944691-24.774943 52.575427 0 72.546659l19.745642 15.897365v332.504413c0 28.225122 28.66303 51.314785 63.669082 51.314785h523.631086c3.30421 0 6.502261-0.265398 9.660502-0.663497-139.54649-9.209325-249.912424-125.241515-249.912424-267.110241z m-170.717534-10.788446c0 11.876579-9.700312 21.550352-21.563622 21.550352h-41.349074a21.590162 21.590162 0 0 1-21.550352-21.550352V540.085788c0-11.863309 9.687042-21.550352 21.550352-21.550352h41.349074c11.863309 0 21.563622 9.687042 21.563622 21.550352v41.322534z"
+                p-id="7394"></path>
+            <path
+                d="M789.069317 340.599064c-138.949344 0-251.597704 112.63509-251.597703 251.597704 0 138.949344 112.64836 251.597704 251.597703 251.597704s251.597704-112.64836 251.597704-251.597704-112.64836-251.597704-251.597704-251.597704z m-0.902354 457.37437c-113.630334 0-205.763396-92.133062-205.763397-205.776666s92.119792-205.763396 205.763397-205.763396 205.776666 92.119792 205.776666 205.763396c-0.01327 113.643604-92.133062 205.776666-205.776666 205.776666z"
+                p-id="7395"></path>
+        </svg>
+      <a class="navbar-brand" href="#">选房管家</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="首页.html">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="购物车.html">在线选房</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="景点推荐.html">房源评估</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown">
+              房屋交易
+            </a>
+            <div class="dropdown-menu bg-dark">
+              <a class="dropdown-item text-white" href="购买房屋.html">购买房屋</a>
+              <a class="dropdown-item text-white" href="房贷计算器.html">房贷计算器</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">行情分析</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="个人中心.html">个人中心</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>    
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 order-md-1 md-8">
+        <div class="my-0 p-3 bg-white rounded shadow-sm">
+          <h1 class="border-bottom border-gray pb-2 mb-0 text-primary" style="font-size: 20px;font-weight: 600;">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="mr-2 bi bi-calculator" style="font-size: 1.25em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M12 1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+            <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>
+            </svg>房贷计算器<small>（商业贷款）</small>
+          </h1>
+          <div class="text-muted pt-3">
+            <!--<form class="needs-validation" novalidate>-->
+              <div class="mb-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="ddlCalcMethod">计算方式：</label>
+                  </div>
+                  <select id="ddlCalcMethod" class="form-control">
+                    <option value="1" selected="selected">按贷款金额计算</option>
+                    <option value="2">按首付比例计算</option>
+                    <option value="3">按面积、单价计算</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-3" id="area_HouseArea" style="display:none;">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="txtHouseArea">房屋面积：</label>
+                  </div>                  
+                  <input id="txtHouseArea" type="number" class="form-control" placeholder="输入房屋面积" pattern="\d*" required />
+                  <div class="input-group-append">
+                    <span class="input-group-text">㎡</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3" id="area_HousePrice" style="display:none;">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="txtHousePrice">房屋单价：</label>
+                  </div>                  
+                  <input id="txtHousePrice" type="number" class="form-control" placeholder="输入房屋单价" pattern="\d*" required />
+                  <div class="input-group-append">
+                    <span class="input-group-text">元/㎡</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3" id="area_HouseTotalPrice" style="display:none;">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="txtHouseTotalPrice">房屋总价：</label>
+                  </div>                  
+                  <input id="txtHouseTotalPrice" type="number" class="form-control" placeholder="输入房屋总价" pattern="\d*" data-toggle="tooltip" />
+                  <div class="input-group-append">
+                    <span class="input-group-text">元</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3" id="area_PaymentRatio" style="display:none;">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="ddlPaymentRatio">首付比例：</label>
+                  </div>
+                  <select id="ddlPaymentRatio" class="form-control">
+                  <option value="75">7.5成 (75%)</option>
+                  <option value="70">7 成 (70%)</option>
+                  <option value="65">6.5成 (65%)</option>
+                  <option value="60">6 成 (60%)</option>
+                  <option value="55">5.5成 (55%)</option>
+                  <option value="50">5 成 (50%)</option>
+                  <option value="45">4.5成 (45%)</option>
+                  <option value="40">4 成 (40%)</option>
+                  <option value="35">3.5成 (35%)</option>
+                  <option value="30" selected="selected">3 成 (30%)</option>
+                  <option value="25">2.5成 (25%)</option>
+                  <option value="20">2 成 (20%)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-3" id="area_PaymentAmount" style="display:none;">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="txtPaymentAmount">首付金额：</label>
+                  </div>                  
+                  <input id="txtPaymentAmount" type="number" class="form-control" pattern="\d*" data-toggle="tooltip" />
+                  <div class="input-group-append">
+                    <span class="input-group-text">元</span>
+                  </div>
+                </div>
+              </div>
+
+			  <div class="mb-3" id="area_LoanAmount">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="txtLoanAmount">贷款金额：</label>
+                  </div>                  
+                  <input id="txtLoanAmount" type="number" class="form-control" placeholder="输入贷款金额" pattern="\d*" data-toggle="tooltip" />
+                  <div class="input-group-append">
+                    <span class="input-group-text">元</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="ddlYears">贷款期限：</label>
+                  </div>
+                  <select id="ddlYears" class="form-control">
+                    <option value="30" selected="selected">30年 (360个月)</option>
+                    <option value="29">29年 (348个月)</option>
+                    <option value="28">28年 (336个月)</option>
+                    <option value="27">27年 (324个月)</option>
+                    <option value="26">26年 (312个月)</option>
+                    <option value="25">25年 (300个月)</option>
+                    <option value="24">24年 (288个月)</option>
+                    <option value="23">23年 (276个月)</option>
+                    <option value="22">22年 (264个月)</option>
+                    <option value="21">21年 (252个月)</option>
+                    <option value="20">20年 (240个月)</option>
+                    <option value="19">19年 (228个月)</option>
+                    <option value="18">18年 (216个月)</option>
+                    <option value="17">17年 (204个月)</option>
+                    <option value="16">16年 (192个月)</option>
+                    <option value="15">15年 (180个月)</option>
+                    <option value="14">14年 (168个月)</option>
+                    <option value="13">13年 (156个月)</option>
+                    <option value="12">12年 (144个月)</option>
+                    <option value="11">11年 (132个月)</option>
+                    <option value="10">10年 (120个月)</option>
+                    <option value="9">9年 (108个月)</option>
+                    <option value="8">8年 (96个月)</option>
+                    <option value="7">7年 (84个月)</option>
+                    <option value="6">6年 (72个月)</option>
+                    <option value="5">5年 (60个月)</option>
+                    <option value="4">4年 (48个月)</option>
+                    <option value="3">3年 (36个月)</option>
+                    <option value="2">2年 (24个月)</option>
+                    <option value="1">1年 (12个月)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="input-group">
+                  <div class="custom-control custom-radio">
+                    <input id="radioLprRate" name="rateType" type="radio" class="custom-control-input" value="lpr" checked>
+                    <label class="custom-control-label" for="radioLprRate">按最新LPR利率</label>
+                  </div>
+                  <div class="ml-3 custom-control custom-radio">
+                    <input id="radioBenchmarkRate" name="rateType" type="radio" class="custom-control-input">
+                    <label class="custom-control-label" for="radioBenchmarkRate">按商贷基准利率</label>
+                  </div>
+                </div>               
+              </div>
+
+              <div class="mb-3" id="area_LprRate">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="txtLprRate">LPR利率：&nbsp;</label>
+                  </div>
+                  <input id="txtLprRate" type="number" class="form-control" placeholder="3.95" value="3.95"
+                    pattern="^(\\-|\\+)?\\d+(\\.\\d+)?$" onkeyup="value=value.replace(/[^\d\.]/g,'')" required />
+                  <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3" id="area_LprBP">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="txtLprBP">BP基点：&nbsp;&nbsp;&nbsp;</label>
+                  </div>
+                  <input id="txtLprBP" type="number" class="form-control" placeholder="0" pattern="^(\\-|\\+)?\\d+(\\.\\d+)?$"
+                    required />
+                  <div class="input-group-append">
+                    <span class="input-group-text">点</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="txtLoanRate">贷款利率：</label><span id="area_LprMethodDesc" class="input-group-text">3.95%+0BP</span>
+                  </div>                  
+                  <input id="txtLoanRate" type="number" class="form-control" placeholder="0"
+                    pattern="^(\\-|\\+)?\\d+(\\.\\d+)?$" required />
+                  <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="mb-3" />
+              <div class="row">
+                <div class="col-md-6 m-auto"><button id="btnSubmit" class="btn btn-primary btn-lg btn-block" type="button">计算</button>
+                </div>
+                <p class="my-3 mx-3 text-left">
+
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-2790934182835510"
+     data-ad-slot="6788859266"></ins>
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                  </svg><small>提示：</small><br/>
+                  <small>
+                    1.自2019年8月20日起，房贷以贷款市场报价利率LPR为基准利率，最新房贷利率计算公式：LPR利率 + BP基点（10BP=0.1%），房贷计算器默认使用LPR利率计算，BP基点可与银行洽谈争取拿到最低;<br/>
+                    2.LPR利率每月20号由央行发布更新，已办妥的个人住房商业贷款每年随LPR调整一次；<br/>
+                    3.个人住房商业贷款对贷款人资质(个人征信、银行流水)要求较高，但按揭审批手续相对简单，放款快，几周至几个月不等；<br/>
+                    4.在有足够高于贷款利率的投资理财前提下，建议尽可能的少付首付多贷款，反之亦然；<br/>
+                    5.房贷月供计算器提供了按贷款总额、首付比例、房屋面积和单价多种月供在线计算方式，贷款计算器在线计算结果以等额本息、等额本金方式显示月供还款明细;<br/>
+                    6.在线房贷计算器将对非手工输入的贷款金额，按小于5千尾数取舍，累加至首付款中（大部分银行为了方便按5千为最小金额计算贷款金额）;<br/>
+                    7.房贷计算器在线计算结果仅供参考，最终以银行办理结果为准。
+                  </small>
+                </p>
+              </div>
+            <!--</form>-->
+          </div>
+        </div>
+        		
+        <!-- <div class="my-3 col-md-12 text-center"></div> -->
+        <div class="my-3 card text-center">
+            <span id="calc-results"></span>
+            <div class="card-header">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="mr-2 bi bi-graph-down text-danger" style="font-size: 1.25em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/>
+                <path fill-rule="evenodd" d="M5.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                <path d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
+                </svg><strong class="text-success">商业贷款在线计算结果</strong>
+              </div>
+            <!-- <div class="card-header text-success" style="font-weight: 600;">商业贷款在线计算结果</div> -->
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs" role="tablist">			
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" href="#debx" role="tab" aria-controls="debx" data-toggle="tab" rel="nofollow">等额本息还款</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" href="#debj" role="tab" aria-controls="debj" data-toggle="tab" rel="nofollow">等额本金还款</a>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-content card-body">
+              <div role="tabpanel" class="tab-pane active" id="debx">
+                <div class="alert alert-info" role="alert">
+                  <span style="font-size: 20px;">每月还款</span>&nbsp;<span id="lblMonthRepayment-bx"
+                    style="font-size: 24px;font-weight: 700;">0</span>&nbsp;元
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <span class="my-0">贷款金额</span>
+                    </div>
+                    <span class="text-muted" id="lblLoanAmount-bx">0元</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <span class="my-0">贷款期限</span>
+                    </div>
+                    <span class="text-muted" id="lblMonthDisplay-bx"></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <span class="my-0">贷款利率</span>
+                    </div>
+                    <span class="text-muted" id="lblLoanRate-bx">0%</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <span class="my-0">利息总额</span>
+                    </div>
+                    <span class="text-muted" id="lblTotalInterest-bx">0元</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <span class="my-0">本息合计</span>
+                    </div>
+                    <span class="text-muted" id="lblTotalRepayment-bx">0元</span>
+                  </li>
+                </ul>
+                <a href="javascript:;" class="my-3 btn btn-outline-primary btn-sm" id="btnShowListBX" rel="nofollow">查看还款明细</a>
+                <div class="table-responsive">
+                  <table class="table table-hover" id="tabBenxi" style="display:none;">
+                      <thead>
+                        <tr>
+                          <th scope="col">期数</th>
+                          <th scope="col">月供</th>
+                          <th scope="col">还息</th>
+                          <th scope="col">还本</th>
+                          <th scope="col">剩余</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                </div>              
+                <p class="mt-3 text-left">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="mr-2 bi bi-exclamation-circle text-warning" style="font-size: 1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                  </svg>
+                  <small>特点：在还款期内，每月偿还同等数额的贷款(包括本金和利息)，月供压力均衡，也是选择人数最多的还款方式。</small>
+  <!--
+  <amp-ad width="100vw" height="320"
+       type="adsense"
+       data-ad-client="ca-pub-2790934182835510"
+       data-ad-slot="4042101993"
+       data-auto-format="rspv"
+       data-full-width="">
+    <div overflow=""></div>
+  </amp-ad>
+  -->
+                </p>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="debj">
+                <div class="alert alert-info" role="alert">
+                  <span style="font-size: 20px;">首月还款</span>&nbsp;<span id="lblMonthRepayment-bj"
+                    style="font-size: 24px;font-weight: 700;">0</span>&nbsp;元
+                  <br><small>每月递减&nbsp;<span id="lblMonthReduce-bj">0</span>&nbsp;元</small>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <span class="my-0">贷款金额</span>
+                    <span class="text-muted" id="lblLoanAmount-bj">0元</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <span class="my-0">贷款期限</span>
+                    <span class="text-muted" id="lblMonthDisplay-bj"></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <span class="my-0">贷款利率</span>
+                    <span class="text-muted" id="lblLoanRate-bj">0%</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <span class="my-0">利息总额</span>
+                    <span class="text-muted" id="lblTotalInterest-bj">0元</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <span class="my-0">本息合计</span>
+                    <span class="text-muted" id="lblTotalRepayment-bj">0元</span>
+                  </li>
+                </ul>             
+                <a href="javascript:;" class="my-3 btn btn-outline-primary btn-sm" id="btnShowListBJ" rel="nofollow">查看还款明细</a>
+                <div class="table-responsive">
+                  <table class="table table-hover" id="tabBenjin" style="display:none;">
+                      <thead>
+                        <tr>
+                          <th scope="col">期数</th>
+                          <th scope="col">月供</th>
+                          <th scope="col">还息</th>
+                          <th scope="col">还本</th>
+                          <th scope="col">剩余</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                </div>
+                <p class="mt-3 text-left">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="mr-2 bi bi-exclamation-circle text-warning" style="font-size: 1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                  </svg>
+                  <small>特点：前期月供压力较大还款金额高，每月还款金额随时间递减，相对于等额本息可节省利息支出，适合收入正处于高峰阶段的，或者是即将退休的人群。</small>
+  <!--
+  <amp-ad width="100vw" height="320"
+       type="adsense"
+       data-ad-client="ca-pub-2790934182835510"
+       data-ad-slot="4042101993"
+       data-auto-format="rspv"
+       data-full-width="">
+    <div overflow=""></div>
+  </amp-ad>
+  -->
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+       
+    
+      
+  
+      <div class="col-md-4 order-md-2 mb-4 ">
+                <div class="card">
+          <div class="card-header">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="mr-2 bi bi-graph-down text-danger" style="font-size: 1.25em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/>
+            <path fill-rule="evenodd" d="M5.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+            <path d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
+            </svg><strong class="text-success">最新LPR房贷利率</strong>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              1年
+              <span class="text-muted1">3.45%</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              5年(及以上)
+              <span class="text-muted1">3.95%</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">              
+              <span class="text-muted small">最后调整日期：2024年2月</span>
+            </li>
+          </ul>
+          <div class="card-header">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="mr-2 bi bi-graph-down text-danger" style="font-size: 1.25em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/>
+            <path fill-rule="evenodd" d="M5.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+            <path d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
+            </svg><strong class=" text-success">最新公积金贷款利率</strong>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              5年以下(含5年)
+              <span class="text-muted1">2.6%</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              5年以上
+              <span class="text-muted1">3.1%</span>
+            </li>
+			<li class="list-group-item d-flex justify-content-between lh-condensed">              
+              <span class="text-muted small">最后调整日期：2020年10月</span>
+            </li>
+          </ul>
+          <div class="card-header hidden">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="mr-2 bi bi-graph-down text-danger" style="font-size: 1.25em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/>
+            <path fill-rule="evenodd" d="M5.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+            <path d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
+            </svg><strong class=" text-success">最新贷款基准利率</strong>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              1-5年(含5年)
+              <span class="text-muted1">4.75%</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              5年以上
+              <span class="text-muted1">4.9%</span>
+            </li>
+			<li class="list-group-item d-flex justify-content-between lh-condensed">              
+              <span class="text-muted small">最后调整日期：2015年10月</span>
+            </li>
+          </ul>
+        </div>              
+      </div>
+    </div>
+  </div>
+  <script type='text/javascript' src='js/index.js'></script> 
+  
+    <!-- Go to Top -->
+    <a class="js-go-to u-go-to" href="javascript:;" rel="noopener noreferrer" 
+        data-position='{"bottom": 100, "right": 20 }'
+        data-type="fixed"
+        data-offset-top="400"
+        data-compensation="#header"
+        data-show-effect="slideInUp"
+        data-hide-effect="slideOutDown">
+        <span class="u-go-to__inner">
+            <svg style="font-size: 2em" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+            </svg>
+        </span>
+    </a>
+    <!-- End Go to Top -->
+    <script src="bootstrap-5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script type='text/javascript' src='https://www.efangdai.cn/wp-content/themes/fangdai/assets/js/popper.min.js?ver=201019'></script>
+<script type='text/javascript' src='https://www.efangdai.cn/wp-content/themes/fangdai/assets/js/bootstrap.min.js?ver=201019'></script>
+<script type='text/javascript' src='https://www.efangdai.cn/wp-content/themes/fangdai/assets/js/goto.js?ver=201019'></script>
+</body>
+</html>
+
