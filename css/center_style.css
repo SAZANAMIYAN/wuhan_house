@@ -1,4 +1,5 @@
 
+
 html,body {
     color: #333;
     margin: 0;
@@ -7,6 +8,16 @@ html,body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: normal;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:active {
+    background-color: #d8e0ea29; /* 更改悬停或点击时的背景颜色 */
+}
+
+#icon1 {
+    width: 50px;
+    height: 50px;
 }
 
 * {
@@ -510,4 +521,65 @@ a {
     left: 0;
     z-index: 49;
 }
+
+.aui-head-body img {
+    max-width: 100%;
+    height: auto;
+    /* Adjust the height automatically */
+    margin-top: -60px;
+    /* Adjust the margin-top value as needed */
+}
+
+.aui-mine-user img {
+    position: relative;
+    top: 60px;
+    /* Adjust the top value as needed */
+}
+
+
+.aui-head-body {
+    display: flex;
+    align-items: center;
+}
+
+.aui-user-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    /* 使用 flex 布局 */
+    justify-content: center;
+    /* 内容水平居中 */
+    width: 100%;
+    /* 宽度百分比 */
+    max-width: 1200px;
+    /* 最大宽度 */
+    height: auto;
+    /* 高度自适应 */
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 18px;
+    color: rgba(65, 210, 28, 0.845);
+    /* 调整标题字体颜色 */
+}
+
+#aui-landlady1:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
 
