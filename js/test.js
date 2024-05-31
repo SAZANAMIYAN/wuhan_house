@@ -871,7 +871,7 @@ function init_myChart6(){
 
 function init_myChart7(){
 
-	
+
 var colorList = [
     '#ff2600',
     '#ffc000',
