@@ -1,0 +1,16 @@
+/* ==================== Home Two Initial Css Start =================== */
+.dark-background {
+    background-color: var(--gray-900);
+    color: hsl(var(--white));
+    font-weight: 300;
+    h1, h2, h3, h4, h5, h6 {
+        color: hsl(var(--white));
+    }
+
+    .section-heading {
+        &__subtitle {
+            background-color: var(--gray-700) !important;
+        }
+    }
+}
+/* ==================== Home Two Initial Css End =================== */
