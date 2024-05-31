@@ -7,6 +7,7 @@
 }
 
 body {
+    width: 100%;
     padding-top: 80px; /* 导航栏高度(80px) */
     background: #fff; /* 去除背景图片，保留背景色 */
     background-size: cover;
@@ -29,7 +30,6 @@ div {
 }
 
 .container-header .nowTime {
-    position: absolute;
     left: 0px;
     top: 41px;
     font-size: 0;
@@ -62,24 +62,6 @@ div {
     -webkit-background-clip: text;
     -webkit-text-fill-color: black; /* 文本颜色设为黑色 */
     font-size: 4px;
-}
-
-.container-header .location {
-    position: absolute;
-    right: 17px;
-    top: 46px;
-}
-
-.location i {
-    font-size: 14px;
-    font-weight: 800;
-    color: #7e9bc6;
-}
-
-.location span {
-    font-size: 13px;
-    line-height: 30px;
-    color: #168fcd;
 }
 
 .container-header h3 {
