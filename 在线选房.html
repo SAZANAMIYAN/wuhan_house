@@ -9,6 +9,15 @@
   <title>在线选房</title>
   <link rel="stylesheet" href="bootstrap-5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/head.css" />
+
+  <!-- 百度地图密钥 + clustering快速加载 -->
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=N3SXmh8XftBOSor5z1fYSUGioDmShRWZ"></script>
+  <script type="text/javascript"
+    src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+  <script type="text/javascript"
+    src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+
+
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -83,32 +92,78 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
         aria-label="Slide 3"></button>
     </div>
-    <div class="carousel-inner" style="width: 100%; height: 800px;">
+    <div class="carousel-inner" style="width: 100%; height: 700px">
+      <style>
+        .carousel-item img {
+          height: 600px;
+          object-fit: cover;
+        }
+      </style>
+
       <div class="carousel-item active">
-        <img src="images/样板房.jpg" class="d-block w-100" alt="..." style="opacity: 0.75;">
-      </div>
-      <div class="carousel-item">
-        <img src="images/装修.jpg" class="d-block w-100" alt="..." style="opacity: 0.6;">
+        <img src="images/样板房.jpg" class="d-block w-100" alt="..." style="opacity: 0.6;">
       </div>
       <div class="carousel-item">
         <img src="images/郑州万科.jpg" class="d-block w-100" alt="..." style="opacity: 0.6;">
       </div>
+      <div class="carousel-item">
+        <img src="images/装修2.jpg" class="d-block w-100" alt="..." style="opacity: 0.6;">
+      </div>
 
-      <div
-        style="position: absolute; top: 40%; left: 50%; font-family: 'Microsoft YaHei'; font-size: 68px; font-weight: bold; transform: translate(-50%, -50%);">
+
+      <style>
+        .text-large {
+          top: 30vh;
+          font-size: 4.5vw;
+        }
+
+        .text-small {
+          top: 40vh;
+          font-size: 1.5vw;
+        }
+
+        @media (max-width: 600px) {
+          .text-large {
+            top: 15vh;
+            font-size: 20px;
+          }
+
+          .text-small {
+            top: 20vh;
+            font-size: 10px;
+          }
+        }
+      </style>
+
+      <div class="position-absolute d-flex justify-content-center align-items-center text-large"
+        style="left: 50%; font-family: 'Microsoft YaHei'; font-weight: bold; transform: translate(-50%, -50%);">
         开始寻找属于你的家
       </div>
-      <div
-        style="position: absolute; top: 50%; left: 50%; font-family: 'Microsoft YaHei'; font-size: 20px; font-weight: bold;transform: translate(-50%, -50%);">
+      <div class="position-absolute d-flex justify-content-center align-items-center text-small"
+        style="left: 50%; font-family: 'Microsoft YaHei'; font-weight: bold; transform: translate(-50%, -50%);">
         找新房 找二手房 找租房 找小区 找商铺办公楼
       </div>
-      <div
-        style="position: relative; width: 500px; top: 60%; left: 50%; transform: translate(-50%, -50%); display: flex;flex-grow: 1; border: 1px solid black; border-radius: 15px;">
-        <input type="text"
-          style="font-size: 20px; padding: 10px; width: 100%; border: 1px solid black; border-radius: 15px;"
-          placeholder="输入查找信息">
-        <button
-          style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; padding: 10px; border: none; background: none;">
+
+      <style>
+        .search-box {
+          top: 60%;
+          max-width: 400px;
+        }
+
+        @media (max-width: 600px) {
+          .search-box {
+            top: 30%;
+            max-width: 200px;
+          }
+        }
+      </style>
+
+      <div class="position-relative d-flex justify-content-center align-items-center search-box"
+        style="left: 50%; transform: translate(-50%, -10%); border: 1px solid black; border-radius: 15px;">
+        <input type="text" class="w-100 p-2 mx-auto"
+          style="font-size: 20px; border: 1px solid black; border-radius: 15px;" placeholder="输入查找信息">
+        <button class="position-absolute"
+          style="right: 10px; top: 50%; transform: translateY(-50%); font-size: 20px; padding: 10px; border: none; background: none;">
           <img src="images/search.png" alt="搜索" style="width: 20px; height: 20px;">
         </button>
       </div>
@@ -128,62 +183,144 @@
     </button>
   </div>
 
-  <section class="py-5" id='quick-start'>
-    <div class="container px-5 my-5">
-      <div class="row gx-5 justify-content-center">
-        <div class="col-lg-8 col-xl-6">
-          <div class="text-center">
-            <h2 class="fw-bolder">三亚携程点评前三景点介绍</h2>
-            <p class="lead fw-normal text-muted mb-5">仅供参考</p>
-          </div>
-        </div>
-      </div>
-      <div class="row gx-5">
-        <div class="col-lg-4 mb-5">
-          <div class="card h-100 shadow border-0">
-            <img class="card-img-top" src="images/蜈支洲岛.jpg" width=600 height=250>
-            <div class="card-body p-4">
-              <a class="text-decoration-none link-dark stretched-link"
-                href="https://you.ctrip.com/sight/sanya61/3244.html">
-                <h4 class="card-title mb-3">蜈支洲岛</h4>
-              </a>
-              <p class="card-text mb-0">
-                蜈支洲岛旅游区是5A级景区，坐落于三亚市海棠湾内，面积共有1.48平方公里，拥有丰富的海底生态资源和品类齐全、“四栖”全域玩海的水上运动产品体系。现已成为一座集海岛观光、项目游玩、蜜月度假和亲子旅游等元素于一体的国家海岸海岛旅游度假综合体，是全国知名的旅游目的地品牌。
-              </p>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-lg-4 mb-5">
-          <div class="card h-100 shadow border-0">
-            <img class="card-img-top" src="images/亚特兰蒂斯.jpg" width=600 height=250>
-            <div class="card-body p-4">
-              <a class="text-decoration-none link-dark stretched-link"
-                href="https://you.ctrip.com/sight/sanya61/4277350.html">
-                <h4 class="card-title mb-3">亚特兰蒂斯</h4>
-              </a>
-              <p class="card-text mb-0">
-                亚特兰蒂斯水世界是全年开放的水上乐园，它将为来自世界各地的幸福家庭带来惊喜体验。亚特兰蒂斯水世界及海豚小岛占地20万平方米，是三亚•亚特兰蒂斯度假区内乃至本地开阔、引人注目的海滨胜地之一。这里是全年龄段游客的乐园，无论您是水上浮筏的拥趸，抑或是狂野速滑的追捧者，还是偏好徜徉池畔，时而悠闲自得、时而惊起水花四溅，亚特兰蒂斯水世界均能令您享受到无穷妙趣。
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-5">
-          <div class="card h-100 shadow border-0">
-            <img class="card-img-top" src="images/亚龙湾.jpg" width=600 height=250>
-            <div class="card-body p-4">
-              <a class="text-decoration-none link-dark stretched-link"
-                href="https://you.ctrip.com/sight/sanya61/74247.html">
-                <h4 class="card-title mb-3">亚龙湾</h4>
-              </a>
-              <p class="card-text mb-0">
-                亚龙湾热带天堂森林公园景区位于亚龙湾国家旅游度假区内，电影《非诚勿扰II》、电视剧《亲爱的，热爱的》在海南三亚的主要取景地。园区定位于国际滨海生态观光兼生态度假型森林公园，被专家美誉为第三代森林旅游产品的典范之作。园区内树木葱茏，能看那藤萝密布、溪水潺潺，可遇到那百年古藤、参天巨榕，能听闻虫唱鸟鸣，极尽野趣。
-              </p>
-            </div>
-          </div>
-        </div>
+  <div class="row gx-5 justify-content-center">
+    <div class="col-lg-8 col-xl-6">
+      <div class="text-center">
+        <h2 class="fw-bolder" style="font-size: 40px;">房源展示</h2>
+        <p class="lead fw-normal text-muted mb-5" style="font-size: 20px;">二维展示/三维立体/全景分析</p>
       </div>
+    </div>
+  </div>
+
+  <!-- 圆角矩形的按钮 -->
+  <div class="text-center">
+    <button class="btn btn-lg btn-primary rounded-pill my-2 mx-5 custom-btn"
+      id="2d-map-btn"><strong>二维地图</strong></button>
+    <button class="btn btn-lg btn-primary rounded-pill my-2 mx-5 custom-btn"
+      id="3d-show-btn"><strong>三维展示</strong></button>
+    <button class="btn btn-lg btn-primary rounded-pill my-2 mx-5 custom-btn"
+      id="panorama-analysis-btn"><strong>全景分析</strong></button>
+  </div>
+  <!-- 按钮样式 -->
+  <style>
+    .custom-btn {
+      background-color: #333;
+      border-color: #333;
+      color: white;
+      width: 300px;
+      /* 自定义宽度 */
+      height: 60px;
+      /* 自定义高度 */
+    }
+
+    .custom-btn:hover {
+      background-color: #999;
+      border-color: #999;
+    }
+  </style>
+
+
+
+  <!-- 2D地图 -->
+  <section class="py-5" id='quick-start'>
+    <!-- 地图容器 -->
+    <div class="container-fluid">
+      <div id="map" class="rounded border" style="left: 5%; width: 90%; height: 900px;"></div>
+    </div>
+
+    <script type="text/javascript">
+      // 初始化地图
+      var map = new BMap.Map("map");
+      // 设置中心点和地图级别
+      map.centerAndZoom(new BMap.Point(114.3155, 30.5928), 11);
+      // 开启鼠标滚轮缩放
+      map.enableScrollWheelZoom(true);
+
+
+      document.getElementById('2d-map-btn').addEventListener('click', function () {
+        // 加载GeoJSON数据
+        var geoJsonUrl = 'https://geo.datav.aliyun.com/areas_v3/bound/420100_full.json';
+        fetch(geoJsonUrl)
+          .then(response => response.json())
+          .then(data => {
+            // 遍历GeoJSON数据的每个特性
+            data.features.forEach(feature => {
+              // 遍历特性的每个几何体
+              feature.geometry.coordinates.forEach(polygon => {
+                // 创建百度地图的多边形覆盖物
+                var points = polygon[0].map(coord => new BMap.Point(coord[0], coord[1]));
+                var bmapPolygon = new BMap.Polygon(points, {
+                  strokeColor: "darkblue",
+                  strokeWeight: 1.5,
+                  strokeOpacity: 0.8,
+                  fillColor: "blue",
+                  fillOpacity: 0.1,
+                  strokeStyle: 'dashed'  // 设置边界线为虚线
+                });
+                // 将多边形覆盖物添加到地图中
+                map.addOverlay(bmapPolygon);
+
+                // 监听多边形的mouseover事件
+                bmapPolygon.addEventListener('mouseover', function () {
+                  this.setFillColor('yellow');  // 高亮颜色
+                });
+
+                // 监听多边形的mouseout事件
+                bmapPolygon.addEventListener('mouseout', function () {
+                  this.setFillColor('blue');  // 恢复原来的颜色
+                });
+              });
+            });
+          });
+
+        // 加载二手房的JSON数据
+        var houseJsonUrl = 'geojson/二手房源数据.json';
+        fetch('geojson/二手房源数据.json')
+          .then(response => response.json())
+          .then(data => {
+            const markers = data.features.map(feature => {
+              const coordinates = feature.geometry.coordinates;
+              const point = new BMap.Point(coordinates[0], coordinates[1]);
+              const marker = new BMap.Marker(point);
+
+              const infoWindow = new BMap.InfoWindow(`
+        <div>
+            <strong>小区名:</strong> ${feature.properties['小区名']}<br>
+            <strong>区域:</strong> ${feature.properties['区域']}<br>
+            <strong>户型:</strong> ${feature.properties['户型']}<br>
+            <strong>面积:</strong> ${feature.properties['面积']}<br>
+            <strong>朝向:</strong> ${feature.properties['朝向']}<br>
+            <strong>装修风:</strong> ${feature.properties['装修风']}<br>
+            <strong>楼层:</strong> ${feature.properties['楼层']}<br>
+            <strong>房屋类:</strong> ${feature.properties['房屋类']}<br>
+            <strong>价格:</strong> ${feature.properties['价格']}<br>
+            <a href="${feature.properties['链接']}" target="_blank">详情链接</a>
+        </div>
+    `);
+              marker.addEventListener("click", function () {
+                this.openInfoWindow(infoWindow);
+              });
+
+              return marker;
+            });
+
+            // 创建MarkerClusterer实例
+            var markerClusterer = new BMapLib.MarkerClusterer(map, { markers: markers });
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      });
+
+
+
+
+
+    </script>
   </section>
+
+  <script type="text/javascript" src="bootstrap-5.3.2/dist/js/bootstrap.min.js"></script>
   <script src="bootstrap-5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
@@ -193,6 +330,7 @@
     <div class="small text-center text-white">Copyright &copy; Xuanfang Guanjia 2024</div>
   </div>
 </footer>
+
 
 
 </html>
