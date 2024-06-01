@@ -13,7 +13,7 @@ var people_data = {"uploadData":[{"count":1300},{"count":1686},{"count":1692},{"
 var picture_data = {"uploadData":[{"count":330},{"count":786},{"count":492},{"count":842},{"count":421},{"count":673}
 				,{"count":932},{"count":447},{"count":583},{"count":436},{"count":331},{"count":433}],
 	"updateData":[{"count":10},{"count":81},{"count":23},{"count":97},{"count":23},{"count":73}
-				,{"count":23},{"count":51},{"count":01},{"count":52},{"count":01},{"count":77}],
+				,{"count":23},{"count":51},{"count":1},{"count":52},{"count":1},{"count":77}],
 	"viewData":[{"count":451},{"count":342},{"count":523},{"count":323},{"count":421},{"count":812}
 				,{"count":728},{"count":619},{"count":613},{"count":554},{"count":481},{"count":301}]};
 			
@@ -483,25 +483,29 @@ function init_myChart2() {
 
 
 function init_myChart1(){
-	var dom = document.getElementById('main1');
-    var app = {};
-    
     var option;
 
     setTimeout(function () {
   option = {
-    legend: {},
+    legend: {
+		itemWidth: 8,
+		itemHeight: 12,
+		textStyle: {
+			color: '#000000',
+			fontSize:10
+		},
+	},
     tooltip: {
       trigger: 'axis',
       showContent: false
     },
     dataset: {
       source: [
-        ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
-        ['Milk Tea', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
-        ['Matcha Latte', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
-        ['Cheese Cocoa', 40.1, 62.2, 69.5, 36.4, 45.2, 32.5],
-        ['Walnut Brownie', 25.2, 37.1, 41.2, 18, 33.9, 49.1]
+        ['product', '0525', '0526', '0527', '0528', '0529', '0530', '0531'],
+        ['商品房', 256, 384, 209, 187, 246, 244, 285],
+        ['写字楼', 2, 0, 8, 10, 16, 52, 32],
+        ['商业', 17, 5, 15, 42, 35, 37, 20],
+        ['其他', 0, 1, 0, 1, 0, 10, 3]
       ]
     },
     xAxis: { type: 'category' },
@@ -536,17 +540,17 @@ function init_myChart1(){
         type: 'pie',
         id: 'pie',
         radius: '30%',
-        center: ['50%', '25%'],
+        center: ['50%', '30%'],
         emphasis: {
           focus: 'self'
         },
         label: {
-          formatter: '{b}: {@2012} ({d}%)'
+          formatter: '{b}: {@0525} ({d}%)'
         },
         encode: {
           itemName: 'product',
-          value: '2012',
-          tooltip: '2012'
+          value: '0525',
+          tooltip: '0525'
         }
       }
     ]
@@ -555,7 +559,7 @@ function init_myChart1(){
     const xAxisInfo = event.axesInfo[0];
     if (xAxisInfo) {
       const dimension = xAxisInfo.value + 1;
-      myChart.setOption({
+      myChart1.setOption({
         series: {
           id: 'pie',
           label: {
