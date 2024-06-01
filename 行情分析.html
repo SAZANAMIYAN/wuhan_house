@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -321,4 +322,327 @@
     </div>
 </footer>
 
+=======
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>行情分析</title>
+    <link rel="stylesheet" type="text/css" href="css/head.css" />
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="bootstrap-5.3.2/dist/css/bootstrap.min.css">
+    <link href='css/test.css' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript" src="https://cdn.staticfile.net/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+    
+
+</head>
+
+<body class="d-flex flex-column h-100">
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <div class="container-fluid">
+            <svg t="1717078667326" class="icon" viewBox="0 0 1134 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                p-id="7392" width="50" height="50" fill="white">
+                <path
+                    d="M936.073503 710.338875l-55.003823-55.030362a123.781824 123.781824 0 0 0 
+            23.447951-72.599739c0-68.578952-55.627509-124.193191-124.206462-124.193191-68.592222 0-124.219731 
+            55.614239-124.219731 124.193191a124.206461 124.206461 0 0 0 196.81947 100.771781l54.990552 55.017093a9.992251 9.992251 0 0 0 
+            14.105927 0l14.105926-14.105926a9.939171 9.939171 0 0 0-0.03981-14.052847zM780.27136 671.444737a88.749232 88.749232 0 0 
+            1-88.735963-88.749232 88.749232 88.749232 0 0 1 177.471925 0 88.762502 88.762502 0 0 1-88.735962 88.749232z"
+                    p-id="7393"></path>
+                <path
+                    d="M519.49087 592.196768c0-140.647894 108.455065-255.883888 246.276466-266.844843l-222.801975-179.449143c-24.774943-19.944691-65.288012-19.944691-90.076224 0l-146.805137 118.234997v-61.028367a28.384361 28.384361 0 0 0-28.291472-28.304742h-26.96448a28.397631 28.397631 0 0 0-28.304741 28.304742v128.346677l-69.826325 56.251195c-24.774943 19.944691-24.774943 52.575427 0 72.546659l19.745642 15.897365v332.504413c0 28.225122 28.66303 51.314785 63.669082 51.314785h523.631086c3.30421 0 6.502261-0.265398 9.660502-0.663497-139.54649-9.209325-249.912424-125.241515-249.912424-267.110241z m-170.717534-10.788446c0 11.876579-9.700312 21.550352-21.563622 21.550352h-41.349074a21.590162 21.590162 0 0 1-21.550352-21.550352V540.085788c0-11.863309 9.687042-21.550352 21.550352-21.550352h41.349074c11.863309 0 21.563622 9.687042 21.563622 21.550352v41.322534z"
+                    p-id="7394"></path>
+                <path
+                    d="M789.069317 340.599064c-138.949344 0-251.597704 112.63509-251.597703 251.597704 0 138.949344 112.64836 251.597704 251.597703 251.597704s251.597704-112.64836 251.597704-251.597704-112.64836-251.597704-251.597704-251.597704z m-0.902354 457.37437c-113.630334 0-205.763396-92.133062-205.763397-205.776666s92.119792-205.763396 205.763397-205.763396 205.776666 92.119792 205.776666 205.763396c-0.01327 113.643604-92.133062 205.776666-205.776666 205.776666z"
+                    p-id="7395"></path>
+            </svg>
+            <a class="navbar-brand" href="#">
+                <div style="position: absolute; left: 70px; top: 35px; transform: translateY(-50%);">
+                    <strong>选房管家</strong>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="首页.html">首页</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="在线选房.html">在线选房</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="房源评估.html">房源评估</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown">
+                          房屋交易
+                        </a>
+                        <div class="dropdown-menu bg-dark">
+                          <a class="dropdown-item text-white" href="购买房屋.html">购买房屋</a>
+                          <a class="dropdown-item text-white" href="房贷计算器.html">房贷计算器</a>
+                        </div>
+                      </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href=" 行情分析.html">行情分析</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="个人中心.html">个人中心</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-header">
+        <h3>武汉房市近日行情</h3>
+        <ul class="nowTime">
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="container-content">
+        <div class="top">
+            <div class="count-base card shadow border-0">
+                <div class="com-count-title">近一周各类型新房成交量</div>
+                <div class="com-screen-content">
+                    <div id="main1" style="margin-top:10px;width:100%;height:320px;"></div>
+                </div>
+            </div>
+            <div class="count-resource q1 card shadow border-0">
+                <div class="com-count-title">武汉部分小区均价</div>
+                <div class="com-screen-content2">
+                    <div class="com-screen-content">
+                        <div id="main2" style="margin-top:7px;width:100%;height:310px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="count-resource q2 card shadow border-0">
+                <div class="com-count-title">2024年武汉房市成交信息</div>
+                <div class="com-screen-content">
+                    <ul class="data-label">
+                        <li class="active" data-type="1">新房</li>
+                        <li data-type="2">二手房</li>
+                        <li data-type="3">出租屋</li>
+                    </ul>
+                    
+                    <div id="main3" style="margin-top:7px;width:100%;height:310px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mid">
+            <div class="count-share w1 card shadow border-0">
+                <div class="com-count-title">
+                    2024年4月新房成交统计
+                    <div class="additional-text">（来源房管局）</div>
+                </div>
+                <div class="com-screen-content">
+                    <div class="topRec_List">
+                        <dl>
+                            <dd>区域</dd>
+                            <dd>商品住房</dd>
+                            <dd>写字楼</dd>
+                            <dd>商业</dd>
+                            <dd>其他</dd>
+                            <dd>总计</dd>
+                        </dl>
+                        <div class="maquee">
+                            <ul>
+                                <li>
+                                    <div>江岸区</div>
+                                    <div>669</div>
+                                    <div>0</div>
+                                    <div>80</div>
+                                    <div>0</div>
+                                    <div>749</div>
+                                </li>
+                                <li>
+                                    <div>江汉区</div>
+                                    <div>223</div>
+                                    <div>6</div>
+                                    <div>21</div>
+                                    <div>0</div>
+                                    <div>250</div>
+                                </li>
+                                <li>
+                                    <div>硚口区</div>
+                                    <div>436</div>
+                                    <div>21</div>
+                                    <div>11</div>
+                                    <div>0</div>
+                                    <div>468</div>
+                                </li>
+                                <li>
+                                    <div>汉阳区</div>
+                                    <div>397</div>
+                                    <div>34</div>
+                                    <div>842</div>
+                                    <div>4</div>
+                                    <div>1277</div>
+                                </li>
+                                <li>
+                                    <div>青山区</div>
+                                    <div>75</div>
+                                    <div>21</div>
+                                    <div>36</div>
+                                    <div>0</div>
+                                    <div>132</div>
+                                </li>
+                                <li>
+                                    <div>武昌区</div>
+                                    <div>490</div>
+                                    <div>102</div>
+                                    <div>11</div>
+                                    <div>0</div>
+                                    <div>603 </div>
+                                </li>
+                                <li>
+                                    <div>洪山区</div>
+                                    <div>295</div>
+                                    <div>43</div>
+                                    <div>32</div>
+                                    <div>4</div>
+                                    <div>374 </div>
+                                </li>
+                                <li>
+                                    <div>东西湖区</div>
+                                    <div>374</div>
+                                    <div>32</div>
+                                    <div>172</div>
+                                    <div>33</div>
+                                    <div>611 </div>
+                                </li>
+                                <li>
+                                    <div>东湖高新区</div>
+                                    <div>723</div>
+                                    <div>52</div>
+                                    <div>61</div>
+                                    <div>3</div>
+                                    <div>839 </div>
+                                </li>
+                                <li>
+                                    <div>经济开发区</div>
+                                    <div>232</div>
+                                    <div>15</div>
+                                    <div>51</div>
+                                    <div>0</div>
+                                    <div>298 </div>
+                                </li>
+                                <li>
+                                    <div>江夏区</div>
+                                    <div>366</div>
+                                    <div>7</div>
+                                    <div>68</div>
+                                    <div>7</div>
+                                    <div>448 </div>
+                                </li>
+                                <li>
+                                    <div>黄陂区</div>
+                                    <div>219</div>
+                                    <div>3</div>
+                                    <div>52</div>
+                                    <div>11</div>
+                                    <div>285 </div>
+                                </li>
+                                <li>
+                                    <div>蔡甸区</div>
+                                    <div>209</div>
+                                    <div>2</div>
+                                    <div>148</div>
+                                    <div>0</div>
+                                    <div>359 </div>
+                                </li>
+                                <li>
+                                    <div>新洲区</div>
+                                    <div>122</div>
+                                    <div>0</div>
+                                    <div>24</div>
+                                    <div>6</div>
+                                    <div>152 </div>
+                                </li>
+                                <li>
+                                    <div>汉南区</div>
+                                    <div>143</div>
+                                    <div>0</div>
+                                    <div>6</div>
+                                    <div>1</div>
+                                    <div>150 </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count-share w2 card shadow border-0">
+                <div class="com-count-title">武汉新房成交量可视化</div>
+                <div class="com-screen-content">
+                    <div id="main5" style="width:100%;height:300px;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div class="count-topic e1 card shadow border-0">
+                <div class="com-count-title">武汉租金指数（近半年）</div>
+                <div class="com-screen-content">
+                    <div id="main6" style="width:100%;height:300px;"></div>
+                </div>
+            </div>
+            <div class="count-topic e2 card shadow border-0">
+                <div class="com-count-title">
+                    武汉二手房挂牌指数（近12周）
+                    <div class="additional-text">（标注周起始日）</div>
+                </div>
+                <div class="com-screen-content">
+                    <div id="main7" style="width:100%;height:300px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    
+
+    <script type="text/javascript">
+        function autoScroll(obj) {
+            $(obj).find("ul").animate({
+                marginTop: "-39px"
+            }, 500, function () {
+                $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+            })
+        }
+        $(function () {
+            setInterval('autoScroll(".maquee")', 2000);
+        })
+    </script>
+    <script type="text/javascript" src="js/test.js"></script>
+    <script type="text/javascript" src="bootstrap-5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<!-- Footer-->
+<footer class="bg-dark py-4 mt-auto">
+    <div class="container px-5">
+        <div class="small text-center text-white">Copyright &copy; Xuanfang Guanjia 2024</div>
+    </div>
+</footer>
 </html>

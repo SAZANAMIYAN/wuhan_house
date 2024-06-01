@@ -576,6 +576,92 @@
         document.getElementById("cesiumContainer").style.display = "block";
       });
 
+      document.getElementById("2d-map-btn1").addEventListener("click", function (event) {
+        event.preventDefault(); // 阻止链接的默认行为，即阻止页面跳转
+        // 清除地图上的所有覆盖物
+        map.clearOverlays();
+
+        document.getElementById("map-title").textContent = "二手房源";
+
+        // 加载GeoJSON数据
+        var geoJsonUrl =
+          "https://geo.datav.aliyun.com/areas_v3/bound/420100_full.json";
+        fetch(geoJsonUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            // 遍历GeoJSON数据的每个特性
+            data.features.forEach((feature) => {
+              // 遍历特性的每个几何体
+              feature.geometry.coordinates.forEach((polygon) => {
+                // 创建百度地图的多边形覆盖物
+                var points = polygon[0].map(
+                  (coord) => new BMap.Point(coord[0], coord[1])
+                );
+                var bmapPolygon = new BMap.Polygon(points, {
+                  strokeColor: "darkblue",
+                  strokeWeight: 1.5,
+                  strokeOpacity: 0.8,
+                  fillColor: "blue",
+                  fillOpacity: 0.1,
+                  strokeStyle: "dashed", // 设置边界线为虚线
+                });
+                // 将多边形覆盖物添加到地图中
+                map.addOverlay(bmapPolygon);
+
+                // 监听多边形的mouseover事件
+                bmapPolygon.addEventListener("mouseover", function () {
+                  this.setFillColor("yellow"); // 高亮颜色
+                });
+
+                // 监听多边形的mouseout事件
+                bmapPolygon.addEventListener("mouseout", function () {
+                  this.setFillColor("blue"); // 恢复原来的颜色
+                });
+              });
+            });
+          });
+
+        // 加载二手房的JSON数据
+        var houseJsonUrl = "geojson/二手房源数据.json";
+        fetch("geojson/二手房源数据.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const markers = data.features.map((feature) => {
+              const coordinates = feature.geometry.coordinates;
+              const point = new BMap.Point(coordinates[0], coordinates[1]);
+              const marker = new BMap.Marker(point);
+
+              const infoWindow = new BMap.InfoWindow(`
+        <div>
+            <strong>小区名:</strong> ${feature.properties["小区名"]}<br>
+            <strong>区域:</strong> ${feature.properties["区域"]}<br>
+            <strong>户型:</strong> ${feature.properties["户型"]}<br>
+            <strong>面积:</strong> ${feature.properties["面积"]}<br>
+            <strong>朝向:</strong> ${feature.properties["朝向"]}<br>
+            <strong>装修风:</strong> ${feature.properties["装修风"]}<br>
+            <strong>楼层:</strong> ${feature.properties["楼层"]}<br>
+            <strong>房屋类:</strong> ${feature.properties["房屋类"]}<br>
+            <strong>价格:</strong> ${feature.properties["价格"]}<br>
+            <a href="${feature.properties["链接"]}" target="_blank">详情链接</a>
+        </div>
+    `);
+              marker.addEventListener("click", function () {
+                this.openInfoWindow(infoWindow);
+              });
+
+              return marker;
+            });
+
+            // 创建MarkerClusterer实例
+            var markerClusterer = new BMapLib.MarkerClusterer(map, {
+              markers: markers,
+            });
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+
 
 
 
