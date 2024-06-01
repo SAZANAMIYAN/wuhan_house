@@ -72,6 +72,49 @@ app.post('/checkUsername', (req, res) => {
   });
 });
 
+// 添加上传新房房源的路由
+app.post('/uploadxinfang', (req, res) => {
+  const { propertyTitle, Price, location, Propertytype } = req.body;
+
+  // 调用百度地图API解析经纬度
+  const address = encodeURIComponent(location); // 将地址进行编码
+  const ak = 'UvfDUT335wjmy8ZHvGYhuLkfpf7ggRB1'; // 替换为百度地图API密钥
+  const url = `http://api.map.baidu.com/geocoding/v3/?address=${address}&output=json&ak=${ak}`;
+
+
+
+  // 发送请求给百度地图API
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 0 && data.result && data.result.location) {
+        const { lat, lng } = data.result.location;
+        
+        // 将房屋信息和经纬度保存到数据库中
+        const insertxinfangSql = 'INSERT INTO xinfang (house_name, house_price, address, room_types, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)';
+        db.query(insertxinfangSql, [propertyTitle, Price, location, Propertytype, lat, lng], (err, result) => { 
+          if (err) {
+            console.error(err);
+            res.status(500).send('新房房源上传失败，请稍后再试。');
+            return;
+          }
+          console.log('xinfang upload successfully:', propertyTitle);
+          res.status(200).send('新房上传成功'); // 发送成功响应
+        });
+      } else {
+        console.error('Failed to parse location from address:', location);
+        res.status(500).send('解析地址经纬度失败，请稍后再试。');
+      }
+    })
+    .catch(error => {
+      console.error('Failed to fetch from Baidu Map API:', error);
+      res.status(500).send('解析地址经纬度失败，请稍后再试。');
+    });
+});
+
+
+
+
 app.post('/register', (req, res) => {
   const { username, password } = req.body;
   // 查询数据库，检查是否已存在相同用户名
