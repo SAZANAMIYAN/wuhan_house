@@ -1,0 +1,130 @@
+/* styles.css */
+
+#carouselInner {
+  height: 400px; /* 设置固定高度 */
+  overflow-y: auto; /* 添加垂直滚动条 */
+}
+
+
+/* 卡片容器样式 */
+.house-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+      position: static;
+      margin: 5px 10px; /* 调整按钮的外边距 */
+      display: inline-block; /* 将按钮显示为内联块元素，使其在同一行 */
+  }
+  
+
+  .carousel-nav {
+      text-align: center;
+      margin-top: 10px;
+  }
+
+  /* 标题样式 */
+  .house-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* 文本样式 */
+  .house-info {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  /* 地址样式 */
+  .house-address {
+    font-style: italic;
+  }
+  
+  /* 响应式布局 */
+  @media (max-width: 768px) {
+    .house-card {
+      padding: 15px;
+    }
+    .house-title {
+      font-size: 16px;
+    }
+    .house-info {
+      font-size: 12px;
+    }
+  }
+  
+  /* 圆角边框容器样式 */
+  .rounded-border {
+    border: 2px solid #007bff;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto; /* 启用垂直滚动 */
+  }
+  
+  /* 固定大小 */
+  .fixed-size {
+    height: 400px; /* 固定高度 */
+    max-height: 400px;
+    width: 100%;
+  }
+  
+  #main-page {
+    background: url('images/房源验真.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 30px;
+    border-radius: 1px;
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+}
+
+/*搜索框*/
+.search-container {
+  position: relative;
+  width: 500px;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid black;
+  border-radius: 15px;
+  align-items: center;
+  padding: 10px;
+}
+
+.search-container select,
+.search-container input {
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.search-container select {
+  margin-right: 10px; /* 右边间隔 */
+}
+
+.search-container input {
+  flex-grow: 1; /* 输入框占据剩余空间 */
+}
+
+.search-container button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  background: none;
+}
