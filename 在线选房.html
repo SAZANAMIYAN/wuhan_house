@@ -621,8 +621,8 @@
           });
 
         // 加载二手房的JSON数据
-        var houseJsonUrl = "geojson/二手房源数据.json";
-        fetch("geojson/二手房源数据.json")
+        var houseJsonUrl = "geojson/二手全景房源数据.json";
+        fetch("geojson/二手全景房源数据.json")
           .then((response) => response.json())
           .then((data) => {
             const markers = data.features.map((feature) => {
@@ -632,20 +632,15 @@
 
               const infoWindow = new BMap.InfoWindow(`
         <div>
-            <strong>小区名:</strong> ${feature.properties["小区名"]}<br>
-            <strong>区域:</strong> ${feature.properties["区域"]}<br>
-            <strong>户型:</strong> ${feature.properties["户型"]}<br>
-            <strong>面积:</strong> ${feature.properties["面积"]}<br>
-            <strong>朝向:</strong> ${feature.properties["朝向"]}<br>
-            <strong>装修风:</strong> ${feature.properties["装修风"]}<br>
-            <strong>楼层:</strong> ${feature.properties["楼层"]}<br>
-            <strong>房屋类:</strong> ${feature.properties["房屋类"]}<br>
-            <strong>价格:</strong> ${feature.properties["价格"]}<br>
-            <a href="${feature.properties["链接"]}" target="_blank">详情链接</a>
+            <strong>租房地址:</strong> ${feature.properties["租房地址"]}<br>
+            <strong>租房户型:</strong> ${feature.properties["租房户型"]}<br>
+            <strong>租价:</strong> ${feature.properties["房屋价格"]}<br>
+            <a href="http://beyond.3dnest.cn/survey/?m=zhq_hxdcspgq_440&from=singlemessage&isappinstalled=1" target="_blank">VR看房</a>
         </div>
     `);
               marker.addEventListener("click", function () {
                 this.openInfoWindow(infoWindow);
+                console.log(feature.properties["link"])
               });
 
               return marker;
