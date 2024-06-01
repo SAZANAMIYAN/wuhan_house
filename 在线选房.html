@@ -576,12 +576,11 @@
         document.getElementById("cesiumContainer").style.display = "block";
       });
 
-      document.getElementById("2d-map-btn1").addEventListener("click", function (event) {
+      // *******************************全景分析***********************************
+      document.getElementById("panorama-analysis-btn").addEventListener("click", function (event) {
         event.preventDefault(); // 阻止链接的默认行为，即阻止页面跳转
         // 清除地图上的所有覆盖物
         map.clearOverlays();
-
-        document.getElementById("map-title").textContent = "二手房源";
 
         // 加载GeoJSON数据
         var geoJsonUrl =
