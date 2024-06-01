@@ -13,7 +13,7 @@ var people_data = {"uploadData":[{"count":1300},{"count":1686},{"count":1692},{"
 var picture_data = {"uploadData":[{"count":330},{"count":786},{"count":492},{"count":842},{"count":421},{"count":673}
 				,{"count":932},{"count":447},{"count":583},{"count":436},{"count":331},{"count":433}],
 	"updateData":[{"count":10},{"count":81},{"count":23},{"count":97},{"count":23},{"count":73}
-				,{"count":23},{"count":51},{"count":01},{"count":52},{"count":01},{"count":77}],
+				,{"count":23},{"count":51},{"count":1},{"count":52},{"count":1},{"count":77}],
 	"viewData":[{"count":451},{"count":342},{"count":523},{"count":323},{"count":421},{"count":812}
 				,{"count":728},{"count":619},{"count":613},{"count":554},{"count":481},{"count":301}]};
 			
@@ -106,8 +106,8 @@ function init_myChart3(data) {
 				return res;
 			},
 			transitionDuration: 0,
-			backgroundColor: 'rgba(83,93,105,0.8)',
-			borderColor: '#535b69',
+			backgroundColor: 'rgba(255,255,255,0.7)',
+			borderColor: '#D3D3D3',
 			borderRadius: 8,
 			borderWidth: 2,
 			padding: [5, 10],
@@ -115,7 +115,7 @@ function init_myChart3(data) {
 				type: 'line',
 				lineStyle: {
 					type: 'dashed',
-					color: '#ffff00'
+					color: '#535b69'
 				}
 			}
 		},
@@ -313,8 +313,8 @@ function init_myChart2() {
 				return res;
 			},
 			transitionDuration: 0,
-			backgroundColor: 'rgba(83,93,105,0.8)',
-			borderColor: '#535b69',
+			backgroundColor: 'rgba(255,255,255,0.7)',
+			borderColor: '#D3D3D3',
 			borderRadius: 8,
 			borderWidth: 2,
 			padding: [5, 10],
@@ -322,7 +322,7 @@ function init_myChart2() {
 				type: 'line',
 				lineStyle: {
 					type: 'dashed',
-					color: '#ffff00'
+					color: '#535b69'
 				}
 			}
 		},
@@ -483,253 +483,235 @@ function init_myChart2() {
 
 
 function init_myChart1(){
-	option = {
-			tooltip : {
-				trigger: 'item',
-				formatter: "{a} <br/>{b} : {c} ({d}%)"
-			},
-			color:['#8fc31f','#f35833','#00ccff','#ffcc00','#f5e965','#a74faf','#ff9668'],
-		   
-			series : [
-				{
-					name: '资源总量构成',
-					type: 'pie',
-					radius : '20%',
-					center: ['50%', '50%'],
-					data:[
-						{value:435, name:'公安局'},
-						{value:679, name:'民政局'},
-						{value:848, name:'气象局'},
-						{value:348, name:'统计局'},
-						{value:679, name:'交通局'},
-						{value:848, name:'人社局'},
-						{value:1348, name:'其他'}
-					],
-					itemStyle: {
-						emphasis: {
-							shadowBlur: 10,
-							shadowOffsetX: 0,
-							shadowColor: 'rgba(0, 0, 0, 0.5)'
-						}
-					},
-					itemStyle: {
-						normal: {
-							label:{ 
-								show: true, 
-	//	                            position:'inside',
-								formatter: '{b} : {c} ({d}%)' ,
-								fontSize : 8,    //文字的字体大小
-							}
-						},
-						labelLine :{show:true}
-					}
-				}
-			]
-		};
-// 使用刚指定的配置项和数据显示图表。
-	myChart1.setOption(option);
+    var option;
+
+    setTimeout(function () {
+  option = {
+    legend: {
+		itemWidth: 8,
+		itemHeight: 12,
+		textStyle: {
+			color: '#000000',
+			fontSize:10
+		},
+	},
+    tooltip: {
+      trigger: 'axis',
+      showContent: false
+    },
+    dataset: {
+      source: [
+        ['product', '0525', '0526', '0527', '0528', '0529', '0530', '0531'],
+        ['商品房', 256, 384, 209, 187, 246, 244, 285],
+        ['写字楼', 2, 0, 8, 10, 16, 52, 32],
+        ['商业', 17, 5, 15, 42, 35, 37, 20],
+        ['其他', 0, 1, 0, 1, 0, 10, 3]
+      ]
+    },
+    xAxis: { type: 'category' },
+    yAxis: { gridIndex: 0 },
+    grid: { top: '55%' },
+    series: [
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'pie',
+        id: 'pie',
+        radius: '30%',
+        center: ['50%', '30%'],
+        emphasis: {
+          focus: 'self'
+        },
+        label: {
+          formatter: '{b}: {@0525} ({d}%)'
+        },
+        encode: {
+          itemName: 'product',
+          value: '0525',
+          tooltip: '0525'
+        }
+      }
+    ]
+  };
+  myChart1.on('updateAxisPointer', function (event) {
+    const xAxisInfo = event.axesInfo[0];
+    if (xAxisInfo) {
+      const dimension = xAxisInfo.value + 1;
+      myChart1.setOption({
+        series: {
+          id: 'pie',
+          label: {
+            formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+          },
+          encode: {
+            value: dimension,
+            tooltip: dimension
+          }
+        }
+      });
+    }
+  });
+  myChart1.setOption(option);
+});
+
+    if (option && typeof option === 'object') {
+		myChart1.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart1.resize);
 }
 
-function init_myChart5(){
-	//var XData=["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
-	//var yData=[1243,2315,1164,3021,3521,4121,2001,1983,2541,2612,2331,1992];
-	var XData=["一月","二月","三月","四月","五月","六月","七月","八月","九月"];
-	var yData=[1243,2315,1164,3021,3521,4121,2001,1983,1432];
-	option = {
-		backgroundColor:"",
-		xAxis: {
-			axisTick: {
-				show: false
-			},
-			splitLine: {
-				show: false
-			},
-			splitArea: {
-				show: false
-			},
-			data: XData,
-			axisLabel: {
-				formatter: function(value) {
-					var ret = ""; //拼接加\n返回的类目项
-					var maxLength = 1; //每项显示文字个数
-					var valLength = value.length; //X轴类目项的文字个数
-					var rowN = Math.ceil(valLength / maxLength); //类目项需要换行的行数
-					if (rowN > 1) //如果类目项的文字大于3,
-					{
-						for (var i = 0; i < rowN; i++) {
-							var temp = ""; //每次截取的字符串
-							var start = i * maxLength; //开始截取的位置
-							var end = start + maxLength; //结束截取的位置
-							//这里也可以加一个是否是最后一行的判断，但是不加也没有影响，那就不加吧
-							temp = value.substring(start, end) + "\n";
-							ret += temp; //凭借最终的字符串
-						}
-						return ret;
-					} else {
-						return value;
-					}
-				},
-				interval: 0,
-				fontSize: 10,
-				fontWeight: 100,
-				textStyle: {
-					color: '#9faeb5',
 
-				}
-			},
-			axisLine: {
-				lineStyle: {
-					color: '#4d4d4d'
-				}
-			}
-		},
-		yAxis: {
-			axisTick: {
-				show: false
-			},
-			splitLine: {
-				show: false
-			},
-			splitArea: {
-				show: false
-			},
-			
-			axisLabel: {
-				textStyle: {
-					color: '#9faeb5',
-					fontSize: 10,
-				}
-			},
-			axisLine: {
-				lineStyle: {
-					color: '#4d4d4d'
-				}
-			}
-		},
-		"tooltip": {
-			"trigger": "axis",
-			transitionDuration: 0,
-			backgroundColor: 'rgba(83,93,105,0.8)',
-			borderColor: '#535b69',
-			borderRadius: 8,
-			borderWidth: 2,
-			padding: [5, 10],
-			formatter: function (params, ticket, callback) {
-				var res = '';
-				for (var i = 0, l = params.length; i < l; i++) {
-					res += '' + params[i].seriesName + ' : ' + params[i].value + '<br>';
-				}
-				return res;
-			},
-			axisPointer: {
-				type: 'line',
-				lineStyle: {
-					type: 'dashed',
-					color: '#ffff00'
-				}
-			}
-		},
-		series: [{
-			name:'共享次数',
-			type:"bar",
-			itemStyle: {
-				normal: {
-					color: {
-						type: 'linear',
-						x: 0,
-						y: 0,
-						x2: 0,
-						y2: 1,
-						colorStops: [{
-							offset: 0,
-							color: '#00d386' // 0% 处的颜色
-						}, {
-							offset: 1,
-							color: '#0076fc' // 100% 处的颜色
-						}],
-						globalCoord: false // 缺省为 false
-					},
-					barBorderRadius: 15,
-				}
-			},
-			 label: {
-					normal: {
-						show: true,
-						position: "top",
-						textStyle: {
-							color: "#ffc72b",
-							fontSize: 10
-						}
-					}
-				},
-			data: yData,
-			barWidth: 16,
-		},{
-			name:'折线',
-			type:'line',
-			itemStyle : {  /*设置折线颜色*/
-				normal : {
-				   /* color:'#c4cddc'*/
-				}
-			},
-			data:yData
-		}]
-	};
-	myChart5.setOption(option);
+/* 图表5 */
+function init_myChart5() {
+	var dom = document.getElementById('main5');
+	if (!dom) {
+	  console.error('main5 element not found!');
+	  return;
+	}
+	var option;
+  
+	myChart5.showLoading();
+  
+	$.get('Wuhan.json', function (wuhanJson) {
+	  console.log('Wuhan JSON loaded:', wuhanJson); // 调试输出
+	  myChart5.hideLoading();
+	  echarts.registerMap('Wuhan', wuhanJson);
+  option = {
+    tooltip: {
+      trigger: 'item',
+      showDelay: 0,
+      transitionDuration: 0.2
+    },
+    visualMap: {
+      left: 'right',
+      min: 100,
+      max: 1300,
+      inRange: {
+        color: [
+          '#313695',
+          '#4575b4',
+          '#74add1',
+          '#abd9e9',
+          '#e0f3f8',
+          '#ffffbf',
+          '#fee090',
+          '#fdae61',
+          '#f46d43',
+          '#d73027',
+          '#a50026'
+        ]
+      },
+      text: ['High', 'Low'],
+      calculable: true
+    },
+    toolbox: {
+      show: true,
+      //orient: 'vertical',
+      left: 'left',
+      top: 'top',
+      feature: {
+        dataView: { readOnly: false },
+        restore: {},
+        saveAsImage: {}
+      }
+    },
+    series: [
+      {
+        name: 'Wuhan',
+        type: 'map',
+        roam: true,
+        map: 'Wuhan',
+        emphasis: {
+          label: {
+            show: true
+          }
+        },
+        data: [
+			{ name: '江岸区', value: 749 },
+			{ name: '江汉区', value: 250 },
+			{ name: '硚口区', value: 468 },
+			{ name: '汉阳区', value: 1277 },
+			{ name: '青山区', value: 132 },
+			{ name: '武昌区', value: 603 },
+			{ name: '洪山区', value: 374 },
+			{ name: '东西湖区', value: 611 },
+			{ name: '武汉东湖新技术开发区', value: 839 },
+			{ name: '经济开发区', value: 298 },
+			{ name: '江夏区', value: 448 },
+			{ name: '黄陂区', value: 285 },
+			{ name: '蔡甸区', value: 359 },
+			{ name: '新洲区', value: 152 },
+			{ name: '汉南区', value: 150 }
+		  ]
+      }
+    ]
+  };
+  myChart5.setOption(option);
+});
+
+    if (option && typeof option === 'object') {
+		myChart5.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart5.resize);
 }
 //刷新myChart5数据
 
 
 
 function init_myChart6(){
-	var data = {"uploadData":[{"count":5421,"areaName":"公共服务"},{"count":6512,"areaName":"健康保障"},{"count":3721,"areaName":"安全生产"},{"count":2842,"areaName":"价格监督"}
-							,{"count":6427,"areaName":"能源安全"},{"count":4422,"areaName":"信用体系"},{"count":1020,"areaName":"城乡建设"},{"count":1421,"areaName":"社区治理"},{"count":1776,"areaName":"生态环保"}
-							,{"count":2428,"areaName":"应急维稳"}]};
-	var uploadCnt = [];
-	var updateCnt = [];
-	//var collectionCnt = [];
-	//var dailyCnt = [];
-	var viewCnt = [];
-	var areaNameS = [];
-	if (data.uploadData) {
-		for (var i = 0; i < data.uploadData.length; i++) {
-			uploadCnt.push(data.uploadData[i].count);
-			areaNameS.push(data.uploadData[i].areaName);
-		}
-	}
-	if (data.updateData) {
-		for (var i = 0; i < data.updateData.length; i++) {
-			updateCnt.push(data.updateData[i].count);
-		}
-	}
-	if (data.viewData) {
-		for (var i = 0; i < data.viewData.length; i++) {
-			viewCnt.push(data.viewData[i].count);
-		}
-	}
+	var timeRent = ['202312', '202401', '202402', '202403', '202404', '202405']
+	var average_rent = [2402.7, 2409, 2281.1, 2336.6, 2281.1, 2317.1]
+	var median_rent = [2200, 2200, 2100, 2100, 2050, 2000]
 	option = {
 		"tooltip": {
 			"trigger": "axis",
 			transitionDuration: 0,
-			backgroundColor: 'rgba(83,93,105,0.8)',
-			borderColor: '#535b69',
+			backgroundColor: 'rgba(255,255,255,0.7)',
+			borderColor: '#D3D3D3',
 			borderRadius: 8,
 			borderWidth: 2,
 			padding: [5, 10],
-			formatter: function (params, ticket, callback) {
-				var res = '';
-				for (var i = 0, l = params.length; i < l; i++) {
-					res += '' + params[i].seriesName + ' : ' + params[i].value + '<br>';
-				}
-				return res;
-			},
 			axisPointer: {
 				type: 'line',
 				lineStyle: {
 					type: 'dashed',
-					color: '#ffff00'
+					color: '#535b69'
 				}
-			}
+			},
+			formatter: function (params, ticket, callback) {
+                var res = '';
+                for (var i = 0, l = params.length; i < l; i++) {
+                    // 仅显示名称为“平均租金”和“租金中位数”的数据
+                    if (params[i].seriesName === '平均租金' || params[i].seriesName === '租金中位数') {
+                        res += '' + params[i].seriesName + ' : ' + params[i].value + '<br>';
+                    }
+                }
+                return res;
+            }
 		},
 		"grid": {
 			"top": '40',
@@ -747,10 +729,10 @@ function init_myChart6(){
 			itemWidth: 8,
 			itemHeight: 12,
 			textStyle: {
-				color: '#fff',
+				color: '#000000',
 				fontSize:10
 			},
-			"data": ['资源总量'],
+			"data": ['平均租金', '租金中位数'],
 		
 		},
 		"calculable": true,
@@ -768,36 +750,11 @@ function init_myChart6(){
 			"axisLabel": {
 				"interval": 0,
 				fontSize:10,
-				formatter:function(value)
-				{
-					var ret = "";//拼接加\n返回的类目项
-					var maxLength = 2;//每项显示文字个数
-					var valLength = value.length;//X轴类目项的文字个数
-					var rowN = Math.ceil(valLength / maxLength); //类目项需要换行的行数
-					if (rowN > 1)//如果类目项的文字大于3,
-					{
-						for (var i = 0; i < rowN; i++) {
-							var temp = "";//每次截取的字符串
-							var start = i * maxLength;//开始截取的位置
-							var end = start + maxLength;//结束截取的位置
-							//这里也可以加一个是否是最后一行的判断，但是不加也没有影响，那就不加吧
-							temp = value.substring(start, end) + "\n";
-							ret += temp; //凭借最终的字符串
-						}
-						return ret;
-					}
-					else {
-						return value;
-					}
-				}
-
-			
-
 			},
 			"splitArea": {
 				"show": false
 			},
-			'data': areaNameS,
+			'data': timeRent,
 			splitLine: {
 				show: false
 			}
@@ -830,7 +787,7 @@ function init_myChart6(){
 		
 		"series": [
 			{
-				"name": "资源总量",
+				"name": "平均租金",
 				"type": "bar",
 				
 				"barGap": "10%",
@@ -844,24 +801,55 @@ function init_myChart6(){
 						show: true,
 						position: "top",
 						textStyle: {
-							color: "#ffc72b",
+							color: "#4a4df0",
 							fontSize: 10
 						}
 					}
 				},
-				"data": uploadCnt,
+				"data": average_rent,
 				barWidth: 14,
 			},{
-			name:'折线',
+			name:'平均租金折线',
 			type:'line',
 			itemStyle : {  /*设置折线颜色*/
 				normal : {
-				  color:'#c7b198'
+				  color:'#800080'
 				}
 			},
-			data:[5421, 6512, 4621, 2842,6427, 4422,1020,1421,1776,2428],
-
-		}
+			data:[2402.7, 2409, 2281.1, 2336.6, 2281.1, 2317.1],
+            },
+			{
+				"name": "租金中位数",
+				"type": "bar",
+				
+				"barGap": "10%",
+				itemStyle: {//图形样式
+					normal: {
+						"color": '#FF0000'
+					}
+				},
+				label: {
+					normal: {
+						show: true,
+						position: "top",
+						textStyle: {
+							color: "#FF0000",
+							fontSize: 10
+						}
+					}
+				},
+				"data": median_rent,
+				barWidth: 14,
+			},{
+			name:'租金中位数折线',
+			type:'line',
+			itemStyle : {  /*设置折线颜色*/
+				normal : {
+				  color:'#FFA500'
+				}
+			},
+			data:[2200, 2200, 2100, 2100, 2050, 2000],
+            }
 		]
 	};
 
@@ -870,71 +858,50 @@ function init_myChart6(){
 }
 
 function init_myChart7(){
-
-
-var colorList = [
-    '#ff2600',
-    '#ffc000',
-    '#00ad4e',
-    '#0073c2',
-    '#165868',
-    '#e76f00',
-    '#316194',
-    '#723761',
-    '#00b2f1',
-    '#4d6022',
-    '#4b83bf',
-    '#f9c813',
-    '#0176c0'
-];
-var xData = ['公共服务','健康保障','安全生产','价格监督','能源安全','信用体系', '城乡建设', '社区治理', '生态环保','应急维稳'];
-var yData = [2912,3991,4621,3941,3313,6631,5543,4463,6541,3381];
-option = {
-    color:colorList,
-    "tooltip": {
+	var week = ['0303', '0310', '0317', '0324', '0331', '0407', '0414', '0421', '0428', '0505', '0512', '0519']
+	var guapai_price = [16051.4, 16653.4, 16570.2, 16521.3, 16472.5, 16409.4, 16372.5, 16302.2, 16272.3, 16235.3, 16212.8, 16146.7]
+	var week_daikan = [100236, 99953, 97812, 92048, 83069, 99333, 88941, 79380, 80970, 84551, 87290, 87802]
+	option = {
+		"tooltip": {
 			"trigger": "axis",
 			transitionDuration: 0,
-			backgroundColor: 'rgba(83,93,105,0.8)',
-			borderColor: '#535b69',
+			backgroundColor: 'rgba(255,255,255,0.7)',
+			borderColor: '#D3D3D3',
 			borderRadius: 8,
 			borderWidth: 2,
 			padding: [5, 10],
-			formatter: function (params, ticket, callback) {
-				var res = '';
-				for (var i = 0, l = params.length; i < l; i++) {
-					res += '' + params[i].seriesName + ' : ' + params[i].value + '<br>';
-				}
-				return res;
-			},
 			axisPointer: {
 				type: 'line',
 				lineStyle: {
 					type: 'dashed',
-					color: '#ffff00'
+					color: '#535b69'
 				}
 			}
 		},
-    toolbox: {
-        show : true,
-        feature : {
-            mark : {
-                show: true
-            },
-
-        }
-    },
-    grid: {
-       "borderWidth": 0,
+		"grid": {
 			"top": '40',
 			"left": '30',
 			"right": '10',
 			"bottom": '40',
+	
 			textStyle: {
 				color: "#fff"
 			}
-    },
-    xAxis : [
-       {
+		},
+		"legend": {
+			right: '24',
+			top: "24",
+			itemWidth: 8,
+			itemHeight: 12,
+			textStyle: {
+				color: '#000000',
+				fontSize:10
+			},
+			"data": ['挂牌单价', '周带看量'],
+		
+		},
+		"calculable": true,
+		xAxis: [{
 			'type': 'category',
 			"axisTick": {
 				"show": false
@@ -948,41 +915,17 @@ option = {
 			"axisLabel": {
 				"interval": 0,
 				fontSize:10,
-				formatter:function(value)
-				{
-					var ret = "";//拼接加\n返回的类目项
-					var maxLength = 2;//每项显示文字个数
-					var valLength = value.length;//X轴类目项的文字个数
-					var rowN = Math.ceil(valLength / maxLength); //类目项需要换行的行数
-					if (rowN > 1)//如果类目项的文字大于3,
-					{
-						for (var i = 0; i < rowN; i++) {
-							var temp = "";//每次截取的字符串
-							var start = i * maxLength;//开始截取的位置
-							var end = start + maxLength;//结束截取的位置
-							//这里也可以加一个是否是最后一行的判断，但是不加也没有影响，那就不加吧
-							temp = value.substring(start, end) + "\n";
-							ret += temp; //凭借最终的字符串
-						}
-						return ret;
-					}
-					else {
-						return value;
-					}
-				}
 			},
 			"splitArea": {
 				"show": false
 			},
-			'data': xData,
+			'data': week,
 			splitLine: {
 				show: false
-			},
-		
-		}
-    ],
-    yAxis : [
-      {
+			}
+		}],
+		"yAxis": [
+			{
 				"type": "value",
 				offset: -14,
 				"splitLine": {
@@ -1005,68 +948,58 @@ option = {
 				"splitArea": {
 					"show": false
 				}
-			}
-
-    ],
-    series : [
-        {
-            name:'共享次数',
-            type:'bar',
-            data:yData,
-            itemStyle: {
-                normal: {
-                    color: function(params) {
-                        // build a color map as your need.
-                        var colorList = [
-                            '#ff2600',
-                            '#ffc000',
-                            '#00ad4e',
-                            '#0073c2',
-                            '#165868',
-                            '#e76f00',
-                            '#316194',
-                            '#723761',
-                            '#00b2f1',
-                            '#4d6022',
-                            '#4b83bf',
-                            '#f9c813',
-                            '#0176c0'
-                        ];
-                        return colorList[params.dataIndex]
-                    },
-                   
-                }
-            },
-			 barWidth: 14,
-			 label: {
+			}],
+		
+		"series": [
+			{
+				"name": "周带看量",
+				"type": "bar",
+				
+				"barGap": "10%",
+				itemStyle: {//图形样式
+					normal: {
+						"color": '#6B8E23'
+					}
+				},
+				label: {
 					normal: {
 						show: true,
 						position: "top",
 						textStyle: {
-							color: "#ffc72b",
+							color: "#6B8E23",
 							fontSize: 10
 						}
 					}
 				},
-        },
-		{
-			name:'折线',
+				"data": week_daikan,
+				barWidth: 14,
+			},{
+			name:'挂牌单价',
 			type:'line',
 			itemStyle : {  /*设置折线颜色*/
 				normal : {
-				  color:'#d3d5fd'
+				  color:'#8B4513'
 				}
 			},
-			data:yData
-		}
-     
-    ]
-};
-
-
+			label: {
+				normal: {
+					show: true,
+					position: "top",
+					textStyle: {
+						color: "#8B4513",
+						fontSize: 10
+					}
+				}
+			},
+			"data": guapai_price,
+            }
+		]
+	};
 // 使用刚指定的配置项和数据显示图表。
 	myChart7.setOption(option);
 }
+
+
 //获取当前时间
 function getNowFormatDate() {
     var date = new Date();

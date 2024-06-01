@@ -9,8 +9,8 @@
     <title>行情分析</title>
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="bootstrap-5.3.2/dist/css/bootstrap.min.css">
-    <script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.2.1/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.staticfile.net/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
     <link href="css/head.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -92,46 +92,29 @@
     <div class="container-content">
         <div class="top">
             <div class="count-base card shadow border-0">
-                <div class="com-count-title">资源总量构成</div>
+                <div class="com-count-title">近一周各类型新房成交量</div>
                 <div class="com-screen-content">
-
-                    <div id="main1" style="width:100%;height:300px;"></div>
+                    <div id="main1" style="margin-top:10px;width:100%;height:320px;"></div>
                 </div>
             </div>
             <div class="count-resource q1 card shadow border-0">
                 <div class="com-count-title">资源总量统计</div>
                 <div class="com-screen-content2">
-                    <ul class="use-data">
-                        <li>
-                            <p class="data-count">15681 </p>
-                            <span class="data-name">数据总量</span>
-                        </li>
-                        <li>
-                            <p class="data-count"> 1731</p>
-                            <span class="data-name">更新量</span>
-                        </li>
-                        <li>
-                            <p class="data-count">11753</p>
-                            <span class="data-name">共享次数</span>
-                        </li>
-                    </ul>
                     <div class="com-screen-content">
-                        <div id="main2" style="margin-top:10px;width:100%;height:240px;"></div>
+                        <div id="main2" style="margin-top:10px;width:100%;height:310px;"></div>
                     </div>
                 </div>
             </div>
             <div class="count-resource q2 card shadow border-0">
                 <div class="com-count-title">基础库统计</div>
-
-
                 <div class="com-screen-content">
                     <ul class="data-label">
-                        <li class="active" data-type="1">法人库</li>
-                        <li data-type="2">人口库</li>
-                        <li data-type="3">电子证照库</li>
+                        <li class="active" data-type="1">新房</li>
+                        <li data-type="2">二手房</li>
+                        <li data-type="3">出租屋</li>
                     </ul>
-                    <ul class="use-data"></ul>
-                    <div id="main3" style="margin-top:10px;width:100%;height:240px;"></div>
+                    
+                    <div id="main3" style="margin-top:10px;width:100%;height:310px;"></div>
                 </div>
             </div>
         </div>
@@ -139,7 +122,7 @@
         <div class="mid">
             <div class="count-share w1 card shadow border-0">
                 <div class="com-count-title">
-                    2024年4月新建商品房成交统计
+                    2024年4月新房成交统计
                     <div class="additional-text">（来源房管局）</div>
                 </div>
                 <div class="com-screen-content">
@@ -202,28 +185,105 @@
                                     <div>0</div>
                                     <div>603 </div>
                                 </li>
+                                <li>
+                                    <div>洪山区</div>
+                                    <div>295</div>
+                                    <div>43</div>
+                                    <div>32</div>
+                                    <div>4</div>
+                                    <div>374 </div>
+                                </li>
+                                <li>
+                                    <div>东西湖区</div>
+                                    <div>374</div>
+                                    <div>32</div>
+                                    <div>172</div>
+                                    <div>33</div>
+                                    <div>611 </div>
+                                </li>
+                                <li>
+                                    <div>东湖高新区</div>
+                                    <div>723</div>
+                                    <div>52</div>
+                                    <div>61</div>
+                                    <div>3</div>
+                                    <div>839 </div>
+                                </li>
+                                <li>
+                                    <div>经济开发区</div>
+                                    <div>232</div>
+                                    <div>15</div>
+                                    <div>51</div>
+                                    <div>0</div>
+                                    <div>298 </div>
+                                </li>
+                                <li>
+                                    <div>江夏区</div>
+                                    <div>366</div>
+                                    <div>7</div>
+                                    <div>68</div>
+                                    <div>7</div>
+                                    <div>448 </div>
+                                </li>
+                                <li>
+                                    <div>黄陂区</div>
+                                    <div>219</div>
+                                    <div>3</div>
+                                    <div>52</div>
+                                    <div>11</div>
+                                    <div>285 </div>
+                                </li>
+                                <li>
+                                    <div>蔡甸区</div>
+                                    <div>209</div>
+                                    <div>2</div>
+                                    <div>148</div>
+                                    <div>0</div>
+                                    <div>359 </div>
+                                </li>
+                                <li>
+                                    <div>新洲区</div>
+                                    <div>122</div>
+                                    <div>0</div>
+                                    <div>24</div>
+                                    <div>6</div>
+                                    <div>152 </div>
+                                </li>
+                                <li>
+                                    <div>汉南区</div>
+                                    <div>143</div>
+                                    <div>0</div>
+                                    <div>6</div>
+                                    <div>1</div>
+                                    <div>150 </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="count-share w2 card shadow border-0">
-                <div class="com-count-title">数据共享次数</div>
+                <div class="com-count-title">武汉新房成交量可视化</div>
                 <div class="com-screen-content">
-                    <div id="main5" style="width:100%;height:300px;"></div>
+                    <div id="main5" style="width:100%;height:300px;">
+
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="bottom">
             <div class="count-topic e1 card shadow border-0">
-                <div class="com-count-title">主题库统计</div>
+                <div class="com-count-title">武汉租金指数（近半年）</div>
                 <div class="com-screen-content">
                     <div id="main6" style="width:100%;height:300px;"></div>
                 </div>
             </div>
             <div class="count-topic e2 card shadow border-0">
-                <div class="com-count-title">主题库共享次数</div>
+                <div class="com-count-title">
+                    武汉二手房挂牌指数（近12周）
+                    <div class="additional-text">（标注周起始日）</div>
+                </div>
                 <div class="com-screen-content">
                     <div id="main7" style="width:100%;height:300px;"></div>
                 </div>
