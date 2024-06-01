@@ -18,7 +18,14 @@ app.use(express.static(path.join(__dirname, 'node_modules/layui/dist')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 连接到 SQLite 数据库
-const db_lite = new sqlite3.Database('house_wuhan.db');
+
+const db_lite = new sqlite3.Database('./house_wuhan.db', (err) => {
+  if (err) {
+      console.error('Error connecting to the database', err.message);
+  } else {
+      console.log('Connected to the SQLite database.');
+  }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
