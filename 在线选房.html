@@ -17,6 +17,11 @@
     src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
   <script type="text/javascript"
     src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+
+  <!-- cesium三维 -->
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -228,20 +233,21 @@
           </button>
           <!-- 下拉框样式 -->
           <style>
-            .dropdown-menu {
+            .dropdown-menu1.bg-dark {
               width: 55%;
             }
 
-            .dropdown-item {
+            .dropdown-item1.text-white {
               font-size: 1.2rem;
               text-align: center;
               /* 设置下拉菜单项的字体大小，你可以根据需要调整这个值 */
             }
           </style>
-          <div class="dropdown-menu bg-dark">
-            <a class="dropdown-item text-white" id="2d-map-btn1" href="#">二手房源</a>
-            <a class="dropdown-item text-white" id="2d-map-btn2" href="#">新房源</a>
-            <a class="dropdown-item text-white" id="2d-map-btn3" href="#">租房源</a>
+          <div id="map-title" style="text-align: center; font-size: 20px;"></div>
+          <div class="dropdown-menu dropdown-menu1 bg-dark">
+            <a class="dropdown-item dropdown-item1 text-white" id="2d-map-btn1" href="#">二手房源</a>
+            <a class="dropdown-item dropdown-item1 text-white" id="2d-map-btn2" href="#">新房源</a>
+            <a class="dropdown-item dropdown-item1 text-white" id="2d-map-btn3" href="#">租房源</a>
           </div>
         </div>
       </div>
@@ -291,10 +297,12 @@
       // 开启鼠标滚轮缩放
       map.enableScrollWheelZoom(true);
 
-      document.getElementById("2d-map-btn1").addEventListener("click", function () {
+      document.getElementById("2d-map-btn1").addEventListener("click", function (event) {
         event.preventDefault(); // 阻止链接的默认行为，即阻止页面跳转
         // 清除地图上的所有覆盖物
         map.clearOverlays();
+
+        document.getElementById("map-title").textContent = "二手房源";
 
         // 加载GeoJSON数据
         var geoJsonUrl =
@@ -375,10 +383,13 @@
           });
       });
 
+      // 新房2D显示
       document.getElementById("2d-map-btn2").addEventListener("click", function () {
         event.preventDefault(); // 阻止链接的默认行为，即阻止页面跳转
         // 清除地图上的所有覆盖物
         map.clearOverlays();
+
+        document.getElementById("map-title").textContent = "新房源";
 
         // 加载GeoJSON数据
         var geoJsonUrl = "https://geo.datav.aliyun.com/areas_v3/bound/420100_full.json";
@@ -454,10 +465,12 @@
           });
       });
 
+      // 租房源2D显示
       document.getElementById("2d-map-btn3").addEventListener("click", function () {
         event.preventDefault(); // 阻止链接的默认行为，即阻止页面跳转
         // 清除地图上的所有覆盖物
         map.clearOverlays();
+        document.getElementById("map-title").textContent = "租房源";
 
         // 加载GeoJSON数据
         var geoJsonUrl = "https://geo.datav.aliyun.com/areas_v3/bound/420100_full.json";
@@ -512,8 +525,8 @@
                         <strong>租赁方式:</strong> ${feature.properties["租赁方式"]}<br>
                         <strong>租房户型:</strong> ${feature.properties["租房户型"]}<br>
                         <strong>租房价格:</strong> ${feature.properties["房屋价格"]}<br>
-                        <strong>费用明细:</strong> ${Object.entries(feature.properties["房屋费用"]).map(([key, value]) => 
-                        `${key}: ${value}`).join('<br>')}<br>
+                        <strong>费用明细:</strong> ${Object.entries(feature.properties["房屋费用"]).map(([key, value]) =>
+                `${key}: ${value}`).join('<br>')}<br>
                         <strong>租房信息:</strong> ${feature.properties["房屋信息"]}<br>
                         <strong>租房设施:</strong> ${feature.properties["房屋设施"]}<br>
                     </div>
@@ -536,15 +549,49 @@
           });
       });
 
+      document.getElementById("3d-show-btn").addEventListener("click", function (event) {
+        event.preventDefault(); // 阻止链接的默认行为，即阻止页面跳转
+        // 清除地图上的所有覆盖物
+        map.clearOverlays();
+
+        // 初始化Cesium的地图
+        var viewer = new Cesium.Viewer("map", {
+          imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
+            url: "https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
+          }),
+          baseLayerPicker: false,
+        });
+
+        // 加载武汉市的建筑数据
+        var tileset = viewer.scene.primitives.add(
+          new Cesium.Cesium3DTileset({
+            url: "https://your-server.com/path-to-your-data/WuhanBuildings.json",
+          })
+        );
+
+        // 将视角移动到武汉市
+        viewer.zoomTo(tileset);
+
+        // 显示cesiumContainer
+        document.getElementById("cesiumContainer").style.display = "block";
+      });
+
+
+
 
 
 
 
     </script>
+
+
+    </div>
+
   </section>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script type="text/javascript" src="bootstrap-5.3.2/dist/js/bootstrap.min.js"></script>
+
+
+  <!-- <script type="text/javascript" src="bootstrap-5.3.2/dist/js/bootstrap.min.js"></script> -->
   <script src="bootstrap-5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
