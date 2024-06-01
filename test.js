@@ -8,16 +8,6 @@ var picture_data = {"uploadData":[{"count":330},{"count":786},{"count":492},{"co
 	"updateData":[{"count":10},{"count":81},{"count":23},{"count":97},{"count":23}],
 	"viewData":[{"count":451},{"count":342},{"count":523},{"count":323},{"count":421}]};
 
-var legal_person_data = {"uploadData":[{"count":146.842},{"count":138.0654},{"count":139.9434},{"count":136.281},{"count":133.4027}],
-		"viewData":[{"count":130},{"count":120},{"count":125},{"count":121},{"count":120}],
-		"updateData":[{"count":135},{"count":157},{"count":153},{"count":141.5},{"count":140}]};
-var people_data = {"uploadData":[{"count":1300},{"count":1686},{"count":1692},{"count":1742},{"count":1621}],
-	"updateData":[{"count":103},{"count":281},{"count":203},{"count":197},{"count":173}],
-	"viewData":[{"count":651},{"count":842},{"count":223},{"count":223},{"count":221}]};
-var picture_data = {"uploadData":[{"count":330},{"count":786},{"count":492},{"count":842},{"count":421}],
-	"updateData":[{"count":10},{"count":81},{"count":23},{"count":97},{"count":23}],
-	"viewData":[{"count":451},{"count":342},{"count":523},{"count":323},{"count":421}]};
-
 var Tpl1 = '<li>' +
 			'<p class="data-count">5681</p>' +
 			'<span class="data-name">数据总量</span>' +
@@ -127,7 +117,7 @@ function init_myChart3(data) {
 			itemGap: 10,
 			top: '16',
 			right: '10',
-			data: ['平均成交价','成交总价中位数','成交周期中位数'],
+			data: ['平均成交价（百元）','成交总价中位数（万）','成交周期中位数（天）'],
 			textStyle: {
 				fontSize: 10,
 				color: '#a0a8b9'
@@ -157,7 +147,6 @@ function init_myChart3(data) {
 				show: false
 			},
 			data: ['1月', '2月', '3月', '4月', '5月'],
-			data: ['1月', '2月', '3月', '4月', '5月'],
 			offset: 10
 		}],
 		yAxis: [{
@@ -184,7 +173,7 @@ function init_myChart3(data) {
 			}
 		}],
 		series: [{
-			name: '平均成交价',
+			name: '平均成交价（百元）',
 			type: 'line',
 			smooth: true,
 			showSymbol: false,
@@ -213,7 +202,7 @@ function init_myChart3(data) {
 			},
 			data: uploadCnt
 		}, {
-			name: '成交总价中位数',
+			name: '成交总价中位数（万）',
 			type: 'line',
 			smooth: true,
 			showSymbol: false,
@@ -242,7 +231,7 @@ function init_myChart3(data) {
 			},
 			data: viewCnt
 		},  {
-			name: '成交周期中位数',
+			name: '成交周期中位数（天）',
 			type: 'line',
 			smooth: true,
 			showSymbol: false,
@@ -277,9 +266,6 @@ function init_myChart3(data) {
 }
 
 function init_myChart2() {
-	var data = {"uploadData":[{"count":20000},{"count":7500},{"count":9300},{"count":6500},{"count":14000}],
-				"viewData":[{"count":18542},{"count":4486},{"count":7283},{"count":7054},{"count":10000}],
-				"updateData":[{"count":3125},{"count":1800},{"count":2280},{"count":1495},{"count":3000}]};
 	var data = {"uploadData":[{"count":20000},{"count":7500},{"count":9300},{"count":6500},{"count":14000}],
 				"viewData":[{"count":18542},{"count":4486},{"count":7283},{"count":7054},{"count":10000}],
 				"updateData":[{"count":3125},{"count":1800},{"count":2280},{"count":1495},{"count":3000}]};
@@ -336,10 +322,8 @@ function init_myChart2() {
 			top: '16',
 			right: '10',
 			data: ['新房','二手房','出租屋'],
-			data: ['新房','二手房','出租屋'],
 			textStyle: {
 				fontSize: 10,
-				color: '#696969'
 				color: '#696969'
 			}
 		},
@@ -361,13 +345,11 @@ function init_myChart2() {
 				show: false,
 				lineStyle: {
 					color: '#696969'
-					color: '#696969'
 				}
 			},
 			axisTick: {
 				show: false
 			},
-			data: ['招商一江璟城', '龙庭华府', '中建壹品澜庭', '荣盛华庭', '华中国际广场'],
 			data: ['招商一江璟城', '龙庭华府', '中建壹品澜庭', '荣盛华庭', '华中国际广场'],
 			offset: 10
 		}],
@@ -376,7 +358,6 @@ function init_myChart2() {
 			axisLine: {
 				show: false,
 				lineStyle: {
-					color: '#696969'
 					color: '#696969'
 				}
 			},
@@ -396,7 +377,6 @@ function init_myChart2() {
 			}
 		}],
 		series: [{
-			name: '新房',
 			name: '新房',
 			type: 'line',
 			smooth: true,
@@ -427,7 +407,6 @@ function init_myChart2() {
 			data: uploadCnt
 		}, {
 			name: '二手房',
-			name: '二手房',
 			type: 'line',
 			smooth: true,
 			showSymbol: false,
@@ -456,7 +435,6 @@ function init_myChart2() {
 			},
 			data: viewCnt
 		},  {
-			name: '出租屋',
 			name: '出租屋',
 			type: 'line',
 			smooth: true,
@@ -650,7 +628,6 @@ function init_myChart5() {
     },
     series: [
       {
-        name: '武汉',
         name: '武汉',
         type: 'map',
         roam: true,
@@ -1019,8 +996,6 @@ function getNowFormatDate() {
     var strDate = date.getDate();
     var show_day = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
     var day = date.getDay();
-    var show_day = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-    var day = date.getDay();
     if (month >= 1 && month <= 9) {
         month = "0" + month;
     }
@@ -1028,9 +1003,7 @@ function getNowFormatDate() {
         strDate = "0" + strDate;
     }
     var currentdate = '<div><p>' + year + '年' + month + '月' + strDate + '号</p><p>' + show_day[day] + '</p></div>';
-    var currentdate = '<div><p>' + year + '年' + month + '月' + strDate + '号</p><p>' + show_day[day] + '</p></div>';
     $('.nowTime li:nth-child(2)').html(currentdate);
-    setTimeout(getNowFormatDate, 1000); //每隔1秒重新调用一次该函数
     setTimeout(getNowFormatDate, 1000); //每隔1秒重新调用一次该函数
 }
 var resourceDataType = $('.data-label li.active').data('type');//用于切换基础库
