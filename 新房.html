@@ -25,6 +25,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link href="css/head.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     
@@ -125,7 +126,7 @@ sidebar-list__link:hover a{
             </div>
             <div class="col-lg-9 ps-lg-5">
                 <div data-bs-spy="scroll" data-bs-target="#list-scroll" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                    <form action="#" enctype="multipart/form-data">
+                    <form id="uploadForm" action="http://localhost:3001/upload" method="post" enctype="multipart/form-data">
                         <div class="card-item" id="basicInformation">
                             <div class="card common-card">
                                 <div class="card-header">
@@ -199,6 +200,7 @@ sidebar-list__link:hover a{
                         </div>
                         <button type="submit" class="btn btn-main w-100">上传新房房源</button>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -209,7 +211,29 @@ sidebar-list__link:hover a{
 
   
 </main>
+<script>
+   $(document).ready(function() {
+    $('#uploadForm').on('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        
+        $.ajax({
+            url: 'http://localhost:3001/upload',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                alert('上传成功');
+            },
+            error: function(error) {
+                alert('上传失败');
+            }
+        });
+    });
+});
 
+  </script>
     <!-- Jquery js -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
 
