@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title -->
-    <title> 上传新房 </title>
+    <title> 上传出租房 </title>
 
 
     <!-- Bootstrap -->
@@ -129,60 +129,32 @@ sidebar-list__link:hover a{
                         <div class="card-item" id="basicInformation">
                             <div class="card common-card">
                                 <div class="card-header">
-                                    <h6 class="title mb-0">Property Basic Information</h6>
+                                    <h6 class="title mb-0">出租房屋属性</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="row gy-4">
                                         <div class="col-sm-12">
-                                            <label for="propertyTitle" class="form-label">Property Title</label>
-                                            <input type="text" class="common-input" id="propertyTitle" placeholder="Property Title">
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="Description" class="form-label">Description</label>
-                                            <textarea class="common-input" id="Description" placeholder="Your Message"></textarea>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6">
-                                            <label for="Status" class="form-label">Status</label>
+                                            <label for="lendmethod" class="form-label">租借方式</label>
                                             <div class="select-has-icon icon-black">
-                                                <select class="select common-input" id="Status">
-                                                    <option value="1" disabled="">Status</option>
-                                                    <option value="1">For Rent</option>
-                                                    <option value="1">For Sell</option>
+                                                <select class="select common-input" id="lendmethod">
+                                                    <option value="1" disabled="">租借方式</option>
+                                                    <option value="1">合租</option>
+                                                    <option value="1">整租</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6">
-                                            <label for="Type" class="form-label">Status</label>
-                                            <div class="select-has-icon icon-black">
-                                                <select class="select common-input" id="Type">
-                                                    <option value="1" disabled=""> Type</option>
-                                                    <option value="1">Apartment</option>
-                                                    <option value="1">House</option>
-                                                    <option value="1">Land</option>
-                                                    <option value="1">Single Family</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6">
-                                            <label for="Price" class="form-label">Price</label>
-                                            <input type="number" class="common-input" id="Price" placeholder="USD">
-                                        </div>
-                                        <div class="col-sm-6 col-xs-6">
-                                            <label for="Area" class="form-label">Area</label>
-                                            <input type="number" class="common-input" id="Area" placeholder="Sq Ft">
                                         </div>
                                         <div class="col-sm-12">
-                                            <label for="Rooms" class="form-label">Rooms</label>
-                                            <div class="select-has-icon icon-black">
-                                                <select class="select common-input" id="Rooms">
-                                                    <option value="1" disabled=""> Rooms</option>
-                                                    <option value="1">Apartment</option>
-                                                    <option value="1">House</option>
-                                                    <option value="1">Land</option>
-                                                    <option value="1">Single Family</option>
-                                                </select>
-                                            </div>
+                                            <label for="location" class="form-label">位置</label>
+                                            <input type="text" class="common-input" id="location" placeholder="">
+                                        </div>   
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="housetype" class="form-label">户型</label>
+                                            <input type="text" class="common-input" id="housetype" placeholder="">
                                         </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="toward" class="form-label">朝向</label>
+                                            <input type="number" class="common-input" id="toward" placeholder="">
+                                        </div>   
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +162,7 @@ sidebar-list__link:hover a{
                         <div class="card-item" id="propertyGallery">
                             <div class="card common-card">
                                 <div class="card-header">
-                                    <h6 class="title mb-0">Property Gallery</h6>
+                                    <h6 class="title mb-0">房屋照片</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="input-images"></div>
@@ -200,112 +172,141 @@ sidebar-list__link:hover a{
                         <div class="card-item" id="propertyInformation">
                             <div class="card common-card">
                                 <div class="card-header">
-                                    <h6 class="title mb-0">Details Information</h6>
+                                    <h6 class="title mb-0">基本信息</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="row gy-4">
                                         <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="PropertyId" class="form-label">Property Id</label>
-                                            <input type="text" class="common-input" id="PropertyId" placeholder="Property Id">
+                                            <label for="area" class="form-label">面积</label>
+                                            <input type="text" class="common-input" id="area" placeholder="单位：(平方米)">
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="AreaSize" class="form-label">Area Size</label>
-                                            <input type="text" class="common-input" id="AreaSize" placeholder="Area Size">
+                                            <label for="maintainance" class="form-label">维护</label>
+                                            <input type="text" class="common-input" id="maintainance" placeholder="日期">
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="SizePrefix" class="form-label">Size Prefix</label>
-                                            <input type="text" class="common-input" id="SizePrefix" placeholder="Size Prefix">
+                                            <label for="livein" class="form-label">入住</label>
+                                            <input type="text" class="common-input" id="livein" placeholder="">
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="LandArea" class="form-label">Land Area</label>
-                                            <input type="text" class="common-input" id="LandArea" placeholder="Land Area">
+                                            <label for="floor" class="form-label">楼层</label>
+                                            <input type="text" class="common-input" id="floor" placeholder="">
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="Bedrooms" class="form-label">Bedrooms</label>
-                                            <input type="text" class="common-input" id="Bedrooms" placeholder="Bedrooms">
+                                            <label for="elevator" class="form-label">电梯</label>
+                                            <input type="text" class="common-input" id="elevator" placeholder="">
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="Bathrooms" class="form-label">Bathrooms</label>
-                                            <input type="text" class="common-input" id="Bathrooms" placeholder="Bathrooms">
+                                            <label for="parking" class="form-label">车位</label>
+                                            <input type="text" class="common-input" id="parking" placeholder="">
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="Garages" class="form-label">Garages</label>
-                                            <input type="text" class="common-input" id="Garages" placeholder="Garages">
+                                            <label for="water" class="form-label">用水</label>
+                                            <input type="text" class="common-input" id="water" placeholder="">
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="YearBuild" class="form-label">Year Build</label>
-                                            <input type="text" class="common-input" id="YearBuild" placeholder="Year Build">
+                                            <label for="electricity" class="form-label">用电</label>
+                                            <input type="text" class="common-input" id="electricity" placeholder="">
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="gas" class="form-label">燃气</label>
+                                            <input type="text" class="common-input" id="gas" placeholder="">
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="warm" class="form-label">采暖</label>
+                                            <input type="text" class="common-input" id="warm" placeholder="">
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="lendtime" class="form-label">租期</label>
+                                            <input type="text" class="common-input" id="lendtime" placeholder="">
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-xs-6">
+                                            <label for="view" class="form-label">看房方式</label>
+                                            <input type="text" class="common-input" id="view" placeholder="">
                                         </div>
                                         <div class="col-12">
-                                            <h6 class="checkboxes__title mt-4 fw-500 font-18">Amenities</h6>
-                                            <div class="row gy-3 checkboxes">
-                                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                            <h6 class="checkboxes__title mt-4 fw-500 font-18">设施</h6>
+                                            <div class="row gy-2 checkboxes">
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
                                                     <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="airCondition">
-                                                        <label class="form-check-label" for="airCondition"> Air Condition </label>
+                                                        <input class="form-check-input" type="checkbox" value="" id="washingmachine">
+                                                        <label class="form-check-label" for="washingmachine"> 洗衣机 </label>
                                                     </div>
                                                     <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="Lawn">
-                                                        <label class="form-check-label" for="Lawn"> Lawn </label>
+                                                        <input class="form-check-input" type="checkbox" value="" id="airconditioner">
+                                                        <label class="form-check-label" for="airconditioner"> 空调 </label>
                                                     </div>
                                                     <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="SwimmingPool">
-                                                        <label class="form-check-label" for="SwimmingPool"> Swimming Pool </label>
+                                                        <input class="form-check-input" type="checkbox" value="" id="clothbox">
+                                                        <label class="form-check-label" for="clothbox"> 衣柜 </label>
                                                     </div>
                                                     <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="Barbeque">
-                                                        <label class="form-check-label" for="Barbeque"> Barbeque </label>
+                                                        <input class="form-check-input" type="checkbox" value="" id="TV">
+                                                        <label class="form-check-label" for="TV"> 电视 </label>
                                                     </div>
                                                     <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="Microwave">
-                                                        <label class="form-check-label" for="Microwave"> Microwave </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-sm-6 col-xs-6">
-                                                    <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="TVCable">
-                                                        <label class="form-check-label" for="TVCable"> TV Cable </label>
-                                                    </div>
-                                                    <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="Dryer">
-                                                        <label class="form-check-label" for="Dryer"> Dryer </label>
-                                                    </div>
-                                                    <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="OutdoorShower">
-                                                        <label class="form-check-label" for="OutdoorShower"> Outdoor Shower </label>
-                                                    </div>
-                                                    <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="Washer">
-                                                        <label class="form-check-label" for="Washer"> Washer </label>
-                                                    </div>
-                                                    <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="Gym">
-                                                        <label class="form-check-label" for="Gym"> Gym </label>
+                                                        <input class="form-check-input" type="checkbox" value="" id="fridge">
+                                                        <label class="form-check-label" for="fridge"> 冰箱 </label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
                                                     <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="Refrigerator">
-                                                        <label class="form-check-label" for="Refrigerator"> Refrigerator </label>
+                                                        <input class="form-check-input" type="checkbox" value="" id="waterheaters">
+                                                        <label class="form-check-label" for="waterheaters"> 热水器 </label>
                                                     </div>
                                                     <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="WiFi">
-                                                        <label class="form-check-label" for="WiFi"> WiFi </label>
+                                                        <input class="form-check-input" type="checkbox" value="" id="bed">
+                                                        <label class="form-check-label" for="bed"> 床 </label>
                                                     </div>
                                                     <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="Laundry">
-                                                        <label class="form-check-label" for="Laundry"> Laundry </label>
+                                                        <input class="form-check-input" type="checkbox" value="" id="heating">
+                                                        <label class="form-check-label" for="heating"> 暖气 </label>
                                                     </div>
                                                     <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="Souna">
-                                                        <label class="form-check-label" for="Souna"> Souna </label>
+                                                        <input class="form-check-input" type="checkbox" value="" id="broadband">
+                                                        <label class="form-check-label" for="broadband"> 宽带 </label>
                                                     </div>
                                                     <div class="common-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="WindowCoverings">
-                                                        <label class="form-check-label" for="WindowCoverings"> Window Coverings </label>
+                                                        <input class="form-check-input" type="checkbox" value="" id="naturalgas">
+                                                        <label class="form-check-label" for="naturalgas"> 天然气 </label>
                                                     </div>
                                                 </div>
+                                                
+                                
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-item" id="pay">
+                            <div class="card common-card">
+                                <div class="card-header">
+                                    <h6 class="title mb-0">房屋费用</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row gy-4">
+                                        <div class="col-md-4 col-sm-6 col-xs-6">
+                                            <label for="paymethod" class="form-label">付款方式</label>
+                                            <input type="text" id="paymethod" class="common-input" placeholder="">
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 col-xs-6">
+                                            <label for="lendmony" class="form-label">租金</label>
+                                            <input type="text" id="lendmony" class="common-input" placeholder="单位：(元)">
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 col-xs-6">
+                                            <label for="cashpledge" class="form-label">押金</label>
+                                            <input type="text" id="cashpledge" class="common-input" placeholder="单位：(元)">
+                                        </div>
+                                    </div>
+                                    <div class="row gy-6">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <label for="servicefee" class="form-label">服务费</label>
+                                            <input type="text" id="servicefee" class="common-input" placeholder="单位：(元)">
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <label for="agencyfee" class="form-label">中介费</label>
+                                            <input type="text" id="agencyfee" class="common-input" placeholder="单位：(元)">
                                         </div>
                                     </div>
                                 </div>
@@ -314,27 +315,27 @@ sidebar-list__link:hover a{
                         <div class="card-item" id="propertyContactDetails">
                             <div class="card common-card">
                                 <div class="card-header">
-                                    <h6 class="title mb-0">Property Contact Details</h6>
+                                    <h6 class="title mb-0">联系方式</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="row gy-4">
                                         <div class="col-md-4 col-sm-6 col-xs-6">
-                                            <label for="Name" class="form-label">Your Name</label>
+                                            <label for="Name" class="form-label">姓名</label>
                                             <input type="text" id="Name" class="common-input" placeholder="Your Name">
                                         </div>
                                         <div class="col-md-4 col-sm-6 col-xs-6">
-                                            <label for="Email" class="form-label">Your E-mail</label>
+                                            <label for="Email" class="form-label">邮箱</label>
                                             <input type="email" id="Email" class="common-input" placeholder="Your E-Mail">
                                         </div>
                                         <div class="col-md-4 col-sm-6 col-xs-6">
-                                            <label for="Phone" class="form-label">Phone Number</label>
+                                            <label for="Phone" class="form-label">电话</label>
                                             <input type="tel" id="Phone" class="common-input" placeholder="Phone Number">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-main w-100">Submit Property</button>
+                        <button type="submit" class="btn btn-main w-100">上传出租房房源</button>
                     </form>
                 </div>
             </div>
