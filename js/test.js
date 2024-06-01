@@ -1,22 +1,13 @@
-var legal_person_data = {"uploadData":[{"count":630},{"count":986},{"count":792},{"count":642},{"count":521},{"count":573}
-					,{"count":832},{"count":747},{"count":983},{"count":836},{"count":831},{"count":633}],
-		"updateData":[{"count":110},{"count":181},{"count":123},{"count":197},{"count":123},{"count":173}
-					,{"count":123},{"count":151},{"count":101},{"count":152},{"count":101},{"count":177}],
-		"viewData":[{"count":651},{"count":842},{"count":223},{"count":223},{"count":221},{"count":812}
-					,{"count":928},{"count":219},{"count":613},{"count":254},{"count":981},{"count":301}]};
-var people_data = {"uploadData":[{"count":1300},{"count":1686},{"count":1692},{"count":1742},{"count":1621},{"count":773}
-				,{"count":832},{"count":1047},{"count":1483},{"count":1336},{"count":831},{"count":973}],
-	"updateData":[{"count":103},{"count":281},{"count":203},{"count":197},{"count":173},{"count":154}
-				,{"count":223},{"count":251},{"count":201},{"count":252},{"count":201},{"count":277}],
-	"viewData":[{"count":651},{"count":842},{"count":223},{"count":223},{"count":221},{"count":812}
-				,{"count":928},{"count":219},{"count":613},{"count":254},{"count":981},{"count":301}]};
-var picture_data = {"uploadData":[{"count":330},{"count":786},{"count":492},{"count":842},{"count":421},{"count":673}
-				,{"count":932},{"count":447},{"count":583},{"count":436},{"count":331},{"count":433}],
-	"updateData":[{"count":10},{"count":81},{"count":23},{"count":97},{"count":23},{"count":73}
-				,{"count":23},{"count":51},{"count":1},{"count":52},{"count":1},{"count":77}],
-	"viewData":[{"count":451},{"count":342},{"count":523},{"count":323},{"count":421},{"count":812}
-				,{"count":728},{"count":619},{"count":613},{"count":554},{"count":481},{"count":301}]};
-			
+var legal_person_data = {"uploadData":[{"count":146.842},{"count":138.0654},{"count":139.9434},{"count":136.281},{"count":133.4027}],
+		"viewData":[{"count":130},{"count":120},{"count":125},{"count":121},{"count":120}],
+		"updateData":[{"count":135},{"count":157},{"count":153},{"count":141.5},{"count":140}]};
+var people_data = {"uploadData":[{"count":1300},{"count":1686},{"count":1692},{"count":1742},{"count":1621}],
+	"updateData":[{"count":103},{"count":281},{"count":203},{"count":197},{"count":173}],
+	"viewData":[{"count":651},{"count":842},{"count":223},{"count":223},{"count":221}]};
+var picture_data = {"uploadData":[{"count":330},{"count":786},{"count":492},{"count":842},{"count":421}],
+	"updateData":[{"count":10},{"count":81},{"count":23},{"count":97},{"count":23}],
+	"viewData":[{"count":451},{"count":342},{"count":523},{"count":323},{"count":421}]};
+
 var Tpl1 = '<li>' +
 			'<p class="data-count">5681</p>' +
 			'<span class="data-name">数据总量</span>' +
@@ -126,7 +117,7 @@ function init_myChart3(data) {
 			itemGap: 10,
 			top: '16',
 			right: '10',
-			data: ['数据总量','共享次数','更新量'],
+			data: ['平均成交价（百元）','成交总价中位数（万）','成交周期中位数（天）'],
 			textStyle: {
 				fontSize: 10,
 				color: '#a0a8b9'
@@ -155,7 +146,7 @@ function init_myChart3(data) {
 			axisTick: {
 				show: false
 			},
-			data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月'],
+			data: ['1月', '2月', '3月', '4月', '5月'],
 			offset: 10
 		}],
 		yAxis: [{
@@ -182,7 +173,7 @@ function init_myChart3(data) {
 			}
 		}],
 		series: [{
-			name: '数据总量',
+			name: '平均成交价（百元）',
 			type: 'line',
 			smooth: true,
 			showSymbol: false,
@@ -211,7 +202,7 @@ function init_myChart3(data) {
 			},
 			data: uploadCnt
 		}, {
-			name: '共享次数',
+			name: '成交总价中位数（万）',
 			type: 'line',
 			smooth: true,
 			showSymbol: false,
@@ -240,7 +231,7 @@ function init_myChart3(data) {
 			},
 			data: viewCnt
 		},  {
-			name: '更新量',
+			name: '成交周期中位数（天）',
 			type: 'line',
 			smooth: true,
 			showSymbol: false,
@@ -275,12 +266,9 @@ function init_myChart3(data) {
 }
 
 function init_myChart2() {
-	var data = {"uploadData":[{"count":3230},{"count":2986},{"count":3392},{"count":2642},{"count":3521},{"count":2573}
-							,{"count":3132},{"count":3147},{"count":3283},{"count":3336},{"count":3831},{"count":3633}],
-				"updateData":[{"count":310},{"count":281},{"count":123},{"count":97},{"count":323},{"count":373}
-							,{"count":423},{"count":451},{"count":501},{"count":452},{"count":201},{"count":177}],
-				"viewData":[{"count":1651},{"count":1842},{"count":2223},{"count":2123},{"count":2021},{"count":1812}
-							,{"count":1928},{"count":2019},{"count":2613},{"count":2754},{"count":2981},{"count":3001}]};
+	var data = {"uploadData":[{"count":20000},{"count":7500},{"count":9300},{"count":6500},{"count":14000}],
+				"viewData":[{"count":18542},{"count":4486},{"count":7283},{"count":7054},{"count":10000}],
+				"updateData":[{"count":3125},{"count":1800},{"count":2280},{"count":1495},{"count":3000}]};
 	var uploadCnt = [];
 	var updateCnt = [];
 
@@ -333,10 +321,10 @@ function init_myChart2() {
 			itemGap: 10,
 			top: '16',
 			right: '10',
-			data: ['数据总量','共享次数','更新量'],
+			data: ['新房','二手房','出租屋'],
 			textStyle: {
 				fontSize: 10,
-				color: '#a0a8b9'
+				color: '#696969'
 			}
 		},
 		grid: {
@@ -356,13 +344,13 @@ function init_myChart2() {
 			axisLine: {
 				show: false,
 				lineStyle: {
-					color: '#a0a8b9'
+					color: '#696969'
 				}
 			},
 			axisTick: {
 				show: false
 			},
-			data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月'],
+			data: ['招商一江璟城', '龙庭华府', '中建壹品澜庭', '荣盛华庭', '华中国际广场'],
 			offset: 10
 		}],
 		yAxis: [{
@@ -370,7 +358,7 @@ function init_myChart2() {
 			axisLine: {
 				show: false,
 				lineStyle: {
-					color: '#a0a8b9'
+					color: '#696969'
 				}
 			},
 			axisLabel: {
@@ -389,7 +377,7 @@ function init_myChart2() {
 			}
 		}],
 		series: [{
-			name: '数据总量',
+			name: '新房',
 			type: 'line',
 			smooth: true,
 			showSymbol: false,
@@ -418,7 +406,7 @@ function init_myChart2() {
 			},
 			data: uploadCnt
 		}, {
-			name: '共享次数',
+			name: '二手房',
 			type: 'line',
 			smooth: true,
 			showSymbol: false,
@@ -447,7 +435,7 @@ function init_myChart2() {
 			},
 			data: viewCnt
 		},  {
-			name: '更新量',
+			name: '出租屋',
 			type: 'line',
 			smooth: true,
 			showSymbol: false,
@@ -640,7 +628,7 @@ function init_myChart5() {
     },
     series: [
       {
-        name: 'Wuhan',
+        name: '武汉',
         type: 'map',
         roam: true,
         map: 'Wuhan',
@@ -1006,33 +994,17 @@ function getNowFormatDate() {
     var year = date.getFullYear();
     var month = date.getMonth() + 1;
     var strDate = date.getDate();
-    var Hour =  date.getHours();       // 获取当前小时数(0-23)
-    var Minute =  date.getMinutes();     // 获取当前分钟数(0-59)
-    var Second = date.getSeconds();     // 获取当前秒数(0-59)
-    var show_day=new Array('星期日','星期一','星期二','星期三','星期四','星期五','星期六');
-    var day=date.getDay();
-    if (Hour<10) {
-        Hour = "0" + Hour;
-    }
-    if (Minute <10) {
-        Minute = "0" + Minute;
-    }
-    if (Second <10) {
-        Second = "0" + Second;
-    }
+    var show_day = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+    var day = date.getDay();
     if (month >= 1 && month <= 9) {
         month = "0" + month;
     }
     if (strDate >= 0 && strDate <= 9) {
         strDate = "0" + strDate;
     }
-    var currentdate = '<div><p>'+year + '年' + month +'月' + strDate+'号</p><p>'+show_day[day]+'</p></div>';
-    var HMS = Hour + ':' + Minute +':' + Second;
-	var temp_time = year+'-'+month+'-'+strDate+' '+HMS;
-    $('.nowTime li:nth-child(1)').html(HMS);
+    var currentdate = '<div><p>' + year + '年' + month + '月' + strDate + '号</p><p>' + show_day[day] + '</p></div>';
     $('.nowTime li:nth-child(2)').html(currentdate);
-	//$('.topRec_List li div:nth-child(3)').html(temp_time);
-    setTimeout(getNowFormatDate,1000);//每隔1秒重新调用一次该函数
+    setTimeout(getNowFormatDate, 1000); //每隔1秒重新调用一次该函数
 }
 var resourceDataType = $('.data-label li.active').data('type');//用于切换基础库
 function urlType() {
