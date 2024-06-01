@@ -95,47 +95,43 @@
                     <div class="col-lg-8 pe-lg-5">
                         <div class="card common-card">
                             <div class="card-body">
-                                <h6 class="title mb-4">Shipping Address</h6>
+                                <h6 class="title mb-4">买家信息</h6>
                                 <div class="row gy-4">
                                     <div class="col-sm-6 col-xs-6">
-                                        <label for="FirstName" class="form-label">First Name</label>
-                                        <input type="text" class="common-input" id="FirstName" placeholder="First Name">
+                                        <label for="Name" class="form-label">姓名</label>
+                                        <input type="text" class="common-input" id="Name" placeholder="Name">
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
-                                        <label for="LastName" class="form-label">Last Name</label>
-                                        <input type="text" class="common-input" id="LastName" placeholder="Last Name">
+                                        <label for="" class="form-label">性别</label>
+                                        <input type="text" class="common-input" id="LastName" placeholder="Gender">
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
-                                        <label for="EmailAddress" class="form-label">Email Address</label>
+                                        <label for="EmailAddress" class="form-label">邮箱</label>
                                         <input type="email" class="common-input" id="EmailAddress" placeholder="Email Address">
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
-                                        <label for="PhoneNumber" class="form-label">Phone Number</label>
+                                        <label for="PhoneNumber" class="form-label">电话</label>
                                         <input type="tel" class="common-input" id="PhoneNumber" placeholder="Phone Number">
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
-                                        <label for="Address" class="form-label">Address</label>
+                                        <label for="Address" class="form-label">地址</label>
                                         <input type="text" class="common-input" id="Address" placeholder="Address">
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
-                                        <label for="Country" class="form-label">Country</label>
-                                        <input type="text" class="common-input" id="Country" placeholder="Country">
+                                        <label for="idcard" class="form-label">身份证号</label>
+                                        <input type="text" class="common-input" id="idcard" placeholder="ID number">
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
-                                        <label for="City" class="form-label">City</label>
-                                        <input type="text" class="common-input" id="City" placeholder="City">
+                                        <label for="target" class="form-label">购房目的</label>
+                                        <input type="text" class="common-input" id="target" placeholder="Purpose of purchase">
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
-                                        <label for="State" class="form-label">State</label>
-                                        <input type="text" class="common-input" id="State" placeholder="State">
-                                    </div>
-                                    <div class="col-sm-6 col-xs-6">
-                                        <label for="Region" class="form-label">Region</label>
-                                        <input type="text" class="common-input" id="Region" placeholder="Region">
-                                    </div>
-                                    <div class="col-sm-6 col-xs-6">
-                                        <label for="ZipCode" class="form-label">ZipCode</label>
+                                        <label for="ZipCode" class="form-label">邮政编码</label>
                                         <input type="text" class="common-input" id="ZipCode" placeholder="ZipCode">
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <label for="Note" class="form-label">备注</label>
+                                        <input type="text" class="common-input" id="Note" placeholder="Note">
                                     </div>
                                 </div>
                             </div>
@@ -148,16 +144,16 @@
                                 <div class="d-flex flex-column gap-3">
                                     <div class="payment-method">
                                         <div class="common-radio">
-                                            <input class="form-check-input" type="radio" name="payment" id="DebitCard">
-                                            <label class="form-check-label" for="DebitCard">
+                                            <input class="form-check-input" type="radio" name="payment" id="once">
+                                            <label class="form-check-label" for="once">
                                                 一次性付清                                         
                                             </label>
                                         </div>
                                     </div>
                                     <div class="payment-method">
                                         <div class="common-radio">
-                                            <input class="form-check-input" type="radio" name="payment" id="payPal">
-                                            <label class="form-check-label" for="payPal">
+                                            <input class="form-check-input" type="radio" name="payment" id="long">
+                                            <label class="form-check-label" for="long">
                                                 按揭
                                             </label>
                                         </div>
@@ -167,7 +163,7 @@
                         </div>
                         <div class="card common-card">
                             <div class="card-body">
-                                <h6 class="title mb-4">Cart Totals</h6>
+                                <h6 class="title mb-4">总计</h6>
                                 <ul class="billing-list">
                                     <li class="billing-list__item flx-between">
                                         <span class="text text-poppins font-15">3 Rooms Manhattan × 2</span>
@@ -190,7 +186,7 @@
                                         <span class="amount fw-semibold text-heading text-poppins"> $10.00</span>
                                     </li>
                                     <li class="billing-list__item flx-between">
-                                        <span class="text text-poppins fw-semibold text-heading">Order Total</span>
+                                        <span class="text text-poppins fw-semibold text-heading">总金额</span>
                                         <span class="amount fw-semibold text-heading text-poppins"> $661.95</span>
                                     </li>
                                 </ul>
