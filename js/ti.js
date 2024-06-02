@@ -141,7 +141,7 @@ app.post('/search', (req, res) => {
     const sql = `SELECT * FROM ${table} WHERE 名称 LIKE '%${query}%'`;
 
     // 执行数据库查询
-    db_lite.all(sql, (err, rows) => {
+    db.all(sql, (err, rows) => {
         if (err) {
             console.error(err.message);
             res.status(500).json({ error: 'Internal Server Error' });
