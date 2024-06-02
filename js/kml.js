@@ -82,47 +82,47 @@
 
 
 
-const fs = require("fs");
+// const fs = require("fs");
 
-// 读取 JSON 文件
-const data = fs.readFileSync("geojson/武汉建筑.json", "utf8");
+// // 读取 JSON 文件
+// const data = fs.readFileSync("geojson/武汉建筑.json", "utf8");
 
-// 解析 JSON
-const obj = JSON.parse(data);
+// // 解析 JSON
+// const obj = JSON.parse(data);
 
-// 遍历每个 feature
-obj.features.forEach((feature) => {
-  var Floor = feature.properties.Floor; // 假设 Floor 属性存储在 properties 对象中
+// // 遍历每个 feature
+// obj.features.forEach((feature) => {
+//   var Floor = feature.properties.Floor; // 假设 Floor 属性存储在 properties 对象中
 
-  if (feature.geometry && feature.geometry.coordinates) {
-    if (feature.geometry.type === 'Polygon') {
-      feature.geometry.coordinates = feature.geometry.coordinates.map(function (
-        ring
-      ) {
-        return ring.map(function (coordinate) {
-          // 保留原始的 coordinate 数组，并只修改第三个元素（Z坐标）
-          coordinate[2] = Floor;
-          return coordinate;
-        });
-      });
-    } else if (feature.geometry.type === 'MultiPolygon') {
-      feature.geometry.coordinates = feature.geometry.coordinates.map(function (
-        polygon
-      ) {
-        return polygon.map(function (ring) {
-          return ring.map(function (coordinate) {
-            // 保留原始的 coordinate 数组，并只修改第三个元素（Z坐标）
-            coordinate[2] = Floor;
-            return coordinate;
-          });
-        });
-      });
-    }
-  }
-});
+//   if (feature.geometry && feature.geometry.coordinates) {
+//     if (feature.geometry.type === 'Polygon') {
+//       feature.geometry.coordinates = feature.geometry.coordinates.map(function (
+//         ring
+//       ) {
+//         return ring.map(function (coordinate) {
+//           // 保留原始的 coordinate 数组，并只修改第三个元素（Z坐标）
+//           coordinate[2] = Floor;
+//           return coordinate;
+//         });
+//       });
+//     } else if (feature.geometry.type === 'MultiPolygon') {
+//       feature.geometry.coordinates = feature.geometry.coordinates.map(function (
+//         polygon
+//       ) {
+//         return polygon.map(function (ring) {
+//           return ring.map(function (coordinate) {
+//             // 保留原始的 coordinate 数组，并只修改第三个元素（Z坐标）
+//             coordinate[2] = Floor;
+//             return coordinate;
+//           });
+//         });
+//       });
+//     }
+//   }
+// });
 
-// 格式化 JSON
-const formatted = JSON.stringify(obj, null, 2); // 2 是缩进的空格数
+// // 格式化 JSON
+// const formatted = JSON.stringify(obj, null, 2); // 2 是缩进的空格数
 
-// 将格式化的 JSON 写入新的文件
-fs.writeFileSync("geojson/武汉建筑_formatted.json", formatted);
+// // 将格式化的 JSON 写入新的文件
+// fs.writeFileSync("geojson/武汉建筑_formatted.json", formatted);
