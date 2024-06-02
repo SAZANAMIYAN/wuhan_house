@@ -987,6 +987,27 @@ function init_myChart7(){
 	myChart7.setOption(option);
 }
 
+//资讯切换
+function showDiv(divId, btnId) {
+	// 隐藏所有内容div
+	const divs = document.querySelectorAll('.content-div');
+	divs.forEach(div => {
+		div.classList.remove('active');
+	});
+
+	// 移除所有按钮的active类
+	const buttons = document.querySelectorAll('.btn-group .btn');
+	buttons.forEach(button => {
+		button.classList.remove('active');
+	});
+
+	// 显示对应的内容div
+	document.getElementById(divId).classList.add('active');
+
+	// 设置点击的按钮为active
+	document.getElementById(btnId).classList.add('active');
+}
+
 
 //获取当前时间
 function getNowFormatDate() {
