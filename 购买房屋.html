@@ -90,7 +90,7 @@
         <!-- ===================== Checkout Section Start ============================ -->
     <section class="checkout padding-y-120">
         <div class="container container-two">
-            <form action="#">
+            <form id="uploadForm"  method="post" enctype="multipart/form-data">
                 <div class="row gy-4">
                     <div class="col-lg-8 pe-lg-5">
                         <div class="card common-card">
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
                                         <label for="" class="form-label">性别</label>
-                                        <input type="text" class="common-input" id="LastName" placeholder="Gender">
+                                        <input type="text" class="common-input" id="Gender" placeholder="Gender">
                                     </div>
                                     <div class="col-sm-6 col-xs-6">
                                         <label for="EmailAddress" class="form-label">邮箱</label>
@@ -166,28 +166,28 @@
                                 <h6 class="title mb-4">总计</h6>
                                 <ul class="billing-list">
                                     <li class="billing-list__item flx-between">
-                                        <span class="text text-poppins font-15">小区名称</span>
-                                        <span class="amount  text-heading text-poppins">中建锦绣双城</span>
+                                        <span class="text text-poppins font-15" >小区名称</span>
+                                        <span class="text  text-heading text-poppins" id="house_name">中建锦绣双城</span>
                                     </li>
                                     <li class="billing-list__item flx-between">
-                                        <span class="text text-poppins font-15">房屋价格（每平）</span>
-                                        <span class="amount  text-heading text-poppins"> ¥7300 </span>
+                                        <span class="text text-poppins font-15">销售状态</span>
+                                        <span class="text  text-heading text-poppins" id="sell_status"> 待售 </span>
                                     </li>
                                     <li class="billing-list__item flx-between">
                                         <span class="text text-poppins font-15">户型</span>
-                                        <span class="amount  text-heading text-poppins"> 三室两厅一厨一卫</span>
+                                        <span class="text  text-heading text-poppins" id="room_type"> 三室两厅一厨一卫</span>
                                     </li>
                                     <li class="billing-list__item flx-between">
                                         <span class="text text-poppins font-15">面积（平方米）</span>
-                                        <span class="amount  text-heading text-poppins"> 110</span>
+                                        <span class="text  text-heading text-poppins" id="area"> 110</span>
                                     </li>
                                     <li class="billing-list__item flx-between">
                                         <span class="text text-poppins font-15">楼盘位置</span>
-                                        <span class="amount  text-heading text-poppins">莲花湖大道与西环路交汇处</span>
+                                        <span class="text  text-heading text-poppins" id="house_address">莲花湖大道与西环路交汇处</span>
                                     </li>
                                     <li class="billing-list__item flx-between">
                                         <span class="text text-poppins fw-semibold text-heading">总金额</span>
-                                        <span class="amount fw-semibold text-heading text-poppins">¥803000</span>
+                                        <span class="text fw-semibold text-heading text-poppins" id="price">¥803000</span>
                                     </li>
                                 </ul>
                                 <button type="submit" class="btn btn-main w-100 mt-4">提交订单</button>
@@ -201,11 +201,65 @@
     <!-- ===================== Checkout Section End ============================ -->
  
     
-    
+    <script>
+        function getSelectedPaymentMethod() {
+            // 获取所有具有 name="payment" 的单选按钮
+            const paymentMethods = document.querySelectorAll('input[name="payment"]');
+            let selectedPayment = null;
+
+            // 遍历单选按钮，找到选中的那一个
+            paymentMethods.forEach(method => {
+                if (method.checked) {
+                    selectedPayment = method.nextElementSibling.textContent.trim();
+                }
+            });
+
+            // 将选中的付款方式存储在 target 变量中
+            return selectedPayment;
+        }
+
+        document.getElementById('uploadForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+
+            let Name = document.getElementById('Name').value;
+            let Gender = document.getElementById('Gender').value;
+            let EmailAddress = document.getElementById('EmailAddress').value;
+            let PhoneNumber = document.getElementById('PhoneNumber').value;
+            let Address = document.getElementById('Address').value;
+            let idcard = document.getElementById('idcard').value;
+            let target = document.getElementById('target').value;
+            let ZipCode = document.getElementById('ZipCode').value;
+            let Note = document.getElementById('Note').value;
+            let payment = getSelectedPaymentMethod(); // 获取选中的付款方式
+
+            let house_name = document.getElementById('house_name').textContent; // 使用 textContent 获取文本内容
+            let price = document.getElementById('price').textContent; // 使用 textContent 获取文本内容
+
+            // 发送 AJAX 请求给后端
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:3000/uploadorder', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    // 显示上传成功的消息
+                    alert('订单提交成功');
+                    // 回到页面顶部
+                    window.scrollTo(0, 0);
+                    // 延时刷新页面
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 500); // 延时500毫秒
+                }
+            };
+
+            xhr.send(JSON.stringify({ Name, Gender, EmailAddress, PhoneNumber, Address, idcard, target, ZipCode, Note, payment, house_name, price }));
+        });
+    </script>
 
 
   
-</main>
+
 
     <!-- Jquery js -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
