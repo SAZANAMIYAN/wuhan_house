@@ -30,20 +30,17 @@
     position: static;
     margin: 30px 100px; /* 调整按钮的外边距 */
     top: 50%; /* 将按钮垂直居中 */
-    transform: translateY(-50%); /* 使用 translateY 将按钮向上移动其自身高度的一半，以实现垂直居中 */
+    
     width: 30px; /* 设置按钮的宽度 */
     height: 30px; /* 设置按钮的高度 */
     margin-top: -15px; /* 将按钮上下居中 */
     background-color: #007bff;
     border: none; /* 去除按钮的边框 */
-    
     padding: 5px; /* 增加按钮的内边距以增加可点击区域 */
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    color: #ffffff; /* 设置图标颜色为白色 */
-}
+
+
 
 /* 设置按钮的激活状态 */
 .carousel-control-prev:hover,
