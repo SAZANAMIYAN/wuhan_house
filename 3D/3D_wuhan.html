@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>testForCesium</title>
+  <script src="libs/Build/Cesium/Cesium.js"></script>
+  <link href="libs/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <style>
+    html,
+    body,
+    #cesium_container {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="cesium_container">
+    <div id="toolbar">
+      <select onchange="colorchange()" id="my" class="cesium-button"
+        style="position:absolute;top:10px;z-index:2; width:180px; height:45px;">
+        <option value="1" style="font-size: 1em;" selected>根据高度设置颜色</option>
+        <option value="2" style="font-size: 1em;">根据价格设置颜色</option>
+        <option value="3" style="font-size: 1em;">根据面积设置颜色</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="legend1">
+    <div style="color: rgb(255, 255, 255);"><span style="background-color: rgb(255, 85, 0);"></span> 楼层数 >= 30</div>
+    <div style="color: rgb(255, 255, 255);"><span style="background-color: rgb(255, 155, 40);"></span> 楼层数 >= 25</div>
+    <div style="color: rgb(255, 255, 255);"><span style="background-color: rgb(255, 197, 80);"></span> 楼层数 >= 20</div>
+    <div style="color: rgb(255, 255, 255);"><span style="background-color: rgb(255, 239, 100);"></span> 楼层数 >= 15</div>
+    <div style="color: rgb(255, 255, 255);"><span style="background-color: rgb(219, 251, 79);"></span> 楼层数 >= 10</div>
+    <div style="color: rgb(255, 255, 255);"><span style="background-color: rgb(216, 247, 166);"></span> 楼层数 >= 5</div>
+    <div style="color: rgb(255, 255, 255);"><span style="background-color: rgb(111, 243, 85);"></span> 楼层数 >= 3</div>
+    <style>
+      #legend1 {
+        position: absolute;
+        top: 150px;
+        left: 10px;
+        background-color: rgba(48, 47, 47, 0.776);
+        padding: 10px;
+        z-index: 1000;
+        border-radius: 10px;
+        display: none;
+      }
+
+      #legend1 div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+
+      #legend1 span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    </style>
+  </div>
+
+  <div id="legend2">
+    <div style="color: white;"><span style="background-color: rgba(45, 0, 75, 1);"></span> 价格 >= 1000万</div>
+    <div style="color: white;"><span style="background-color: rgba(102, 71, 151, 1);"></span> 价格 >= 800万</div>
+    <div style="color: white;"><span style="background-color: rgba(170, 162, 204, 1);"></span> 价格 >= 500万</div>
+    <div style="color: white;"><span style="background-color: rgba(224, 226, 238, 1);"></span> 价格 >= 300万</div>
+    <div style="color: white;"><span style="background-color: rgba(252, 230, 200, 1);"></span> 价格 >= 200万</div>
+    <div style="color: white;"><span style="background-color: rgba(248, 176, 87, 1);"></span> 价格 >= 100万</div>
+    <div style="color: white;"><span style="background-color: rgba(198, 106, 11, 1);"></span> 价格 >= 15万</div>
+    <style>
+      #legend2 {
+        position: absolute;
+        top: 150px;
+        left: 10px;
+        background-color: rgba(48, 47, 47, 0.776);
+        padding: 10px;
+        z-index: 1000;
+        border-radius: 10px;
+        display: none;
+      }
+
+      #legend2 div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        font-size: 14px;
+        /* 添加这一行 */
+      }
+
+      #legend2 span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    </style>
+  </div>
+
+  <div id="legend3">
+    <div style="color: white;"><span style="background-color: rgba(45, 0, 75, 1);"></span> 面积 >= 300</div>
+    <div style="color: white;"><span style="background-color: rgba(102, 71, 151, 1);"></span> 面积 >= 200</div>
+    <div style="color: white;"><span style="background-color: rgba(170, 162, 204, 1);"></span> 面积 >= 150</div>
+    <div style="color: white;"><span style="background-color: rgba(224, 226, 238, 1);"></span> 面积 >= 100</div>
+    <div style="color: white;"><span style="background-color: rgba(252, 230, 200, 1);"></span> 面积 >= 80</div>
+    <div style="color: white;"><span style="background-color: rgba(248, 176, 87, 1);"></span> 面积 >= 50</div>
+    <div style="color: white;"><span style="background-color: rgba(198, 106, 11, 1);"></span> 面积 >= 10</div>
+    <style>
+      #legend3 {
+        position: absolute;
+        top: 150px;
+        left: 10px;
+        background-color: rgba(48, 47, 47, 0.776);
+        padding: 10px;
+        z-index: 1000;
+        border-radius: 10px;
+        display: none;
+      }
+
+      #legend3 div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        font-size: 14px;
+        /* 添加这一行 */
+      }
+
+      #legend3 span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    </style>
+  </div>
+
+  <script type="text/javascript">
+
+    function colorchange() {
+      var my = document.getElementById("my").value;
+      var legend1 = document.getElementById("legend1");
+      var legend2 = document.getElementById("legend2");
+      var legend3 = document.getElementById("legend3");
+
+      // 首先隐藏所有图例
+      legend1.style.display = "none";
+      legend2.style.display = "none";
+      legend3.style.display = "none";
+
+      switch (my) {
+        case "1":
+          colorByHeight(tileset);
+          legend1.style.display = "block"; // 显示图例1
+          break;
+        case "2":
+          colorByPrice(tileset);
+          legend2.style.display = "block"; // 显示图例2
+          break;
+        case "3":
+          colorBySize(tileset);
+          legend3.style.display = "block"; // 显示图例3
+          break;
+        default:
+          alert("出错");
+      }
+    }
+
+
+    const colorByHeight = (_3DTileset) => {
+      _3DTileset.style = new Cesium.Cesium3DTileStyle({
+        color: {
+          conditions: [
+            ['${楼层数} >= 30', 'rgb(255, 85, 0)'],
+            ['${楼层数} >= 25', 'rgb(255, 155, 40)'],
+            ['${楼层数} >= 20', 'rgb(255, 197, 80)'],
+            ['${楼层数} >= 15', 'rgb(255, 239, 100)'],
+            ['${楼层数} >= 10', 'rgb(219, 251, 79)'],
+            ['${楼层数} >= 5', 'rgba(255, 255, 200, 1)'],
+            ['${楼层数} >= 3', 'rgb(111, 243, 85)'],
+            ['true', 'rgba(127, 59, 8, 1)']
+          ]
+        }
+      });
+    }
+    const colorByPrice = (_3DTileset) => {
+      _3DTileset.style = new Cesium.Cesium3DTileStyle({
+        color: {
+          conditions: [
+            ['${价格_万} >= 1000', 'rgba(45, 0, 75, 1)'],
+            ['${价格_万} >= 800', 'rgba(102, 71, 151, 1)'],
+            ['${价格_万} >= 500', 'rgba(170, 162, 204, 1)'],
+            ['${价格_万} >= 300', 'rgba(224, 226, 238, 1)'],
+            ['${价格_万} >= 200', 'rgba(252, 230, 200, 1)'],
+            ['${价格_万} >= 100', 'rgba(248, 176, 87, 1)'],
+            ['${价格_万} >= 15', 'rgba(198, 106, 11, 1)'],
+            ['true', 'rgba(127, 59, 8, 1)']
+          ]
+        }
+      });
+    }
+    const colorBySize = (_3DTileset) => {
+      _3DTileset.style = new Cesium.Cesium3DTileStyle({
+        color: {
+          conditions: [
+            ['${面积m2} >= 300', 'rgba(45, 0, 75, 1)'],
+            ['${面积m2} >= 200', 'rgba(102, 71, 151, 1)'],
+            ['${面积m2} >= 150', 'rgba(170, 162, 204, 1)'],
+            ['${面积m2} >= 100', 'rgba(224, 226, 238, 1)'],
+            ['${面积m2} >= 80', 'rgba(252, 230, 200, 1)'],
+            ['${面积m2} >= 50', 'rgba(248, 176, 87, 1)'],
+            ['${面积m2} >= 10', 'rgba(198, 106, 11, 1)'],
+            ['true', 'rgba(127, 59, 8, 1)']
+          ]
+        }
+      });
+    }
+
+    const setStyle2 = (_3DTileset) => {
+      _3DTileset.style = new Cesium.Cesium3DTileStyle({
+        color: {
+          conditions: [
+            ["true", "color('cyan')"]
+          ]
+        }
+      });
+    }
+
+    var url = "src/二手房源面状数据_提取楼层_2.kml"
+
+    Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwM2Y1NWIwNi05MDYzLTQwMmMtOGQ4MC04NWUwMjM4MWFiMjUiLCJpZCI6MTMwMjI0LCJpYXQiOjE2Nzk2MjU5MDd9.kt_HUF9zUcslkW8Xe0RDzDxLVgdafxJZ3123lQOi64A"
+    const viewer = new Cesium.Viewer('cesium_container', {
+
+      // infoBox: false,
+      vrButton: false,
+      fullscreenButton: false,
+      timeline: false,
+      // creditContainer:"credit",
+      animation: false
+    })
+    var imgLayer = new Cesium.UrlTemplateImageryProvider({
+      url: "https://webst02.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}",
+      minimumLevel: 3,
+      maximumLevel: 18
+    })
+    viewer.imageryLayers.addImageryProvider(imgLayer)
+
+    var initialPosition = Cesium.Cartesian3.fromDegrees(114.305392, 30.593098, 500);
+    var initialOrientation = new Cesium.HeadingPitchRoll.fromDegrees(21.27879878293835, -21.34390550872461, 0.0716951918898415);
+    viewer.scene.camera.setView({
+      destination: initialPosition,
+      orientation: initialOrientation,
+      endTransform: Cesium.Matrix4.IDENTITY
+    });
+    viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function (commandInfo) {
+      // Fly to custom position
+      viewer.camera.flyTo({
+        destination: Cesium.Cartesian3.fromDegrees(114.305392, 30.593098, 500)
+      });
+
+      // Tell the home button not to do anything
+      commandInfo.cancel = true;
+    });
+    var iframe = document.getElementsByClassName('cesium-infoBox-iframe')[0];
+    iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-popups allow-forms');
+    iframe.setAttribute('src', ''); //必须设置src为空 否则不会生效。
+    var dataSource = new Cesium.KmlDataSource();
+
+
+    const tileset = new Cesium.Cesium3DTileset({
+      url: "src/data_7/tileset.json"
+    })
+    tileset.readyPromise.then(function (argument) {
+      viewer.scene.primitives.add(tileset)
+      // setStyle(tileset)
+      viewer.flyTo(tileset)
+      console.log(tileset.properties)
+    })
+
+    const nameOverlay = document.createElement("div");
+    viewer.container.appendChild(nameOverlay);
+    nameOverlay.className = "backdrop";
+    nameOverlay.style.display = "none";
+    nameOverlay.style.position = "absolute";
+    nameOverlay.style.bottom = "0";
+    nameOverlay.style.left = "0";
+    nameOverlay.style["pointer-events"] = "none";
+    nameOverlay.style.padding = "4px";
+    nameOverlay.style.backgroundColor = "white";
+
+    // Information about the currently selected feature
+    const selected = {
+      feature: undefined,
+      originalColor: new Cesium.Color(),
+    };
+
+    // An entity object which will hold info about the currently selected feature for infobox display
+    const selectedEntity = new Cesium.Entity();
+
+    // Get default left click handler for when a feature is not picked on left click
+    const clickHandler = viewer.screenSpaceEventHandler.getInputAction(
+      Cesium.ScreenSpaceEventType.LEFT_CLICK
+    );
+
+    // Update the 'nameOverlay' for the given picked feature,
+    // at the given (screen) position.
+    function updateNameOverlay(pickedFeature, position) {
+      if (!Cesium.defined(pickedFeature)) {
+        nameOverlay.style.display = "none";
+        return;
+      }
+      // A feature was picked, so show its overlay content
+      nameOverlay.style.display = "block";
+      nameOverlay.style.bottom = `${viewer.canvas.clientHeight - position.y
+        }px`;
+      nameOverlay.style.left = `${position.x}px`;
+      const name1 = pickedFeature.getProperty("区域");
+      const name2 = pickedFeature.getProperty("小区名");
+
+      nameOverlay.textContent = name1 + "——" + name2
+    }
+
+    // Create the HTML that will be put into the info box that shows
+    // information about the currently selected feature
+    function createPickedFeatureDescription(pickedFeature) {
+      const description =
+        `${'<table class="cesium-infoBox-defaultTable"><tbody>' +
+        "<tr><th>区域</th><td>"
+        }${pickedFeature.getProperty("区域")}</td></tr>` +
+        `<tr><th>小区名</th><td>${pickedFeature.getProperty(
+          "小区名"
+        )}</td></tr>` +
+        `<tr><th>价格（万）</th><td>${pickedFeature.getProperty(
+          "价格_万"
+        )}</td></tr>` +
+        `<tr><th>经度</th><td>${pickedFeature.getProperty(
+          "longitude"
+        )}</td></tr>` +
+        `<tr><th>纬度</th><td>${pickedFeature.getProperty(
+          "latitude"
+        )}</td></tr>` +
+        `<tr><th>楼层数</th><td>${pickedFeature.getProperty(
+          "楼层数"
+        )}</td></tr>` +
+        `<tr><th>面积(平方米)</th><td>${pickedFeature.getProperty(
+          "面积m2"
+        )}</td></tr>` +
+        `<tr><th>备注</th><td>${pickedFeature.getProperty(
+          "备注"
+        )}</td></tr>` +
+        `<tr><th>网站</th><td>${pickedFeature.getProperty(
+          "链接"
+        )}</td></tr>` +
+        `</tbody></table>`;
+      return description;
+    }
+
+    // If silhouettes are supported, silhouette features in blue on mouse over and silhouette green on mouse click.
+    // If silhouettes are not supported, change the feature color to yellow on mouse over and green on mouse click.
+    if (
+      Cesium.PostProcessStageLibrary.isSilhouetteSupported(viewer.scene)
+    ) {
+      // Silhouettes are supported
+      const silhouetteBlue = Cesium.PostProcessStageLibrary.createEdgeDetectionStage();
+      silhouetteBlue.uniforms.color = Cesium.Color.BLUE;
+      silhouetteBlue.uniforms.length = 0.01;
+      silhouetteBlue.selected = [];
+
+      const silhouetteGreen = Cesium.PostProcessStageLibrary.createEdgeDetectionStage();
+      silhouetteGreen.uniforms.color = Cesium.Color.LIME;
+      silhouetteGreen.uniforms.length = 0.01;
+      silhouetteGreen.selected = [];
+
+      viewer.scene.postProcessStages.add(
+        Cesium.PostProcessStageLibrary.createSilhouetteStage([
+          silhouetteBlue,
+          silhouetteGreen,
+        ])
+      );
+
+      // Silhouette a feature blue on hover.
+      viewer.screenSpaceEventHandler.setInputAction(function onMouseMove(
+        movement
+      ) {
+        // If a feature was previously highlighted, undo the highlight
+        silhouetteBlue.selected = [];
+
+        // Pick a new feature
+        const pickedFeature = viewer.scene.pick(movement.endPosition);
+
+        updateNameOverlay(pickedFeature, movement.endPosition);
+
+        if (!Cesium.defined(pickedFeature)) {
+          return;
+        }
+
+        // Highlight the feature if it's not already selected.
+        if (pickedFeature !== selected.feature) {
+          silhouetteBlue.selected = [pickedFeature];
+        }
+      },
+        Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+
+      // Silhouette a feature on selection and show metadata in the InfoBox.
+      viewer.screenSpaceEventHandler.setInputAction(function onLeftClick(
+        movement
+      ) {
+        // If a feature was previously selected, undo the highlight
+        silhouetteGreen.selected = [];
+
+        // Pick a new feature
+        const pickedFeature = viewer.scene.pick(movement.position);
+        if (!Cesium.defined(pickedFeature)) {
+          clickHandler(movement);
+          return;
+        }
+
+        // Select the feature if it's not already selected
+        if (silhouetteGreen.selected[0] === pickedFeature) {
+          return;
+        }
+
+        // Save the selected feature's original color
+        const highlightedFeature = silhouetteBlue.selected[0];
+        if (pickedFeature === highlightedFeature) {
+          silhouetteBlue.selected = [];
+        }
+
+        // Highlight newly selected feature
+        silhouetteGreen.selected = [pickedFeature];
+
+        // Set feature infobox description
+        viewer.selectedEntity = selectedEntity;
+        selectedEntity.description = createPickedFeatureDescription(
+          pickedFeature
+        );
+      },
+        Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    } else {
+      // Silhouettes are not supported. Instead, change the feature color.
+
+      // Information about the currently highlighted feature
+      const highlighted = {
+        feature: undefined,
+        originalColor: new Cesium.Color(),
+      };
+
+      // Color a feature yellow on hover.
+      viewer.screenSpaceEventHandler.setInputAction(function onMouseMove(
+        movement
+      ) {
+        // If a feature was previously highlighted, undo the highlight
+        if (Cesium.defined(highlighted.feature)) {
+          highlighted.feature.color = highlighted.originalColor;
+          highlighted.feature = undefined;
+        }
+        // Pick a new feature
+        const pickedFeature = viewer.scene.pick(movement.endPosition);
+        updateNameOverlay(pickedFeature, movement.endPosition);
+
+        if (!Cesium.defined(pickedFeature)) {
+          return;
+        }
+
+        // Highlight the feature if it's not already selected.
+        if (pickedFeature !== selected.feature) {
+          highlighted.feature = pickedFeature;
+          Cesium.Color.clone(
+            pickedFeature.color,
+            highlighted.originalColor
+          );
+          pickedFeature.color = Cesium.Color.YELLOW;
+        }
+      },
+        Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+
+      // Color a feature on selection and show metadata in the InfoBox.
+      viewer.screenSpaceEventHandler.setInputAction(function onLeftClick(
+        movement
+      ) {
+        // If a feature was previously selected, undo the highlight
+        if (Cesium.defined(selected.feature)) {
+          selected.feature.color = selected.originalColor;
+          selected.feature = undefined;
+        }
+        // Pick a new feature
+        const pickedFeature = viewer.scene.pick(movement.position);
+        if (!Cesium.defined(pickedFeature)) {
+          clickHandler(movement);
+          return;
+        }
+        // Select the feature if it's not already selected
+        if (selected.feature === pickedFeature) {
+          return;
+        }
+        selected.feature = pickedFeature;
+        // Save the selected feature's original color
+        if (pickedFeature === highlighted.feature) {
+          Cesium.Color.clone(
+            highlighted.originalColor,
+            selected.originalColor
+          );
+          highlighted.feature = undefined;
+        } else {
+          Cesium.Color.clone(pickedFeature.color, selected.originalColor);
+        }
+        // Highlight newly selected feature
+        pickedFeature.color = Cesium.Color.LIME;
+
+        // Set feature infobox description
+        viewer.selectedEntity = selectedEntity;
+        selectedEntity.description = createPickedFeatureDescription(
+          pickedFeature
+        );
+      },
+        Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,13 +1,17 @@
 {
   "description": "",
   "dependencies": {
+    "@mapbox/togeojson": "^0.16.2",
+    "cheerio": "^1.0.0-rc.12",
     "cors": "^2.8.5",
     "csv-parser": "^3.0.0",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
+    "jszip": "^3.10.1",
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "xmldom": "^0.6.0"
   }
 }
