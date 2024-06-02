@@ -126,7 +126,7 @@ sidebar-list__link:hover a{
             </div>
             <div class="col-lg-9 ps-lg-5">
                 <div data-bs-spy="scroll" data-bs-target="#list-scroll" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                    <form id="uploadForm" action="http://localhost:3001/upload" method="post" enctype="multipart/form-data">
+                    <form id="uploadForm"  method="post" enctype="multipart/form-data">
                         <div class="card-item" id="basicInformation">
                             <div class="card common-card">
                                 <div class="card-header">
@@ -210,30 +210,43 @@ sidebar-list__link:hover a{
     
 
   
-</main>
-<script>
-   $(document).ready(function() {
-    $('#uploadForm').on('submit', function(e) {
-        e.preventDefault();
-        var formData = new FormData(this);
-        
-        $.ajax({
-            url: 'http://localhost:3001/upload',
-            type: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(response) {
-                alert('上传成功');
-            },
-            error: function(error) {
-                alert('上传失败');
-            }
-        });
-    });
+
+
+
+  <script>
+
+    document.getElementById('uploadForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // 阻止表单默认提交行为
+
+    let propertyTitle = document.getElementById('propertyTitle').value;
+    let Price = document.getElementById('Price').value;
+    let location = document.getElementById('location').value;
+    let Propertytype = document.getElementById('Propertytype').value;
+
+    // 发送 AJAX 请求给后端
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:3000/uploadxinfang', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        // 显示上传成功的消息
+        alert('新房上传成功');
+        // 回到页面顶部
+        window.scrollTo(0, 0);
+        // 延时刷新页面
+        setTimeout(() => {
+            window.location.reload();
+        }, 500); // 延时500毫秒
+    }
+};
+
+
+    xhr.send(JSON.stringify({ propertyTitle: propertyTitle, Price: Price, location: location, Propertytype: Propertytype }));
 });
 
-  </script>
+
+</script>
     <!-- Jquery js -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
 

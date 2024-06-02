@@ -5,6 +5,13 @@
   overflow-y: auto; /* 添加垂直滚动条 */
 }
 
+.card-key {
+  font-weight: bold; /* 加粗 */
+}
+
+.card-value {
+  font-style: italic; /* 斜体，可以根据需要修改 */
+}
 
 /* 卡片容器样式 */
 .house-card {
@@ -16,18 +23,35 @@
     margin-bottom: 20px;
   }
 
-  .carousel-control-prev,
-  .carousel-control-next {
-      position: static;
-      margin: 5px 10px; /* 调整按钮的外边距 */
-      display: inline-block; /* 将按钮显示为内联块元素，使其在同一行 */
-  }
-  
 
-  .carousel-nav {
-      text-align: center;
-      margin-top: 10px;
-  }
+
+  .carousel-control-prev,
+.carousel-control-next {
+    position: static;
+    margin: 30px 100px; /* 调整按钮的外边距 */
+    top: 50%; /* 将按钮垂直居中 */
+    transform: translateY(-50%); /* 使用 translateY 将按钮向上移动其自身高度的一半，以实现垂直居中 */
+    width: 30px; /* 设置按钮的宽度 */
+    height: 30px; /* 设置按钮的高度 */
+    margin-top: -15px; /* 将按钮上下居中 */
+    background-color: #007bff;
+    border: none; /* 去除按钮的边框 */
+    
+    padding: 5px; /* 增加按钮的内边距以增加可点击区域 */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    color: #ffffff; /* 设置图标颜色为白色 */
+}
+
+/* 设置按钮的激活状态 */
+.carousel-control-prev:hover,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-next:focus {
+    background-color: #0056b3; /* 按钮悬停或获取焦点时的背景颜色 */
+}
 
   /* 标题样式 */
   .house-title {
@@ -64,7 +88,6 @@
   
   /* 圆角边框容器样式 */
   .rounded-border {
-    border: 2px solid #007bff;
     border-radius: 15px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

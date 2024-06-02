@@ -18,7 +18,14 @@ app.use(express.static(path.join(__dirname, 'node_modules/layui/dist')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 连接到 SQLite 数据库
-const db_lite = new sqlite3.Database('house_wuhan.db');
+
+const db_lite = new sqlite3.Database('./house_wuhan.db', (err) => {
+  if (err) {
+      console.error('Error connecting to the database', err.message);
+  } else {
+      console.log('Connected to the SQLite database.');
+  }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -134,7 +141,7 @@ app.post('/search', (req, res) => {
     const sql = `SELECT * FROM ${table} WHERE 名称 LIKE '%${query}%'`;
 
     // 执行数据库查询
-    db_lite.all(sql, (err, rows) => {
+    db.all(sql, (err, rows) => {
         if (err) {
             console.error(err.message);
             res.status(500).json({ error: 'Internal Server Error' });

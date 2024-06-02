@@ -49,12 +49,14 @@ div {
     -webkit-background-clip: text;
     -webkit-text-fill-color: black; /* 文本颜色设为黑色 */
     font-size: 12px;
+    font-weight: 500;
     text-align: right;
 }
 
 .nowTime li p {
     -webkit-background-clip: text;
     -webkit-text-fill-color: black; /* 文本颜色设为黑色 */
+    font-weight: 500;
     font-size: 12px;
 }
 
@@ -112,7 +114,7 @@ div {
     box-sizing: border-box;
 }
 
-.count-base, .count-resource, .count-share, .count-topic {
+.count-base, .count-resource, .count-share, .count-topic, .count-news, .count-guide {
     position: relative;
     padding: 20px;
     margin-top: 10px;
@@ -128,19 +130,151 @@ div {
     align-items: center; /* 垂直居中对齐 */
 }
 
-.count-base, .count-resource, .count-share, .count-topic {
+.count-base, .count-resource {
     margin-left: 10px;
     float: left;
     width: 32%;
     height: 350px;
 }
 
-.count-share, .count-topic {
+.count-share, .count-topic, .count-news, .count-guide {
     margin-left: 10px;
     float: left;
     width: 48.5%;
     height: 350px;
 }
+
+.content-div {
+    display: none;
+}
+.content-div.active {
+    display: block;
+}
+
+.news1, .guide {
+    margin: 0;
+    padding: 0;
+    counter-reset: index 0;
+}
+  
+.news1 li {
+    padding-left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: none;
+    height: 29px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 400;
+    position: relative;
+    margin-bottom: 6px; /* 增加下边距 */
+}
+
+.guide li{
+    padding-left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: none;
+    height: 29px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 400;
+    position: relative;
+    margin-bottom: 7px; /* 增加下边距 */
+}
+  
+.news1 li::before {
+    color: #333333;
+    text-align: center;
+    font-family: PingFang SC;
+    counter-increment: index 1;
+    content: counter(index);
+    display: inline-block;
+    width: 15px;
+    left: 0;
+    top: 50%;
+    margin-right: 3px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.guide li::before{
+    color: #ff0000;
+    text-align: center;
+    font-family: PingFang SC;
+    counter-increment: index 1;
+    content: counter(index);
+    display: inline-block;
+    width: 15px;
+    left: 0;
+    top: 50%;
+    margin-right: 3px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.news1 li > a, .guide li > a {
+    font-weight: 400;
+    color: black;
+}
+
+.news1 li > a:hover, .news1 li > a:active, .guide li > a:hover, .guide li > a:active {
+    text-decoration: underline; /* 鼠标悬停和激活状态下添加下划线 */
+    color: red;
+}
+
+.news1 li:nth-last-child(1), .guide li:nth-last-child(1) {
+    position: relative;
+    margin-left: 5px;
+    padding-left: 12px;
+}
+
+.news1 li:nth-last-child(1)::before, .guide li:nth-last-child(1)::before {
+    position: absolute;
+    content: "";
+    width: 3px;
+    height: 3px;
+    background: #ff8402;
+    left: 0;
+    top: 10px;
+}
+  
+.news1 li:nth-last-child(1) a, .guide li:nth-last-child(1) a {
+    position: relative;
+    font-size: 15px;
+    color: #ff8402;
+    font-weight: 400;
+}
+  
+.news1 li:nth-last-child(1) a:after, .guide li:nth-last-child(1) a:after {
+    position: absolute;
+    content: "";
+    right: -10px;
+    top: 8px;
+    transform: rotate(-45deg);
+    border: 1px solid #ff8402;
+    border-top: none;
+    border-left: none;
+    width: 6px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.news1 li:nth-child(1)::before {
+    color: #fe350e;
+    font-weight: 600;
+}
+.news1 li:nth-child(2)::before {
+    color: #ff7205;
+    font-weight: 600;
+}
+.news1 li:nth-child(3)::before {
+    color: #ffab05;
+    font-weight: 600;
+}
+
 
 .data-label {
     position: absolute;

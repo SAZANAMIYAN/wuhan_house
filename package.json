@@ -1,8 +1,7 @@
 {
   "description": "",
   "dependencies": {
-    "@mapbox/togeojson": "^0.16.2",
-    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.7.2",
     "cors": "^2.8.5",
     "csv-parser": "^3.0.0",
     "ejs": "^3.1.10",

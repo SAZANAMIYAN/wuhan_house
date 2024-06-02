@@ -89,7 +89,7 @@
                     <button type="submit" class="btn btn-primary" id="loginButton">登录</button>
                 </div>
             </form>
-            <p class="text-center"><a href="register.html" target="">注册账户</a></p>
+            <p class="text-center"><a href="/register">注册账户</a></p>
         </div>
     </div>
 
@@ -106,7 +106,8 @@
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.onload = function () {
                 if (xhr.status === 200) {
-                   // alert('登录成功，即将跳转到主页...');
+                   alert('登录成功，即将跳转到主页...');
+                    sessionStorage.setItem('username', username); // 将用户名保存到 sessionStorage
                     window.location.href = '首页.html'; // 跳转到主页
                 } else {
                     alert('登录失败：' + xhr.responseText);
