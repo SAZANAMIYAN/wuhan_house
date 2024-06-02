@@ -165,6 +165,24 @@ app.post('/uploadxinfang', (req, res) => {
     });
 });
 
+//添加上传交易订单的路由
+app.post('/uploadorder', async (req, res) => {
+  const { Name, Gender, EmailAddress, PhoneNumber, Address, idcard, target, ZipCode, Note, payment, house_name, price } = req.body;
+  const inserttradeSql = 'INSERT INTO trade (Name, Gender, EmailAddress, PhoneNumber, Address, idcard, target, ZipCode, Note, payment, house_name, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+
+  db.query(inserttradeSql, [Name, Gender, EmailAddress, PhoneNumber, Address, idcard, target, ZipCode, Note, payment, house_name, price], (err, result) => { 
+    if (err) {
+      console.error(err);
+      res.status(500).send('订单上传失败，请稍后再试。');
+      return;
+    }
+    console.log('订单上传成功:', house_name);
+    res.status(200).send('订单上传成功'); // 发送成功响应
+  });
+});
+
+
+
 
 // 登录页面的路由
 app.get('/login', (req, res) => {
