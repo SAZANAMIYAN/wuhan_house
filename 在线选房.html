@@ -381,6 +381,7 @@
             <strong>房屋类:</strong> ${feature.properties["房屋类"]}<br>
             <strong>价格:</strong> ${feature.properties["价格"]}<br>
             <a href="${feature.properties["链接"]}" target="_blank">详情链接</a>
+            <a href="购买房屋.html" target="_blank">购买此房屋</a> 
         </div>
     `);
               marker.addEventListener("click", function () {
@@ -476,7 +477,8 @@
                         <strong>楼盘价格:</strong> ${feature.properties["楼盘价格"]}<br>
                         <strong>楼盘位置:</strong> ${feature.properties["楼盘位置"]}<br>
                         <strong>楼盘户型:</strong> ${feature.properties["楼盘户型"]}<br>
-                        <a href="${feature.properties["link"]}" target="_blank">详情链接</a>
+                        <a href="${feature.properties["linkfeature.properties"]}" target="_blank">详情链接</a>
+                        <a href="购买房屋.html" target="_blank">购买此房屋</a>                  
                     </div>
                     `);
 
@@ -577,6 +579,7 @@
                 `${key}: ${value}`).join('<br>')}<br>
                         <strong>租房信息:</strong> ${feature.properties["房屋信息"]}<br>
                         <strong>租房设施:</strong> ${feature.properties["房屋设施"]}<br>
+                        <a href="购买房屋.html" target="_blank">购买此房屋</a> 
                     </div>
                     `);
 
