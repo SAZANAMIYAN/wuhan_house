@@ -27,13 +27,13 @@
 
   .carousel-control-prev,
 .carousel-control-next {
+  text-decoration: none; /* 去除链接的下划线 */
     position: static;
     margin: 30px 100px; /* 调整按钮的外边距 */
-    top: 50%; /* 将按钮垂直居中 */
-    
-    width: 30px; /* 设置按钮的宽度 */
+    top: 50%; /* 将按钮垂直居中 */ 
+    width:50px; /* 设置按钮的宽度 */
     height: 30px; /* 设置按钮的高度 */
-    margin-top: -15px; /* 将按钮上下居中 */
+
     background-color: #007bff;
     border: none; /* 去除按钮的边框 */
     padding: 5px; /* 增加按钮的内边距以增加可点击区域 */

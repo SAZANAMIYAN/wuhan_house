@@ -142,12 +142,12 @@ sidebar-list__link:hover a{
                                             <input type="text" class="common-input" id="location" placeholder="">
                                         </div>
                                         <div class="col-sm-6 col-xs-6">
-                                            <label for="totalprice" class="form-label">总价</label>
-                                            <input type="text" class="common-input" id="totalprice" placeholder="单位：(万元)">
+                                            <label for="roomtype" class="form-label">户型</label>
+                                            <input type="text" class="common-input" id="roomtype" placeholder="例如:5室2厅">
                                         </div>
                                         <div class="col-sm-6 col-xs-6">
-                                            <label for="singleprice" class="form-label">单价</label>
-                                            <input type="text" class="common-input" id="singleprice" placeholder="单位：(元)">
+                                            <label for="area" class="form-label">面积</label>
+                                            <input type="text" class="common-input" id="area" placeholder="单位：(平方米)">
                                         </div>
                                     </div>
                                 </div>
@@ -170,54 +170,26 @@ sidebar-list__link:hover a{
                                 </div>
                                 <div class="card-body">
                                     <div class="row gy-4">
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="HousingType" class="form-label">房屋户型</label>
-                                            <input type="text" class="common-input" id="HousingType" placeholder="例如:3室1厅1厨1卫">
+                                        <div class="col-xl-4 col-sm-6 col-xs-6">
+                                            <label for="orientation" class="form-label">朝向</label>
+                                            <input type="text" class="common-input" id="orientation" placeholder="">
                                         </div>
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="floor" class="form-label">所在楼层</label>
+                                        <div class="col-xl-4 col-sm-6 col-xs-6">
+                                            <label for="decoration" class="form-label">装修风格</label>
+                                            <input type="text" class="common-input" id="decoration" placeholder="">
+                                        </div>
+                                        <div class="col-xl-4 col-sm-6 col-xs-6">
+                                            <label for="floor" class="form-label">楼层</label>
                                             <input type="text" class="common-input" id="floor" placeholder="">
                                         </div>
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="area" class="form-label">建筑面积</label>
-                                            <input type="text" class="common-input" id="area" placeholder="">
+                                        <div class="col-xl-6 col-sm-6 col-xs-6">
+                                            <label for="house_type" class="form-label">房屋类</label>
+                                            <input type="text" class="common-input" id="house_type" placeholder="例如:板楼">
                                         </div>
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="structure" class="form-label">户型结构</label>
-                                            <input type="text" class="common-input" id="structure" placeholder="例如:平层">
-                                        </div>
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="inarea" class="form-label">套内面积</label>
-                                            <input type="text" class="common-input" id="inarea" placeholder="">
-                                        </div>
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="buildingtype" class="form-label">建筑类型</label>
-                                            <input type="text" class="common-input" id="buildingtype" placeholder="">
-                                        </div>
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="toward" class="form-label">房屋朝向</label>
-                                            <input type="text" class="common-input" id="toward" placeholder="">
-                                        </div>
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="buildingstructure" class="form-label">建筑结构</label>
-                                            <input type="text" class="common-input" id="buildingstructure" placeholder="">
-                                        </div>  
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="decorate" class="form-label">装修情况</label>
-                                            <input type="text" class="common-input" id="decorate" placeholder="">
-                                        </div>
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="ladderhouseholds" class="form-label">梯户比例</label>
-                                            <input type="text" class="common-input" id="ladderhouseholds" placeholder="">
-                                        </div>
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="elevator" class="form-label">配备电梯</label>
-                                            <input type="text" class="common-input" id="elevator" placeholder="">
-                                        </div>   
-                                        <div class="col-xl-3 col-sm-6 col-xs-6">
-                                            <label for="floorheight" class="form-label">楼层高度</label>
-                                            <input type="text" class="common-input" id="floorheight" placeholder="">
-                                        </div>                            
+                                        <div class="col-xl-6 col-sm-6 col-xs-6">
+                                            <label for="price" class="form-label">价格</label>
+                                            <input type="text" class="common-input" id="price" placeholder="单位:（万元）">
+                                        </div>                   
                                     </div>
                                 </div>
                             </div>
@@ -230,20 +202,8 @@ sidebar-list__link:hover a{
                                 <div class="card-body">
                                     <div class="row gy-4">
                                         <div class="col-sm-12">
-                                            <label for="core" class="form-label">核心卖点</label>
-                                            <input type="text" class="common-input" id="core" placeholder="描述">
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <label for="introduction" class="form-label">小区介绍</label>
-                                            <input type="text" class="common-input" id="introduction" placeholder="描述">
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <label for="surrounding" class="form-label">周边配套</label>
-                                            <input type="text" class="common-input" id="surrounding" placeholder="描述">
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <label for="transport" class="form-label">交通出行</label>
-                                            <input type="text" class="common-input" id="transport" placeholder="描述">
+                                            <label for="note" class="form-label">备注</label>
+                                            <input type="text" class="common-input" id="note" placeholder="描述">
                                         </div>
                                 </div>
                             </div>
