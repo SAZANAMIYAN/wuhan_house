@@ -31,6 +31,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
+
 // 创建数据库连接
 const db = mysql.createConnection({
     host:"localhost", 

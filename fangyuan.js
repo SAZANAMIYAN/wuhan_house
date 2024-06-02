@@ -116,11 +116,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
 
                 var cardContent = '<div class="card"><div class="card-body">';
-                for (var key in house) {
-                    if (house.hasOwnProperty(key)) {
-                        cardContent += `<p class="card-text">${key}: ${house[key]}</p>`;
-                    }
-                }
+                var keys = Object.keys(house).slice(1); // 获取对象的键列表，忽略第一个键
+                keys.forEach(function(key) {
+                    cardContent += `<p class="card-text"><span class="card-key">${key}</span>: <span class="card-value">${house[key]}</span></p>`;
+                });
                 cardContent += '</div></div>';
                 card.innerHTML = cardContent;
 
