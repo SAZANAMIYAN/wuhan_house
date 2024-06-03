@@ -151,7 +151,6 @@
             <div>
                 <table class="table table-hover" id="Mytable">
                   <tr class="table-light">
-                    <th>序号</th>
                     <th>姓名</th>
                     <th>性别</th>
                     <th>邮箱</th>
@@ -170,118 +169,49 @@
                 </table>
             </div>
             <script language="javascript">
-                var data = [
-                {
-"ID":1,
-"姓名":"张三",
-"性别":"男",
-"邮箱":"111@gmail.com",
-"电话":"11111",
-"地址":"体育路招商·武汉城建未来中心",
-"身份证号":"11111",
-"购房目的":"自住需求",
-"邮政编码":"11111",
-"备注":"希望可以尽快线下商量详细事宜",
-"付款方式":"一次性付清",
-"小区名称":"能建青誉府",
-"总金额":"¥2050000"
-},
-{
-"ID":2,
-"姓名":"李四",
-"性别":"女",
-"邮箱":"222@gmail.com",
-"电话":"22222",
-"地址":"文化路恒大·华府天地",
-"身份证号":"22222",
-"购房目的":"投资理财",
-"邮政编码":"22222",
-"备注":"无",
-"付款方式":"按揭 ",
-"小区名称":"能建世茂·翡翠山庄",
-"总金额":"¥1800000"
-},
-{
-"ID":3,
-"姓名":"王五",
-"性别":"男",
-"邮箱":"333@gmail.com",
-"电话":"33333",
-"地址":"体育路中海康城",
-"身份证号":"33333",
-"购房目的":"养老安置",
-"邮政编码":"33333",
-"备注":"无",
-"付款方式":"按揭",
-"小区名称":"能建阳光城市",
-"总金额":"¥3250000"
-},
-{
-"ID":4,
-"姓名":"赵六",
-"性别":"女",
-"邮箱":"444@gmail.com",
-"电话":"44444",
-"地址":"文化路保利·香槟滨江",
-"身份证号":"44444",
-"购房目的":"子女教育",
-"邮政编码":"44444",
-"备注":"无",
-"付款方式":"按揭",
-"小区名称":"中建锦绣双城",
-"总金额":"¥24000000"
-},
-{
-"ID":5,
-"姓名":"刘七",
-"性别":"男",
-"邮箱":"555@gmail.com",
-"电话":"55555",
-"地址":"体育路阳光城市",
-"身份证号":"55555",
-"购房目的":"自住需求",
-"邮政编码":"55555",
-"备注":"无",
-"付款方式":"按揭",
-"小区名称":"水域天际",
-"总金额":"¥45977700"
-}
-
-                ];
-        
-                creatTable(data);
-        
-                function creatTable(data){
-                //这个函数的参数data是字符串数组，可以是从后台传过来的也可以是从其他任何地方传过来的
-                var tableData = ""; // 初始化为空字符串
-                for (var oCity in data) {
-                tableData += '<tr onclick="replaceAddress(\'' + data[oCity]['姓名'] + '\')">';
-                tableData += "<td>" + data[oCity]["ID"] + "</td>";
-                tableData += "<td>" + data[oCity]["姓名"] + "</td>";
-                tableData += "<td>" + data[oCity]["性别"] + "</td>";
-                tableData += "<td>" + data[oCity]["邮箱"] + "</td>";
-                tableData += "<td>" + data[oCity]["电话"] + "</td>";
-                tableData += "<td>" + data[oCity]["地址"] + "</td>";
-                tableData += "<td>" + data[oCity]["身份证号"] + "</td>";
-                tableData += "<td>" + data[oCity]["购房目的"] + "</td>";
-                tableData += "<td>" + data[oCity]["邮政编码"] + "</td>";
-                tableData += "<td>" + data[oCity]["备注"] + "</td>";
-                tableData += "<td>" + data[oCity]["付款方式"] + "</td>";
-                tableData += "<td>" + data[oCity]["小区名称"] + "</td>";
-                tableData += "<td>" + data[oCity]["总金额"] + "</td>";
-                tableData += "</tr>";
-              }
-                
-                //现在tableData已经生成好了，把他赋值给上面的tbody
-                $("#tbody").html(tableData)
-                //跳转事件
+                // 定义一个异步函数
+                async function fetchDataAndCreateTable() {
+                    try {
+                        const response = await fetch('/readorder');
+                        const data = await response.json();
+                        creatTable(data);
+                    } catch (error) {
+                        console.error('Error fetching data:', error);
+                    }
+                }
+            
+                // 获取数据，创建表
+                fetchDataAndCreateTable();
+            
+                function creatTable(data) {
+                    var tableData = ""; // 初始化
+                    data.forEach(row => {
+                        tableData += '<tr>';
+                        tableData += "<td>" + row.姓名 + "</td>";
+                        tableData += "<td>" + row.性别 + "</td>";
+                        tableData += "<td>" + row.邮箱 + "</td>";
+                        tableData += "<td>" + row.电话 + "</td>";
+                        tableData += "<td>" + row.地址 + "</td>";
+                        tableData += "<td>" + row.身份证号 + "</td>";
+                        tableData += "<td>" + row.购房目的 + "</td>";
+                        tableData += "<td>" + row.邮政编码 + "</td>";
+                        tableData += "<td>" + row.备注 + "</td>";
+                        tableData += "<td>" + row.付款方式 + "</td>";
+                        tableData += "<td>" + row.小区名称 + "</td>";
+                        tableData += "<td>" + row.总金额 + "</td>";
+                        tableData += "</tr>";
+                    });
+            
+                    // 插入数据
+                    $("#tbody").html(tableData);
+                }
+            
                 // 添加点击事件
                 $(document).on("click", "#Mytable tr:eq(1)", function() {
-                    window.location.href = "张三_房产交易.html"; // 跳转到指定页面
+                    window.location.href = "张三_房产交易.html"; 
                 });
-
-                }		
             </script>
+            
         </div>
     </div>
     

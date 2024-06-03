@@ -193,6 +193,19 @@ app.get('/latest-property', (req, res) => {
   });
 });
 
+//读取订单
+app.get('/readorder', (req, res) => {
+  const query = 'SELECT * FROM trade';
+  db.query(query, (error, results) => {
+      if (error) {
+          res.status(500).send(error);
+      } else {
+          res.json(results); // Send the entire results array
+      }
+  });
+});
+
+
 // 登录页面的路由
 app.get('/login', (req, res) => {
   // 返回注册页面的 HTML 内容
