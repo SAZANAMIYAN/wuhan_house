@@ -211,7 +211,117 @@
     </button>
   </div>
 
-  <div class="row gx-5 justify-content-center">
+
+  <div class="d-flex justify-content-center align-items-center vh-10">
+    <div class="card h-100 shadow border-0">
+      <div class="card-body p-4">
+        <h4 class="card-title mb-3 text-center" style="font-size: 30px;"><strong>按您的需求组合查询</strong></h4>
+        <div id="price-filter">
+          <label style="font-size: 20px;"><strong>总价</strong></label>
+          <div>
+            <input type="radio" id="under-40" name="price" value="under-40">
+            <label for="under-40">40万以下</label>
+          </div>
+          <div>
+            <input type="radio" id="40-60" name="price" value="40-60">
+            <label for="40-60">40-60万</label>
+          </div>
+          <div>
+            <input type="radio" id="60-100" name="price" value="60-100">
+            <label for="60-100">60-100万</label>
+          </div>
+          <div>
+            <input type="radio" id="100-300" name="price" value="100-300">
+            <label for="100-130">100-300万</label>
+          </div>
+          <div>
+            <input type="radio" id="300-600" name="price" value="300-600">
+            <label for="300-600">300-600万</label>
+          </div>
+          <div>
+            <input type="radio" id="600-1500" name="price" value="600-1500">
+            <label for="600-1500">600-1500万</label>
+          </div>
+        </div>
+
+        <div id="huxing-filter">
+          <label style="font-size: 20px;"><strong>户型</strong></label>
+          <div>
+            <input type="radio" id="1-1" name="huxing" value="1室1厅">
+            <label for="1-1">1室1厅</label>
+          </div>
+          <div>
+            <input type="radio" id="2-1" name="huxing" value="2室1厅">
+            <label for="2-1">2室1厅</label>
+          </div>
+          <div>
+            <input type="radio" id="3-1" name="huxing" value="3室1厅">
+            <label for="3-1">3室1厅</label>
+          </div>
+          <div>
+            <input type="radio" id="4-1" name="huxing" value="4室1厅">
+            <label for="4-1">4室1厅</label>
+          </div>
+          <div>
+            <input type="radio" id="2-2" name="huxing" value="2室2厅">
+            <label for="2-2">2室2厅</label>
+          </div>
+          <div>
+            <input type="radio" id="3-2" name="huxing" value="3室2厅">
+            <label for="3-2">3室2厅</label>
+          </div>
+          <div>
+            <input type="radio" id="4-2" name="huxing" value="4室2厅">
+            <label for="4-2">4室2厅</label>
+          </div>
+          <div>
+            <input type="radio" id="5-2" name="huxing" value="5室2厅">
+            <label for="5-2">5室2厅</label>
+          </div>
+        </div>
+        <div class="col d-flex justify-content-center">
+          <button class="btn btn-md btn-primary rounded-pill" style="width: 150px;height: 50px;" id="co-search">
+            <strong>综合查询</strong>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #price-filter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+      margin: 25px 50px 50px;
+      /* 上下外边距为0，左右外边距自动，下外边距为200px */
+    }
+
+    #price-filter>div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    #huxing-filter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 75px;
+      margin: 25px 50px 50px;
+    }
+
+    #huxing-filter>div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  </style>
+
+
+
+  <div class="row gx-5 justify-content-center" style="padding-top: 100px;">
     <div class="col-lg-8 col-xl-6">
       <div class="text-center">
         <h2 class="fw-bolder" style="font-size: 40px">房源展示</h2>
@@ -282,14 +392,15 @@
     }
   </style>
 
+
+
   <!-- 2D地图 -->
   <section class="py-5" id="quick-start">
     <!-- 地图容器 -->
-    <div class="container-fluid">
-      <button id="circleTool" style="padding: 10px 20px; background-color: #333333; color: white; border: none; border-radius: 5px; cursor: pointer; position: absolute; left: 20px; top: 10px; z-index: 1000;">画圈选房</button>
-      <div id="map" class="rounded border" style="left: 5%; width: 90%; height: 900px">
-      </div>
-    </div>
+
+    <!-- <div id="map" class="rounded border" style="left: 6%; width: 90%; height: 900px"></div> -->
+    <div id="map" class="rounded border" style="display: block; margin-left: auto; margin-right: auto; width: 90%; height: 900px"></div>
+
 
     <script type="text/javascript">
       // 初始化地图
@@ -298,6 +409,8 @@
       map.centerAndZoom(new BMap.Point(114.3155, 30.5928), 11);
       // 开启鼠标滚轮缩放
       map.enableScrollWheelZoom(true);
+      let allData;
+
 
       document.getElementById("2d-map-btn1").addEventListener("click", function (event) {
         // 销毁 Cesium 地图
@@ -361,36 +474,38 @@
 
         // 加载二手房的JSON数据
         var houseJsonUrl = "geojson/二手房源数据.json";
+
         fetch("geojson/二手房源数据.json")
           .then((response) => response.json())
           .then((data) => {
+            allData = data;
+
             const markers = data.features.map((feature) => {
               const coordinates = feature.geometry.coordinates;
               const point = new BMap.Point(coordinates[0], coordinates[1]);
               const marker = new BMap.Marker(point);
 
               const infoWindow = new BMap.InfoWindow(`
-        <div>
-            <strong>小区名:</strong> ${feature.properties["小区名"]}<br>
-            <strong>区域:</strong> ${feature.properties["区域"]}<br>
-            <strong>户型:</strong> ${feature.properties["户型"]}<br>
-            <strong>面积:</strong> ${feature.properties["面积"]}<br>
-            <strong>朝向:</strong> ${feature.properties["朝向"]}<br>
-            <strong>装修风:</strong> ${feature.properties["装修风"]}<br>
-            <strong>楼层:</strong> ${feature.properties["楼层"]}<br>
-            <strong>房屋类:</strong> ${feature.properties["房屋类"]}<br>
-            <strong>价格:</strong> ${feature.properties["价格"]}<br>
-            <a href="${feature.properties["链接"]}" target="_blank">详情链接</a>
-            <a href="购买房屋.html" target="_blank">购买此房屋</a> 
-        </div>
-    `);
+                <div>
+                    <strong>小区名:</strong> ${feature.properties["小区名"]}<br>
+                    <strong>区域:</strong> ${feature.properties["区域"]}<br>
+                    <strong>户型:</strong> ${feature.properties["户型"]}<br>
+                    <strong>面积:</strong> ${feature.properties["面积"]}<br>
+                    <strong>朝向:</strong> ${feature.properties["朝向"]}<br>
+                    <strong>装修风:</strong> ${feature.properties["装修风"]}<br>
+                    <strong>楼层:</strong> ${feature.properties["楼层"]}<br>
+                    <strong>房屋类:</strong> ${feature.properties["房屋类"]}<br>
+                    <strong>价格:</strong> ${feature.properties["价格"]}<br>
+                    <a href="${feature.properties["链接"]}" target="_blank">详情链接</a>
+                </div>
+              `);
+
               marker.addEventListener("click", function () {
                 this.openInfoWindow(infoWindow);
               });
 
               return marker;
             });
-
             // 创建MarkerClusterer实例
             var markerClusterer = new BMapLib.MarkerClusterer(map, {
               markers: markers,
@@ -400,6 +515,106 @@
             console.error("Error:", error);
           });
       });
+
+      document.getElementById("co-search").addEventListener("click", function () {
+        // 获取被选中的户型和价格
+        const selectedHuxing = document.querySelector('input[name="huxing"]:checked')?.value;
+        console.log(selectedHuxing);
+        const selectedPrice = document.querySelector('input[name="price"]:checked')?.value;
+
+        let minPrice, maxPrice;
+        switch (selectedPrice) {
+          case "under-40":
+            minPrice = 0;
+            maxPrice = 400000;
+            break;
+          case "40-60":
+            minPrice = 400000;
+            maxPrice = 600000;
+            break;
+          case "60-100":
+            minPrice = 600000;
+            maxPrice = 1000000;
+            break;
+          case "100-300":
+            minPrice = 1000000;
+            maxPrice = 3000000;
+            break;
+          case "300-600":
+            minPrice = 3000000;
+            maxPrice = 6000000;
+            break;
+          case "600-1500":
+            minPrice = 6000000;
+            maxPrice = 15000000;
+            break;
+        }
+
+        const filteredData = allData.features.filter((feature) => {
+          // 提取价格字符串中的数字部分，然后转换为数字
+          const price = parseFloat(feature.properties["价格"].replace('万', '')) * 10000;
+          const huxing = feature.properties["户型"];
+
+          // 检查价格和户型是否符合筛选条件
+          const priceMatches = price >= minPrice && price < maxPrice;
+          const huxingMatches = !selectedHuxing || huxing === selectedHuxing;
+
+
+          return priceMatches && huxingMatches;
+        });
+
+        // 销毁 Cesium 地图
+        if (iframe) {
+          var mapContainer = document.getElementById('map');
+          mapContainer.removeChild(iframe);
+          iframe = null;
+        }
+
+        event.preventDefault(); // 阻止链接的默认行为，即阻止页面跳转
+
+        // 初始化地图
+        var map = new BMap.Map("map");
+        // 设置中心点和地图级别
+        map.centerAndZoom(new BMap.Point(114.3155, 30.5928), 11);
+        // 开启鼠标滚轮缩放
+        map.enableScrollWheelZoom(true);
+
+        // 清除地图上的所有覆盖物
+        map.clearOverlays();
+
+        // 使用筛选后的数据创建新的标记
+        const markers = filteredData.map((feature) => {
+          const coordinates = feature.geometry.coordinates;
+          const point = new BMap.Point(coordinates[0], coordinates[1]);
+          const marker = new BMap.Marker(point);
+          const infoWindow = new BMap.InfoWindow(`
+                <div>
+                    <strong>小区名:</strong> ${feature.properties["小区名"]}<br>
+                    <strong>区域:</strong> ${feature.properties["区域"]}<br>
+                    <strong>户型:</strong> ${feature.properties["户型"]}<br>
+                    <strong>面积:</strong> ${feature.properties["面积"]}<br>
+                    <strong>朝向:</strong> ${feature.properties["朝向"]}<br>
+                    <strong>装修风:</strong> ${feature.properties["装修风"]}<br>
+                    <strong>楼层:</strong> ${feature.properties["楼层"]}<br>
+                    <strong>房屋类:</strong> ${feature.properties["房屋类"]}<br>
+                    <strong>价格:</strong> ${feature.properties["价格"]}<br>
+                    <a href="${feature.properties["链接"]}" target="_blank">详情链接</a>
+                </div>
+              `);
+
+          marker.addEventListener("click", function () {
+            this.openInfoWindow(infoWindow);
+          });
+
+          return marker;
+        });
+        // 创建MarkerClusterer实例
+        var markerClusterer = new BMapLib.MarkerClusterer(map, {
+          markers: markers,
+        });
+
+      });
+
 
       // 新房2D显示
       document.getElementById("2d-map-btn2").addEventListener("click", function () {
@@ -725,20 +940,11 @@
           });
       });
 
-
-
-
-
-
-
     </script>
-
 
     </div>
 
   </section>
-
-
 
   <!-- <script type="text/javascript" src="bootstrap-5.3.2/dist/js/bootstrap.min.js"></script> -->
   <script src="bootstrap-5.3.2/dist/js/bootstrap.bundle.min.js"></script>

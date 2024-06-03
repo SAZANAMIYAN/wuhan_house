@@ -181,8 +181,17 @@ app.post('/uploadorder', async (req, res) => {
   });
 });
 
-
-
+//读取新上传房源的经纬度
+app.get('/latest-property', (req, res) => {
+  const query = 'SELECT * FROM xinfang ORDER BY id DESC LIMIT 1';
+  db.query(query, (error, results) => {
+      if (error) {
+          res.status(500).send(error);
+      } else {
+          res.json(results[0]);
+      }
+  });
+});
 
 // 登录页面的路由
 app.get('/login', (req, res) => {

@@ -140,7 +140,7 @@ sidebar-list__link:hover a{
                                         </div>
                                         <div class="col-sm-6 col-xs-6">
                                             <label for="Price" class="form-label">楼盘价格</label>
-                                            <input type="text" class="common-input" id="Price" placeholder="">
+                                            <input type="text" class="common-input" id="Price" placeholder="单位:(元/㎡)">
                                         </div>
                                         <div class="col-sm-6 col-xs-6">
                                             <label for="location" class="form-label">楼盘位置</label>
@@ -231,13 +231,14 @@ sidebar-list__link:hover a{
     xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         // 显示上传成功的消息
-        alert('新房上传成功');
-        // 回到页面顶部
-        window.scrollTo(0, 0);
-        // 延时刷新页面
-        setTimeout(() => {
-            window.location.reload();
-        }, 500); // 延时500毫秒
+        alert('新房上传成功，即将在地图上显示新上传的房源');
+        window.location.href = '显示新上传房源.html'; // 跳转
+        // // 回到页面顶部
+        // window.scrollTo(0, 0);
+        // // 延时刷新页面
+        // setTimeout(() => {
+        //     window.location.reload();
+        // }, 500); // 延时500毫秒
     }
 };
 
