@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>订单查询</title>
+    <link rel="stylesheet" type="text/css" href="css/head.css" />
+    <link rel="stylesheet" href="bootstrap-5.3.2/dist/css/bootstrap.min.css">
+    
+    <script type="text/javascript" src="https://cdn.staticfile.net/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        html,body{
+          overflow: auto;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          font-family: "微软雅黑";
+        }
+        .count-topic{
+            position: relative;
+            padding: 15px;
+            box-sizing: border-box;
+            background-color: white; /* 替换背景图片为白色 */
+            margin-left: 35px;
+            margin-bottom: 20px;
+            float: left;
+            width: 95%;
+        }
+        .container-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 40px;
+            padding: 10px 0;
+        }
+        .container-header h3 {
+            line-height: 54px;
+            font-size: 30px;
+            font-weight: 500;
+            color: #000000;
+            margin: 0;
+        }
+        .container-header form {
+            display: flex;
+            align-items: center;
+        }
+        .container-header input {
+            font-family: "微软雅黑";
+        }
+        .Myitem{
+            margin-left: 40px;
+            margin-top: 75px;
+        }
+        #Mytable{
+          font-family: "微软雅黑";
+          width: calc(100% - 40px); /* 确保表格宽度与表头对齐 */
+        }
+        #Mytable th, #Mytable td {
+          text-align: center;
+          vertical-align: middle;
+          height: 50px; /* 增加每行的高度 */
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column h-100">
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <div class="container-fluid">
+            <svg t="1717078667326" class="icon" viewBox="0 0 1134 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                p-id="7392" width="50" height="50" fill="white">
+                <path
+                    d="M936.073503 710.338875l-55.003823-55.030362a123.781824 123.781824 0 0 0 
+            23.447951-72.599739c0-68.578952-55.627509-124.193191-124.206462-124.193191-68.592222 0-124.219731 
+            55.614239-124.219731 124.193191a124.206461 124.206461 0 0 0 196.81947 100.771781l54.990552 55.017093a9.992251 9.992251 0 0 0 
+            14.105927 0l14.105926-14.105926a9.939171 9.939171 0 0 0-0.03981-14.052847zM780.27136 671.444737a88.749232 88.749232 0 0 
+            1-88.735963-88.749232 88.749232 88.749232 0 0 1 177.471925 0 88.762502 88.762502 0 0 1-88.735962 88.749232z"
+                    p-id="7393"></path>
+                <path
+                    d="M519.49087 592.196768c0-140.647894 108.455065-255.883888 246.276466-266.844843l-222.801975-179.449143c-24.774943-19.944691-65.288012-19.944691-90.076224 0l-146.805137 118.234997v-61.028367a28.384361 28.384361 0 0 0-28.291472-28.304742h-26.96448a28.397631 28.397631 0 0 0-28.304741 28.304742v128.346677l-69.826325 56.251195c-24.774943 19.944691-24.774943 52.575427 0 72.546659l19.745642 15.897365v332.504413c0 28.225122 28.66303 51.314785 63.669082 51.314785h523.631086c3.30421 0 6.502261-0.265398 9.660502-0.663497-139.54649-9.209325-249.912424-125.241515-249.912424-267.110241z m-170.717534-10.788446c0 11.876579-9.700312 21.550352-21.563622 21.550352h-41.349074a21.590162 21.590162 0 0 1-21.550352-21.550352V540.085788c0-11.863309 9.687042-21.550352 21.550352-21.550352h41.349074c11.863309 0 21.563622 9.687042 21.563622 21.550352v41.322534z"
+                    p-id="7394"></path>
+                <path
+                    d="M789.069317 340.599064c-138.949344 0-251.597704 112.63509-251.597703 251.597704 0 138.949344 112.64836 251.597704 251.597703 251.597704s251.597704-112.64836 251.597704-251.597704-112.64836-251.597704-251.597704-251.597704z m-0.902354 457.37437c-113.630334 0-205.763396-92.133062-205.763397-205.776666s92.119792-205.763396 205.763397-205.763396 205.776666 92.119792 205.776666 205.763396c-0.01327 113.643604-92.133062 205.776666-205.776666 205.776666z"
+                    p-id="7395"></path>
+            </svg>
+            <a class="navbar-brand" href="#">
+                <div style="position: absolute; left: 70px; top: 35px; transform: translateY(-50%);">
+                    <strong>选房管家</strong>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="首页.html">首页</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="在线选房.html">在线选房</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="房源评估.html">房源评估</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown">
+                          房屋交易
+                        </a>
+                        <div class="dropdown-menu bg-dark">
+                          <a class="dropdown-item text-white" href="购买房屋.html">购买房屋</a>
+                          <a class="dropdown-item text-white" href="房贷计算器.html">房贷计算器</a>
+                        </div>
+                      </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href=" 行情分析.html">行情分析</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="个人中心.html">个人中心</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="Myitem" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="个人中心.html">个人中心</a></li>
+          <li class="breadcrumb-item active" aria-current="page">我的订单</li>
+        </ol>
+    </nav>
+    <div class="container-header">
+        <h3>我的订单</h3>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="搜索" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="count-topic card shadow border-0">
+        <div class="com-screen-content">
+            <div>
+                <table class="table table-hover" id="Mytable">
+                  <tr class="table-light">
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>邮箱</th>
+                    <th>电话</th>
+                    <th>地址</th>
+                    <th>身份证号</th>
+                    <th>购房目的</th>
+                    <th>邮政编码</th>
+                    <th>备注</th>
+                    <th>付款方式</th>
+                    <th>小区名称</th>
+                    <th>总金额</th>
+                  </tr>
+                  <tbody id="tbody">
+                  </tbody>
+                </table>
+            </div>
+            <script language="javascript">
+                var data = [
+                {
+"ID":1,
+"姓名":"张三",
+"性别":"男",
+"邮箱":"111@gmail.com",
+"电话":"11111",
+"地址":"体育路招商·武汉城建未来中心",
+"身份证号":"11111",
+"购房目的":"自住需求",
+"邮政编码":"11111",
+"备注":"希望可以尽快线下商量详细事宜",
+"付款方式":"一次性付清",
+"小区名称":"能建青誉府",
+"总金额":"¥2050000"
+},
+{
+"ID":2,
+"姓名":"李四",
+"性别":"女",
+"邮箱":"222@gmail.com",
+"电话":"22222",
+"地址":"文化路恒大·华府天地",
+"身份证号":"22222",
+"购房目的":"投资理财",
+"邮政编码":"22222",
+"备注":"无",
+"付款方式":"按揭 ",
+"小区名称":"能建世茂·翡翠山庄",
+"总金额":"¥1800000"
+},
+{
+"ID":3,
+"姓名":"王五",
+"性别":"男",
+"邮箱":"333@gmail.com",
+"电话":"33333",
+"地址":"体育路中海康城",
+"身份证号":"33333",
+"购房目的":"养老安置",
+"邮政编码":"33333",
+"备注":"无",
+"付款方式":"按揭",
+"小区名称":"能建阳光城市",
+"总金额":"¥3250000"
+},
+{
+"ID":4,
+"姓名":"赵六",
+"性别":"女",
+"邮箱":"444@gmail.com",
+"电话":"44444",
+"地址":"文化路保利·香槟滨江",
+"身份证号":"44444",
+"购房目的":"子女教育",
+"邮政编码":"44444",
+"备注":"无",
+"付款方式":"按揭",
+"小区名称":"中建锦绣双城",
+"总金额":"¥24000000"
+},
+{
+"ID":5,
+"姓名":"刘七",
+"性别":"男",
+"邮箱":"555@gmail.com",
+"电话":"55555",
+"地址":"体育路阳光城市",
+"身份证号":"55555",
+"购房目的":"自住需求",
+"邮政编码":"55555",
+"备注":"无",
+"付款方式":"按揭",
+"小区名称":"水域天际",
+"总金额":"¥45977700"
+}
+
+                ];
+        
+                creatTable(data);
+        
+                function creatTable(data){
+                //这个函数的参数data是字符串数组，可以是从后台传过来的也可以是从其他任何地方传过来的
+                var tableData = ""; // 初始化为空字符串
+                for (var oCity in data) {
+                tableData += '<tr onclick="replaceAddress(\'' + data[oCity]['姓名'] + '\')">';
+                tableData += "<td>" + data[oCity]["ID"] + "</td>";
+                tableData += "<td>" + data[oCity]["姓名"] + "</td>";
+                tableData += "<td>" + data[oCity]["性别"] + "</td>";
+                tableData += "<td>" + data[oCity]["邮箱"] + "</td>";
+                tableData += "<td>" + data[oCity]["电话"] + "</td>";
+                tableData += "<td>" + data[oCity]["地址"] + "</td>";
+                tableData += "<td>" + data[oCity]["身份证号"] + "</td>";
+                tableData += "<td>" + data[oCity]["购房目的"] + "</td>";
+                tableData += "<td>" + data[oCity]["邮政编码"] + "</td>";
+                tableData += "<td>" + data[oCity]["备注"] + "</td>";
+                tableData += "<td>" + data[oCity]["付款方式"] + "</td>";
+                tableData += "<td>" + data[oCity]["小区名称"] + "</td>";
+                tableData += "<td>" + data[oCity]["总金额"] + "</td>";
+                tableData += "</tr>";
+              }
+                
+                //现在tableData已经生成好了，把他赋值给上面的tbody
+                $("#tbody").html(tableData)
+                //跳转事件
+                // 添加点击事件
+                $(document).on("click", "#Mytable tr:eq(1)", function() {
+                    window.location.href = "张三_房产交易.html"; // 跳转到指定页面
+                });
+
+                }		
+            </script>
+        </div>
+    </div>
+    
+
+
+    <script type="text/javascript" src="bootstrap-5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<!-- Footer-->
+<footer class="bg-dark py-4 mt-auto">
+    <div class="container px-5">
+        <div class="small text-center text-white">Copyright &copy; Xuanfang Guanjia 2024</div>
+    </div>
+</footer>
+
+
+
+</html>
