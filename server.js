@@ -33,7 +33,7 @@ app.post('/search', (req, res) => {
     const { table, query } = req.body;
 
     // 构建 SQL 查询语句
-    const sql = `SELECT * FROM ${table} WHERE house_name LIKE '%${query}%'`;
+    const sql = `SELECT * FROM ${table} WHERE 小区名称 LIKE '%${query}%'`;
 
     // 执行数据库查询
     db.query(sql, (err, rows) => {
@@ -144,7 +144,7 @@ app.post('/uploadxinfang', (req, res) => {
         const { lat, lng } = data.result.location;
         
         // 将房屋信息和经纬度保存到数据库中
-        const insertxinfangSql = 'INSERT INTO xinfang (house_name, house_price, address, room_types, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)';
+        const insertxinfangSql = 'INSERT INTO xinfang (小区名称, 价格, 地址, 户型, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)';
         db.query(insertxinfangSql, [propertyTitle, Price, location, Propertytype, lat, lng], (err, result) => { 
           if (err) {
             console.error(err);
@@ -168,7 +168,7 @@ app.post('/uploadxinfang', (req, res) => {
 //添加上传交易订单的路由
 app.post('/uploadorder', async (req, res) => {
   const { Name, Gender, EmailAddress, PhoneNumber, Address, idcard, target, ZipCode, Note, payment, house_name, price } = req.body;
-  const inserttradeSql = 'INSERT INTO trade (Name, Gender, EmailAddress, PhoneNumber, Address, idcard, target, ZipCode, Note, payment, house_name, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  const inserttradeSql = 'INSERT INTO trade (姓名, 性别, 邮箱, 电话, 地址, 身份证号, 购房目的, 邮政编码, 备注, 付款方式, 小区名称, 总金额) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
   db.query(inserttradeSql, [Name, Gender, EmailAddress, PhoneNumber, Address, idcard, target, ZipCode, Note, payment, house_name, price], (err, result) => { 
     if (err) {
